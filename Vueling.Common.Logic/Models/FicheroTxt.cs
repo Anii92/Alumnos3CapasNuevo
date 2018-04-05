@@ -10,6 +10,7 @@ namespace Vueling.Common.Logic.Models
 {
     public class FicheroTxt: IFichero
     {
+        Logger logger = new Logger();
         public string Nombre { get; set; }
         public string Ruta { get; set; }
 
@@ -21,22 +22,43 @@ namespace Vueling.Common.Logic.Models
 
         public void Guardar(Alumno alumno)
         {
-            if (!File.Exists(this.Ruta))
+            try
             {
-                using (StreamWriter sw = File.CreateText(this.Ruta))
+                if (!File.Exists(this.Ruta))
                 {
-                    sw.WriteLine(FileUtils.ToString(alumno));
+                    using (StreamWriter sw = File.CreateText(this.Ruta))
+                    {
+                        sw.WriteLine(FileUtils.ToString(alumno));
+                    }
+                }
+                else
+                {
+                    File.AppendAllText(this.Ruta, FileUtils.ToString(alumno) + Environment.NewLine);
                 }
             }
-            else
+            catch (PathTooLongException exception)
             {
-                File.AppendAllText(this.Ruta, FileUtils.ToString(alumno) + Environment.NewLine);
+                this.logger.Error("path demasiado largo" + exception.Message);
+                throw;
+            }
+            catch (FileLoadException exception)
+            {
+                this.logger.Error("Carga de fichero fallida" + exception.Message);
+                throw;
             }
         }
 
         public List<Alumno> Leer()
         {
-            return FileUtils.DeserializeFicheroTexto(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
+            try
+            {
+                return FileUtils.DeserializeFicheroTexto(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
+            }
+            catch(FileNotFoundException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
         }
     }
 }

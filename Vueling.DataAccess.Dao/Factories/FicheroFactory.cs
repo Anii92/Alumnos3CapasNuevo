@@ -12,16 +12,25 @@ namespace Vueling.DataAccess.Dao.Factories
     {
         public static Object CrearFichero(TipoFichero tipoFichero, string nombre)
         {
-            switch (tipoFichero)
+            try
             {
-                case TipoFichero.Texto:
-                    return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
-                case TipoFichero.Json:
-                    return new FicheroJson(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
-                case TipoFichero.Xml:
-                    return new FicheroXml(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
-                default:
-                    return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
+                switch (tipoFichero)
+                {
+                    case TipoFichero.Texto:
+                        return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
+                    case TipoFichero.Json:
+                        return new FicheroJson(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+                    case TipoFichero.Xml:
+                        return new FicheroXml(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
+                    default:
+                        return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
+                }
+            }
+            catch (ArgumentException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error(exception.Message);
+                throw;
             }
         }
     }

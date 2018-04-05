@@ -18,6 +18,7 @@ namespace Vueling.Presentation.WinSite
 {
     public partial class AlumnoForm : Form
     {
+        Logger logger = new Logger();
         private Alumno alumno;
         private IAlumnoBL alumnoBL;
 
@@ -25,16 +26,6 @@ namespace Vueling.Presentation.WinSite
 
         public AlumnoForm()
         {
-            Logger logger = new Logger();
-            Alumno a = new Alumno();
-            a.Id = 1;
-            a.Nombre = "Leia";
-            a.Apellidos = "Organa";
-            a.Dni = "1234";
-            a.FechaHora = DateTime.Now;
-            a.FechaNacimiento = DateTime.Now;
-            a.MiGuid = Guid.NewGuid().ToString();
-            logger.Debug(a);
             Log.Debug("Algo da igual");
             InitializeComponent();
             alumno = new Alumno();
@@ -44,49 +35,109 @@ namespace Vueling.Presentation.WinSite
 
         private void btnTxt_Click(object sender, EventArgs e)
         {
-            Log.Debug("Inicio de la función btnTxt_Click");
-            this.LoadAlumnoData();
-            alumnoBL.Add(alumno, TipoFichero.Texto);
-            MessageBox.Show("El alumno se ha guardado correctamente!");
-            Log.Debug("Fin de la función btnTxt_Click");
+            try
+            {
+                Log.Debug("Inicio de la función btnTxt_Click");
+                this.LoadAlumnoData();
+                alumnoBL.Add(alumno, TipoFichero.Texto);
+                MessageBox.Show("El alumno se ha guardado correctamente!");
+                Log.Debug("Fin de la función btnTxt_Click");
+            }
+            catch (NullReferenceException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Referencia nula" + exception.Message);
+            }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Agumento nulo" + exception.Message);
+            }
         }
 
         private void btnJson_Click(object sender, EventArgs e)
         {
-            Log.Debug("Inicio de la función btnJson_Click");
-            this.LoadAlumnoData();
-            alumnoBL.Add(alumno, TipoFichero.Json);
-            MessageBox.Show("El alumno se ha guardado correctamente!");
-            Log.Debug("Inicio de la función btnJson_Click");
+            try
+            {
+                Log.Debug("Inicio de la función btnJson_Click");
+                this.LoadAlumnoData();
+                alumnoBL.Add(alumno, TipoFichero.Json);
+                MessageBox.Show("El alumno se ha guardado correctamente!");
+                Log.Debug("Inicio de la función btnJson_Click");
+            }
+            catch (NullReferenceException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Referencia nula" + exception.Message);
+            }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Agumento nulo" + exception.Message);
+            }
         }
 
         private void btnXml_Click(object sender, EventArgs e)
         {
-            Log.Debug("Inicio de la función btnXml_Click");
-            this.LoadAlumnoData();
-            alumnoBL.Add(alumno, TipoFichero.Xml);
-            MessageBox.Show("El alumno se ha guardado correctamente!");
-            Log.Debug("Inicio de la función btnXml_Click");
+            try
+            {
+                Log.Debug("Inicio de la función btnXml_Click");
+                this.LoadAlumnoData();
+                alumnoBL.Add(alumno, TipoFichero.Xml);
+                MessageBox.Show("El alumno se ha guardado correctamente!");
+                Log.Debug("Inicio de la función btnXml_Click");
+            }
+            catch (NullReferenceException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Referencia nula" + exception.Message);
+            }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Agumento nulo" + exception.Message);
+            }
         }
 
         private void LoadAlumnoData()
         {
-            Log.Debug("Inicio de la función LoadAlumnoData");
-            alumno.Id = Convert.ToInt32(txtId.Text);
-            alumno.Nombre = txtNombre.Text;
-            alumno.Apellidos = txtApellidos.Text;
-            alumno.Dni = txtDni.Text;
-            alumno.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
-            Log.Debug(FileUtils.ToJson(alumno));
-            Log.Debug("Fin de la función LoadAlumnoData");
+            try
+            {
+                Log.Debug("Inicio de la función LoadAlumnoData");
+                alumno.Id = Convert.ToInt32(txtId.Text);
+                alumno.Nombre = txtNombre.Text;
+                alumno.Apellidos = txtApellidos.Text;
+                alumno.Dni = txtDni.Text;
+                alumno.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+                Log.Debug(FileUtils.ToJson(alumno));
+                Log.Debug("Fin de la función LoadAlumnoData");
+            }
+            catch (NullReferenceException exception)
+            {
+                this.logger.Error("Referencia nula" + exception.Message);
+                throw;
+            }
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            this.LoadAlumnoData();
-            AlumnosShowForm alumnosShowForm = new AlumnosShowForm(alumno);
-            alumnosShowForm.Show();
-            this.Hide();
+            try
+            {
+                this.LoadAlumnoData();
+                AlumnosShowForm alumnosShowForm = new AlumnosShowForm(alumno);
+                alumnosShowForm.Show();
+                this.Hide();
+            }
+            catch (NullReferenceException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Referencia nula" + exception.Message);
+            }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Agumento nulo" + exception.Message);
+            }
         }
     }
 }

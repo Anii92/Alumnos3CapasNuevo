@@ -49,10 +49,12 @@
     <Compile Include="Enums\TiposFichero.cs" />
     <Compile Include="Enums\TiposPersona.cs" />
     <Compile Include="Interfaces\IFichero.cs" />
+    <Compile Include="Interfaces\ITargetAdapterForLogger.cs" />
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Models\FicheroJson.cs" />
     <Compile Include="Models\FicheroTxt.cs" />
     <Compile Include="Models\FicheroXml.cs" />
+    <Compile Include="Models\Logger.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\VuelingObject.cs" />
     <Compile Include="Utils\FileUtils.cs" />

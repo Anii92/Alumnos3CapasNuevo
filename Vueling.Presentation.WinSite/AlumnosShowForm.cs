@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace Vueling.Presentation.WinSite
 {
     public partial class AlumnosShowForm : Form
     {
+        Logger logger = new Logger();
         private IFicheroBL ficheroBL;
         private List<Alumno> alumnosJson;
         private List<Alumno> alumnosXml;
@@ -44,13 +46,29 @@ namespace Vueling.Presentation.WinSite
 
         private void CargarAlumnosFichero()
         {
-            this.alumnosJson = this.ficheroBL.CargarDatosFichero(TipoFichero.Json);
-            this.alumnosXml = this.ficheroBL.CargarDatosFichero(TipoFichero.Xml);
+            try
+            {
+                this.alumnosJson = this.ficheroBL.CargarDatosFichero(TipoFichero.Json);
+                this.alumnosXml = this.ficheroBL.CargarDatosFichero(TipoFichero.Xml);
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
 
         private List<Alumno> LeerDeFicheroDeTexto()
         {
-            return this.ficheroBL.Leer(TipoFichero.Texto);
+            try
+            {
+                return this.ficheroBL.Leer(TipoFichero.Texto);
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
         }
 
         private void EscribirEnPantalla(List<Alumno> alumnos)
@@ -61,24 +79,59 @@ namespace Vueling.Presentation.WinSite
 
         private void MostrarAlumnosTextoEnPantalla()
         {
-            List<Alumno> alumnos = this.LeerDeFicheroDeTexto();
-            this.EscribirEnPantalla(alumnos);
+            try
+            {
+                List<Alumno> alumnos = this.LeerDeFicheroDeTexto();
+                this.EscribirEnPantalla(alumnos);
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
         }
 
         private void btnTxtBuscador_Click(object sender, EventArgs e)
         {
-            this.MostrarAlumnosTextoEnPantalla();
+            try
+            {
+                this.MostrarAlumnosTextoEnPantalla();
+            }
+            catch (FileNotFoundException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message);
+                throw;
+            }
         }
 
         private void btnJsonBuscador_Click(object sender, EventArgs e)
         {
-            this.EscribirEnPantalla(this.alumnosJson);
+            try
+            {
+                this.EscribirEnPantalla(this.alumnosJson);
+            }
+            catch (FileNotFoundException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message);
+                throw;
+            }
         }
 
         private void btnNombreBuscador_Click(object sender, EventArgs e)
         {
-            List<Alumno> alumnosFiltrados = this.ficheroBL.FiltrarFicheroJsonPorNombre(this.txtNombreBuscador.Text);
-            this.EscribirEnPantalla(alumnosFiltrados);
+            try
+            {
+                List<Alumno> alumnosFiltrados = this.ficheroBL.FiltrarFicheroJsonPorNombre(this.txtNombreBuscador.Text);
+                this.EscribirEnPantalla(alumnosFiltrados);
+            }
+            catch (NullReferenceException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error("Referencia nula" + exception.Message);
+                throw;
+            }
         }
 
         private void btnXmlBuscador_Click(object sender, EventArgs e)

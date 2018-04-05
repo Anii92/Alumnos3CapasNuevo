@@ -18,9 +18,18 @@ namespace Vueling.DataAccess.Dao
 
         public Alumno Add(Alumno alumno, TipoFichero tipoFichero)
         {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
-            fichero.Guardar(alumno);
-            return alumno;
+            try
+            {
+                IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
+                fichero.Guardar(alumno);
+                return alumno;
+            }
+            catch (ArgumentException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error(exception.Message);
+                throw;
+            }
         }
     }
 }

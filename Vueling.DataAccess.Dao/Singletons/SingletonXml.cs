@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace Vueling.DataAccess.Dao.Singletons
 {
     public sealed class SingletonXml
     {
+        Logger logger = new Logger();
         private static SingletonXml instance = null;
         private static readonly object padlock = new object();
 
@@ -41,18 +43,34 @@ namespace Vueling.DataAccess.Dao.Singletons
 
         public List<Alumno> Leer()
         {
-            //Hay que hacerlo para XML
-            alumnos = FileUtils.DeserializeFicheroXml(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
-            return alumnos;
+            try
+            {
+                alumnos = FileUtils.DeserializeFicheroXml(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
+                return alumnos;
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
 
         public List<Alumno> Filtrar(string valor)
         {
-            var alumnosFiltrados =
-                from alumno in alumnos
-                where alumno.Nombre == valor
-                select alumno;
-            return alumnosFiltrados.ToList();
+            try
+            {
+                var alumnosFiltrados =
+                    from alumno in alumnos
+                    where alumno.Nombre == valor
+                    select alumno;
+                return alumnosFiltrados.ToList();
+            }
+            catch (NullReferenceException exception)
+            {
+                this.logger.Error("Referencia nula" + exception.Message);
+                throw;
+            }
         }
     }
 }
+

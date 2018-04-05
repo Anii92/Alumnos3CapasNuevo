@@ -42,7 +42,7 @@ namespace Vueling.Common.Logic.Models
 
         public void Error(string message)
         {
-            throw new NotImplementedException();
+            log.Error(message);
         }
 
         public void Error(string format, params object[] args)

@@ -10,6 +10,7 @@ namespace Vueling.Common.Logic.Models
 {
     public class FicheroJson: IFichero
     {
+        Logger logger = new Logger();
         public string Nombre { get; set; }
         public string Ruta { get; set; }
 
@@ -21,27 +22,43 @@ namespace Vueling.Common.Logic.Models
 
         public void Guardar(Alumno alumno)
         {
-            if (!File.Exists(this.Ruta))
+            try
             {
-                List<Alumno> alumnos = new List<Alumno>();
-                alumnos.Add(alumno);
-                using (StreamWriter file = File.CreateText(this.Ruta))
+                if (!File.Exists(this.Ruta))
                 {
-                    JsonSerializer serializer = new JsonSerializer();
-                    serializer.Serialize(file, alumnos);
+                    List<Alumno> alumnos = new List<Alumno>();
+                    alumnos.Add(alumno);
+                    using (StreamWriter file = File.CreateText(this.Ruta))
+                    {
+                        JsonSerializer serializer = new JsonSerializer();
+                        serializer.Serialize(file, alumnos);
+                    }
+                }
+                else
+                {
+                    string datosFichero = System.IO.File.ReadAllText(this.Ruta);
+                    string jsonData = FileUtils.ToJson(datosFichero, alumno);
+                    System.IO.File.WriteAllText(this.Ruta, jsonData);
                 }
             }
-            else
+            catch (FileNotFoundException exception)
             {
-                string datosFichero = System.IO.File.ReadAllText(this.Ruta);
-                string jsonData = FileUtils.ToJson(datosFichero, alumno);
-                System.IO.File.WriteAllText(this.Ruta, jsonData);
+                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
             }
         }
 
         public List<Alumno> Leer()
         {
-            return FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+            try
+            {
+                return FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
     }
 }

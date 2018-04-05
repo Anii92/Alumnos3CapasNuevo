@@ -11,6 +11,7 @@ namespace Vueling.Common.Logic.Models
 {
     public class FicheroXml: IFichero
     {
+        Logger logger = new Logger();
         public string Nombre { get; set; }
         public string Ruta { get; set; }
 
@@ -23,7 +24,6 @@ namespace Vueling.Common.Logic.Models
         public void Guardar(Alumno alumno)
         {
             List<Alumno> alumnos = new List<Alumno>();
-            //TextWriter writer = null;
             var xmlSerializer = new XmlSerializer(typeof(List<Alumno>));
             try
             {
@@ -39,25 +39,11 @@ namespace Vueling.Common.Logic.Models
                 {
                     xmlSerializer.Serialize(writer, alumnos);
                 }
-                //var serializer = new XmlSerializer(alumno.GetType());
-                //if (!File.Exists(this.Ruta))
-                //{
-                //    writer = new StreamWriter(this.Ruta, false);
-                    
-                //}
-                //else
-                //{
-                //    writer = new StreamWriter(this.Ruta, true);
-                //}
-                //serializer.Serialize(writer, alumno);
             }
-            finally
+            catch (FileNotFoundException exception)
             {
-                //if (writer != null)
-                //{
-                //    writer.Close();
-                //}
-                    
+                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Vueling.DataAccess.Dao.Singletons
 {
     public sealed class SingletonJson
     {
+        Logger logger = new Logger();
         private static SingletonJson instance = null;
         private static readonly object padlock = new object();
 
@@ -40,17 +42,33 @@ namespace Vueling.DataAccess.Dao.Singletons
 
         public List<Alumno> Leer()
         {
-            alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
-            return alumnos;
+            try
+            {
+                alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+                return alumnos;
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
 
         public List<Alumno> Filtrar(string valor)
         {
-            var alumnosFiltrados =
-                from alumno in alumnos
-                where alumno.Nombre == valor
-                select alumno;
-            return alumnosFiltrados.ToList();
+            try
+            {
+                var alumnosFiltrados =
+                    from alumno in alumnos
+                    where alumno.Nombre == valor
+                    select alumno;
+                return alumnosFiltrados.ToList();
+            }
+            catch (NullReferenceException exception)
+            {
+                this.logger.Error("Referencia nula" + exception.Message);
+                throw;
+            }
         }
     }
 }

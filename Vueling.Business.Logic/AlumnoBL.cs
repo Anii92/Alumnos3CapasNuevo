@@ -11,6 +11,7 @@ namespace Vueling.Business.Logic
 {
     public class AlumnoBL : IAlumnoBL
     {
+        Logger logger = new Logger();
         private IAlumnoDao alumnoDao;
 
         public AlumnoBL()
@@ -20,10 +21,18 @@ namespace Vueling.Business.Logic
 
         public Alumno Add(Alumno alumno, TipoFichero tipoFichero)
         {
-            alumno.Edad = CalcularEdad(alumno.FechaNacimiento);
-            alumno.FechaHora = CalcularFechaRegistro();
-            alumnoDao.Add(alumno, tipoFichero);
-            return alumno;
+            try
+            {
+                alumno.Edad = CalcularEdad(alumno.FechaNacimiento);
+                alumno.FechaHora = CalcularFechaRegistro();
+                alumnoDao.Add(alumno, tipoFichero);
+                return alumno;
+            }
+            catch (ArgumentNullException exception)
+            {
+                this.logger.Error("Agumento nulo" + exception.Message);
+                throw;
+            }
         }
 
         public DateTime CalcularFechaRegistro()
@@ -33,13 +42,21 @@ namespace Vueling.Business.Logic
 
         public int CalcularEdad(DateTime fechaNacimiento)
         {
-            DateTime now = DateTime.Today;
-            int age = now.Year - fechaNacimiento.Year;
-            if (now < fechaNacimiento.AddYears(age))
+            try
             {
-                --age;
+                DateTime now = DateTime.Today;
+                int age = now.Year - fechaNacimiento.Year;
+                if (now < fechaNacimiento.AddYears(age))
+                {
+                    --age;
+                }
+                return age;
             }
-            return age;
+            catch (ArgumentNullException exception)
+            {
+                this.logger.Error("Referencia nula" + exception.Message);
+                throw;
+            }
         }
     }
 }

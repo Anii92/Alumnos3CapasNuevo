@@ -26,9 +26,18 @@ namespace Vueling.Common.Logic
 
         public static string ToJson(string data, Alumno alumno)
         {
-            var employeeList = JsonConvert.DeserializeObject<List<Alumno>>(data);
-            employeeList.Add(alumno);
-            return JsonConvert.SerializeObject(employeeList, Newtonsoft.Json.Formatting.Indented);
+            try
+            {
+                var employeeList = JsonConvert.DeserializeObject<List<Alumno>>(data);
+                employeeList.Add(alumno);
+                return JsonConvert.SerializeObject(employeeList, Newtonsoft.Json.Formatting.Indented);
+            }
+            catch (FileNotFoundException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
 
         public static string ToString(Alumno alumno)
@@ -38,70 +47,126 @@ namespace Vueling.Common.Logic
 
         public static Alumno DeserializeTexto(string pathFile)
         {
-            string[] liniaFichero = null;
-            foreach (var line in File.ReadAllLines(pathFile))
+            try
             {
-                liniaFichero = line.Split(',');
+                string[] liniaFichero = null;
+                foreach (var line in File.ReadAllLines(pathFile))
+                {
+                    liniaFichero = line.Split(',');
+                }
+                return new Alumno(Convert.ToInt32(liniaFichero[0]), liniaFichero[1], liniaFichero[2], liniaFichero[3], Convert.ToInt32(liniaFichero[4]), Convert.ToDateTime(liniaFichero[5]), Convert.ToDateTime(liniaFichero[6]), liniaFichero[7]);
             }
-            return new Alumno(Convert.ToInt32(liniaFichero[0]), liniaFichero[1], liniaFichero[2], liniaFichero[3], Convert.ToInt32(liniaFichero[4]), Convert.ToDateTime(liniaFichero[5]), Convert.ToDateTime(liniaFichero[6]), liniaFichero[7]);
+            catch (FileLoadException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
+            
         }
 
         public static List<Alumno> DeserializeFicheroTexto(string pathFile)
         {
-            List<Alumno> alumnos = new List<Alumno>();
-            string[] liniaFichero = null;
-            foreach (var line in File.ReadAllLines(pathFile))
+            try
             {
-                liniaFichero = line.Split(',');
-                Alumno alumno = new Alumno(Convert.ToInt32(liniaFichero[0]), liniaFichero[1], liniaFichero[2], liniaFichero[3], Convert.ToInt32(liniaFichero[4]), Convert.ToDateTime(liniaFichero[5]), Convert.ToDateTime(liniaFichero[6]), liniaFichero[7]);
-                alumnos.Add(alumno);
+                List<Alumno> alumnos = new List<Alumno>();
+                string[] liniaFichero = null;
+                foreach (var line in File.ReadAllLines(pathFile))
+                {
+                    liniaFichero = line.Split(',');
+                    Alumno alumno = new Alumno(Convert.ToInt32(liniaFichero[0]), liniaFichero[1], liniaFichero[2], liniaFichero[3], Convert.ToInt32(liniaFichero[4]), Convert.ToDateTime(liniaFichero[5]), Convert.ToDateTime(liniaFichero[6]), liniaFichero[7]);
+                    alumnos.Add(alumno);
+                }
+                return alumnos;
             }
-            return alumnos;
+            catch (FileLoadException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
 
         public static Alumno DeserializeJson(string pathFile)
         {
-            var jsonData = System.IO.File.ReadAllText(pathFile);
-            List<Alumno> alumnosList = JsonConvert.DeserializeObject<List<Alumno>>(jsonData);
-            return new Alumno(alumnosList[0].Id, alumnosList[0].Nombre, alumnosList[0].Apellidos, alumnosList[0].Dni, alumnosList[0].Edad, alumnosList[0].FechaNacimiento, alumnosList[0].FechaHora, alumnosList[0].MiGuid);
+            try
+            {
+                var jsonData = System.IO.File.ReadAllText(pathFile);
+                List<Alumno> alumnosList = JsonConvert.DeserializeObject<List<Alumno>>(jsonData);
+                return new Alumno(alumnosList[0].Id, alumnosList[0].Nombre, alumnosList[0].Apellidos, alumnosList[0].Dni, alumnosList[0].Edad, alumnosList[0].FechaNacimiento, alumnosList[0].FechaHora, alumnosList[0].MiGuid);
+            
+            }
+            catch (FileNotFoundException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
+            
         }
 
         public static List<Alumno> DeserializeFicheroJson(string pathFile)
         {
-            List<Alumno> alumnos = new List<Alumno>();
-            if (File.Exists(pathFile))
+            try
             {
-                var jsonData = System.IO.File.ReadAllText(pathFile);
-                alumnos = JsonConvert.DeserializeObject<List<Alumno>>(jsonData);
+                List<Alumno> alumnos = new List<Alumno>();
+                if (File.Exists(pathFile))
+                {
+                    var jsonData = System.IO.File.ReadAllText(pathFile);
+                    alumnos = JsonConvert.DeserializeObject<List<Alumno>>(jsonData);
+                }
+                return alumnos;
             }
-            return alumnos;
+            catch (FileNotFoundException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
 
         public static List<Alumno> DeserializeFicheroXml(string pathFile)
         {
-            List<Alumno> alumnos = new List<Alumno>();
-            if (File.Exists(pathFile))
+            try
             {
-                var xmlSerializer = new XmlSerializer(alumnos.GetType());
-
-                using (Stream reader = File.OpenRead(pathFile))
+                List<Alumno> alumnos = new List<Alumno>();
+                if (File.Exists(pathFile))
                 {
-                    alumnos = (List<Alumno>)xmlSerializer.Deserialize(reader);
+                    var xmlSerializer = new XmlSerializer(alumnos.GetType());
+
+                    using (Stream reader = File.OpenRead(pathFile))
+                    {
+                        alumnos = (List<Alumno>)xmlSerializer.Deserialize(reader);
+                    }
                 }
+                return alumnos;
             }
-            
-            return alumnos;
+            catch (FileLoadException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
 
         public static Alumno DeserializeXml(string pathFile)
         {
-            Alumno alumno = new Alumno();
-            XmlSerializer serializer = new XmlSerializer(typeof(Alumno));
-            using (FileStream fileStream = new FileStream(pathFile, FileMode.Open))
+            try
             {
-                alumno = (Alumno) serializer.Deserialize(fileStream);
+                Alumno alumno = new Alumno();
+                XmlSerializer serializer = new XmlSerializer(typeof(Alumno));
+                using (FileStream fileStream = new FileStream(pathFile, FileMode.Open))
+                {
+                    alumno = (Alumno)serializer.Deserialize(fileStream);
+                }
+                return alumno;
             }
-            return alumno;
+            catch (FileLoadException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
         }
     }
 }
