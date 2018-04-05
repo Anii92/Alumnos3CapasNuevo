@@ -25,6 +25,16 @@ namespace Vueling.Presentation.WinSite
 
         public AlumnoForm()
         {
+            Logger logger = new Logger();
+            Alumno a = new Alumno();
+            a.Id = 1;
+            a.Nombre = "Leia";
+            a.Apellidos = "Organa";
+            a.Dni = "1234";
+            a.FechaHora = DateTime.Now;
+            a.FechaNacimiento = DateTime.Now;
+            a.MiGuid = Guid.NewGuid().ToString();
+            logger.Debug(a);
             Log.Debug("Algo da igual");
             InitializeComponent();
             alumno = new Alumno();
