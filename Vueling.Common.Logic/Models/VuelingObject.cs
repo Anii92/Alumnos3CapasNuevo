@@ -9,6 +9,5 @@ namespace Vueling.Common.Logic.Models
     public class VuelingObject
     {
         public string MiGuid { get; set; }
-
     }
 }

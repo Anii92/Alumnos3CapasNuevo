@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Vueling.DataAccess.Dao.Singletons
 {
     public sealed class SingletonJson
     {
+        public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static SingletonJson instance = null;
         private static readonly object padlock = new object();
 
@@ -40,16 +42,21 @@ namespace Vueling.DataAccess.Dao.Singletons
 
         public List<Alumno> Leer()
         {
+            Log.Debug("Entra Leer");
             alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+            Log.Debug("Sale Leer");
             return alumnos;
+
         }
 
         public List<Alumno> Filtrar(string valor)
         {
+            Log.Debug("Entra Filtrar");
             var alumnosFiltrados =
                 from alumno in alumnos
                 where alumno.Nombre == valor
                 select alumno;
+            Log.Debug("Sale Filtrar");
             return alumnosFiltrados.ToList();
         }
     }
