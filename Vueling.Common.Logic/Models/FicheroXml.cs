@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Vueling.Common.Logic.Models
 {
     public class FicheroXml: IFichero
     {
+        public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public string Nombre { get; set; }
         public string Ruta { get; set; }
 
@@ -22,43 +24,23 @@ namespace Vueling.Common.Logic.Models
 
         public void Guardar(Alumno alumno)
         {
+            Log.Debug("Entrar Guaradr");
             List<Alumno> alumnos = new List<Alumno>();
             //TextWriter writer = null;
             var xmlSerializer = new XmlSerializer(typeof(List<Alumno>));
-            try
+            if (File.Exists(this.Ruta))
             {
-                if (File.Exists(this.Ruta))
+                using (Stream reader = File.OpenRead(this.Ruta))
                 {
-                    using (Stream reader = File.OpenRead(this.Ruta))
-                    {
-                        alumnos = (List<Alumno>)xmlSerializer.Deserialize(reader);
-                    }
+                    alumnos = (List<Alumno>)xmlSerializer.Deserialize(reader);
                 }
-                alumnos.Add(alumno);
-                using (Stream writer = File.Open(this.Ruta, FileMode.OpenOrCreate, FileAccess.Write))
-                {
-                    xmlSerializer.Serialize(writer, alumnos);
-                }
-                //var serializer = new XmlSerializer(alumno.GetType());
-                //if (!File.Exists(this.Ruta))
-                //{
-                //    writer = new StreamWriter(this.Ruta, false);
-                    
-                //}
-                //else
-                //{
-                //    writer = new StreamWriter(this.Ruta, true);
-                //}
-                //serializer.Serialize(writer, alumno);
             }
-            finally
+            alumnos.Add(alumno);
+            using (Stream writer = File.Open(this.Ruta, FileMode.OpenOrCreate, FileAccess.Write))
             {
-                //if (writer != null)
-                //{
-                //    writer.Close();
-                //}
-                    
+                xmlSerializer.Serialize(writer, alumnos);
             }
+            Log.Debug("Sale Guardar");
         }
 
         public List<Alumno> Leer()

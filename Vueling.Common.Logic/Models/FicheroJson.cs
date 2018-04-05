@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using log4net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,6 +11,8 @@ namespace Vueling.Common.Logic.Models
 {
     public class FicheroJson: IFichero
     {
+        public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public string Nombre { get; set; }
         public string Ruta { get; set; }
 
@@ -21,6 +24,7 @@ namespace Vueling.Common.Logic.Models
 
         public void Guardar(Alumno alumno)
         {
+            Log.Debug("Entra Guardar");
             if (!File.Exists(this.Ruta))
             {
                 List<Alumno> alumnos = new List<Alumno>();
@@ -37,10 +41,13 @@ namespace Vueling.Common.Logic.Models
                 string jsonData = FileUtils.ToJson(datosFichero, alumno);
                 System.IO.File.WriteAllText(this.Ruta, jsonData);
             }
+            Log.Debug("Sale Guardar");
         }
 
         public List<Alumno> Leer()
         {
+            Log.Debug("Entra Leer");
+            Log.Debug("Sale Leer");
             return FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
         }
     }

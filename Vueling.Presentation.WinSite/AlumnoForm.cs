@@ -25,7 +25,7 @@ namespace Vueling.Presentation.WinSite
 
         public AlumnoForm()
         {
-            Log.Debug("Algo da igual");
+            Log.Debug("Inicia la aplicación.");
             InitializeComponent();
             alumno = new Alumno();
             alumnoBL = new AlumnoBL();
@@ -47,7 +47,7 @@ namespace Vueling.Presentation.WinSite
             this.LoadAlumnoData();
             alumnoBL.Add(alumno, TipoFichero.Json);
             MessageBox.Show("El alumno se ha guardado correctamente!");
-            Log.Debug("Inicio de la función btnJson_Click");
+            Log.Debug("Finaliza la función btnJson_Click");
         }
 
         private void btnXml_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Vueling.Presentation.WinSite
             this.LoadAlumnoData();
             alumnoBL.Add(alumno, TipoFichero.Xml);
             MessageBox.Show("El alumno se ha guardado correctamente!");
-            Log.Debug("Inicio de la función btnXml_Click");
+            Log.Debug("Finaliza la función btnXml_Click");
         }
 
         private void LoadAlumnoData()
@@ -68,15 +68,17 @@ namespace Vueling.Presentation.WinSite
             alumno.Dni = txtDni.Text;
             alumno.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
             Log.Debug(FileUtils.ToJson(alumno));
-            Log.Debug("Fin de la función LoadAlumnoData");
+            Log.Debug("Finaliza la función LoadAlumnoData");
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
+            Log.Debug("Inicio btnMostrar_Click");
             this.LoadAlumnoData();
             AlumnosShowForm alumnosShowForm = new AlumnosShowForm(alumno);
             alumnosShowForm.Show();
             this.Hide();
+            Log.Debug("Fin btnMostrar_Click");
         }
     }
 }
