@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,12 +20,16 @@ namespace Vueling.DataAccess.Dao
 
         public FicheroDao()
         {
+            this.logger.Debug("Entra FicheroDao");
             this.singletonJson = SingletonJson.Instance;
+            this.logger.Debug("Sale FicheroDao");
         }
 
         public List<Alumno> Leer(TipoFichero tipoFichero)
         {
+            this.logger.Debug("Entra Leer");
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
+            this.logger.Debug("Sale Leer");
             return fichero.Leer();
         }
 
@@ -32,6 +37,7 @@ namespace Vueling.DataAccess.Dao
         {
             try
             {
+                this.logger.Debug("Entra CargarDatosFichero");
                 List<Alumno> alumnos = new List<Alumno>();
                 switch (tipoFichero)
                 {
@@ -45,6 +51,7 @@ namespace Vueling.DataAccess.Dao
                         alumnos = SingletonJson.Instance.Leer();
                         break;
                 }
+                this.logger.Debug("Sale CargarDatosFichero");
                 return alumnos;
             }
             catch (FileNotFoundException exception)
@@ -58,6 +65,8 @@ namespace Vueling.DataAccess.Dao
         {
             try
             {
+                this.logger.Debug("Entra FiltrarFicheroJsonPorNombre");
+                this.logger.Debug("Sale FiltrarFicheroJsonPorNombre");
                 return this.singletonJson.Filtrar(valor);
             }
             catch (NullReferenceException exception)
@@ -69,6 +78,8 @@ namespace Vueling.DataAccess.Dao
 
         public List<Alumno> CargarDatosFicheroXml()
         {
+            this.logger.Debug("Entra CargarDatosFicheroXml");
+            this.logger.Debug("Sale CargarDatosFicheroXml");
             return new List<Alumno>();
         }
     }

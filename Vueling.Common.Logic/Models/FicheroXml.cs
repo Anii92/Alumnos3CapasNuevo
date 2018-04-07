@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Vueling.Common.Logic.Models
 
         public void Guardar(Alumno alumno)
         {
+            this.logger.Debug("Entrar Guaradr");
             List<Alumno> alumnos = new List<Alumno>();
             var xmlSerializer = new XmlSerializer(typeof(List<Alumno>));
             try
@@ -39,6 +41,7 @@ namespace Vueling.Common.Logic.Models
                 {
                     xmlSerializer.Serialize(writer, alumnos);
                 }
+                this.logger.Debug("Sale Guardar");
             }
             catch (FileNotFoundException exception)
             {

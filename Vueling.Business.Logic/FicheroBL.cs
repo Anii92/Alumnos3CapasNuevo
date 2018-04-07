@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,7 +18,10 @@ namespace Vueling.Business.Logic
 
         public FicheroBL()
         {
+            this.logger.Debug("Entra FicheroBL");
             this.ficheroDao = new FicheroDao();
+            this.logger.Debug("Sale FicheroBL");
+
         }
 
         public List<Alumno> CargarDatosFichero(TipoFichero tipoFichero)
@@ -37,6 +41,8 @@ namespace Vueling.Business.Logic
         {
             try
             {
+                this.logger.Debug("Entra FiltrarFicheroJsonPorNombre");
+                this.logger.Debug("Sale FiltrarFicheroJsonPorNombre");
                 return this.ficheroDao.FiltrarFicheroJsonPorNombre(valor);
             }
             catch (NullReferenceException exception)
@@ -50,6 +56,8 @@ namespace Vueling.Business.Logic
         {
             try
             {
+                this.logger.Debug("Entra Leer");
+                this.logger.Debug("Sale Leer");
                 return this.ficheroDao.Leer(tipoFichero);
             }
             catch (ArgumentException exception)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Vueling.DataAccess.Dao
 {
     public class AlumnoDao : IAlumnoDao
     {
+        Logger logger = new Logger();
         public AlumnoDao()
         {
         }
@@ -20,13 +22,14 @@ namespace Vueling.DataAccess.Dao
         {
             try
             {
+                this.logger.Debug("Entra Add");
                 IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
                 fichero.Guardar(alumno);
+                this.logger.Debug("Sale Add");
                 return alumno;
             }
             catch (ArgumentException exception)
             {
-                Logger logger = new Logger();
                 logger.Error(exception.Message);
                 throw;
             }

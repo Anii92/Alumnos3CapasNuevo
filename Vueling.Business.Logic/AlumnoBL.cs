@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,9 @@ namespace Vueling.Business.Logic
 
         public AlumnoBL()
         {
+            this.logger.Debug("Entra AlumnoBL");
             alumnoDao = new AlumnoDao();
+            this.logger.Debug("Entra AlumnoBL");
         }
 
         public Alumno Add(Alumno alumno, TipoFichero tipoFichero)
@@ -37,6 +40,8 @@ namespace Vueling.Business.Logic
 
         public DateTime CalcularFechaRegistro()
         {
+            this.logger.Debug("Entra CalcularFechaRegistro");
+            this.logger.Debug("Sale CalcularFechaRegistro");
             return DateTime.Now;
         }
 

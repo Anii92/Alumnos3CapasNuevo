@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using log4net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,6 +25,7 @@ namespace Vueling.Common.Logic.Models
         {
             try
             {
+                this.logger.Debug("Entra Guardar");
                 if (!File.Exists(this.Ruta))
                 {
                     List<Alumno> alumnos = new List<Alumno>();
@@ -40,6 +42,7 @@ namespace Vueling.Common.Logic.Models
                     string jsonData = FileUtils.ToJson(datosFichero, alumno);
                     System.IO.File.WriteAllText(this.Ruta, jsonData);
                 }
+                this.logger.Debug("Sale Guardar");
             }
             catch (FileNotFoundException exception)
             {
@@ -52,6 +55,8 @@ namespace Vueling.Common.Logic.Models
         {
             try
             {
+                this.logger.Debug("Entra Leer");
+                this.logger.Debug("Sale Leer");
                 return FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
             }
             catch (FileNotFoundException exception)

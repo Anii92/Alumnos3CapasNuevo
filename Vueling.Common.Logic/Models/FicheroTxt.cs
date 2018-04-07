@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace Vueling.Common.Logic.Models
         {
             try
             {
+                this.logger.Debug("Entra Guardar");
                 if (!File.Exists(this.Ruta))
                 {
                     using (StreamWriter sw = File.CreateText(this.Ruta))
@@ -36,6 +38,7 @@ namespace Vueling.Common.Logic.Models
                     File.AppendAllText(this.Ruta, FileUtils.ToString(alumno) + Environment.NewLine);
                 }
             }
+            this.logger.Debug("Sale Guardar");
             catch (PathTooLongException exception)
             {
                 this.logger.Error("path demasiado largo" + exception.Message);
@@ -52,6 +55,8 @@ namespace Vueling.Common.Logic.Models
         {
             try
             {
+                this.logger.Debug("Entra Leer");
+                this.logger.Debug("Sale Leer");
                 return FileUtils.DeserializeFicheroTexto(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
             }
             catch(FileNotFoundException exception)

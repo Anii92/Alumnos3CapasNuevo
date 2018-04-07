@@ -26,22 +26,22 @@ namespace Vueling.Presentation.WinSite
 
         public AlumnoForm()
         {
-            Log.Debug("Algo da igual");
+            this.logger.Debug("Inicia la aplicación.");
             InitializeComponent();
             alumno = new Alumno();
             alumnoBL = new AlumnoBL();
-            Log.Debug("Fin del constructor AlumnoForm");
+            this.logger..Debug("Fin del constructor AlumnoForm");
         }
 
         private void btnTxt_Click(object sender, EventArgs e)
         {
             try
             {
-                Log.Debug("Inicio de la función btnTxt_Click");
+                this.logger.Debug("Inicio de la función btnTxt_Click");
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Texto);
                 MessageBox.Show("El alumno se ha guardado correctamente!");
-                Log.Debug("Fin de la función btnTxt_Click");
+                this.logger.Debug("Fin de la función btnTxt_Click");
             }
             catch (NullReferenceException exception)
             {
@@ -59,11 +59,11 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                Log.Debug("Inicio de la función btnJson_Click");
+                this.logger.Debug("Inicio de la función btnJson_Click");
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Json);
                 MessageBox.Show("El alumno se ha guardado correctamente!");
-                Log.Debug("Inicio de la función btnJson_Click");
+                this.logger.Debug("Inicio de la función btnJson_Click");
             }
             catch (NullReferenceException exception)
             {
@@ -81,11 +81,11 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                Log.Debug("Inicio de la función btnXml_Click");
+                this.logger.Debug("Inicio de la función btnXml_Click");
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Xml);
                 MessageBox.Show("El alumno se ha guardado correctamente!");
-                Log.Debug("Inicio de la función btnXml_Click");
+                this.logger.Debug("Inicio de la función btnXml_Click");
             }
             catch (NullReferenceException exception)
             {
@@ -103,14 +103,14 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                Log.Debug("Inicio de la función LoadAlumnoData");
+                this.logger.Debug("Inicio de la función LoadAlumnoData");
                 alumno.Id = Convert.ToInt32(txtId.Text);
                 alumno.Nombre = txtNombre.Text;
                 alumno.Apellidos = txtApellidos.Text;
                 alumno.Dni = txtDni.Text;
                 alumno.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
-                Log.Debug(FileUtils.ToJson(alumno));
-                Log.Debug("Fin de la función LoadAlumnoData");
+                this.logger.Debug(FileUtils.ToJson(alumno));
+                this.logger.Debug("Fin de la función LoadAlumnoData");
             }
             catch (NullReferenceException exception)
             {

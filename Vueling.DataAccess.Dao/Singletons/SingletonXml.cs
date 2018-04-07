@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -45,7 +46,9 @@ namespace Vueling.DataAccess.Dao.Singletons
         {
             try
             {
+                this.logger.Debug("Entra Leer");
                 alumnos = FileUtils.DeserializeFicheroXml(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
+                this.logger.Debug("Sale Leer");
                 return alumnos;
             }
             catch (FileNotFoundException exception)
@@ -59,10 +62,12 @@ namespace Vueling.DataAccess.Dao.Singletons
         {
             try
             {
+                this.logger.Debug("Entra Filtrar");
                 var alumnosFiltrados =
                     from alumno in alumnos
                     where alumno.Nombre == valor
                     select alumno;
+                this.logger.Debug("Sale Filtrar");
                 return alumnosFiltrados.ToList();
             }
             catch (NullReferenceException exception)
