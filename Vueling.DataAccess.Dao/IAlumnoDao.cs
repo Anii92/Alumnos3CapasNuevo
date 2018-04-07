@@ -11,5 +11,7 @@ namespace Vueling.DataAccess.Dao
     public interface IAlumnoDao
     {
         Alumno Add(Alumno alumno, TipoFichero tipoFichero);
+        void CargarDatosDeLosAlumnos(TipoFichero tipoFichero);
+        List<Alumno> Leer(TipoFichero tipoFichero);
     }
 }

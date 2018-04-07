@@ -13,15 +13,15 @@ namespace Vueling.DataAccess.Dao.Singletons
 {
     public sealed class SingletonXml
     {
-        Logger logger = new Logger();
         private static SingletonXml instance = null;
         private static readonly object padlock = new object();
 
-        private List<Alumno> alumnos;
+        Logger logger = new Logger();
+        private List<Alumno> alumnos { get; set; }
 
         private SingletonXml()
         {
-
+            alumnos = new List<Alumno>();
         }
 
         public static SingletonXml Instance
@@ -42,18 +42,30 @@ namespace Vueling.DataAccess.Dao.Singletons
             }
         }
 
-        public List<Alumno> Leer()
+        public void Cargar()
         {
             try
             {
-                this.logger.Debug("Entra Leer");
+                this.logger.Debug("Entra Cargar");
                 alumnos = FileUtils.DeserializeFicheroXml(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
-                this.logger.Debug("Sale Leer");
-                return alumnos;
+                this.logger.Debug("Sale Cargar");
             }
             catch (FileNotFoundException exception)
             {
                 this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
+        }
+
+        public List<Alumno> Leer()
+        {
+            try
+            {
+                return this.alumnos;
+            }
+            catch (NullReferenceException exception)
+            {
+                this.logger.Error("No se ha cargado el fichero" + exception.Message);
                 throw;
             }
         }

@@ -28,9 +28,8 @@ namespace Vueling.Presentation.WinSite
         {
             this.logger.Debug("Inicia la aplicación.");
             InitializeComponent();
-            alumno = new Alumno();
             alumnoBL = new AlumnoBL();
-            this.logger..Debug("Fin del constructor AlumnoForm");
+            this.logger.Debug("Fin del constructor AlumnoForm");
         }
 
         private void btnTxt_Click(object sender, EventArgs e)
@@ -104,11 +103,12 @@ namespace Vueling.Presentation.WinSite
             try
             {
                 this.logger.Debug("Inicio de la función LoadAlumnoData");
-                alumno.Id = Convert.ToInt32(txtId.Text);
-                alumno.Nombre = txtNombre.Text;
-                alumno.Apellidos = txtApellidos.Text;
-                alumno.Dni = txtDni.Text;
-                alumno.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+                this.alumno = new Alumno();
+                this.alumno.Id = Convert.ToInt32(txtId.Text);
+                this.alumno.Nombre = txtNombre.Text;
+                this.alumno.Apellidos = txtApellidos.Text;
+                this.alumno.Dni = txtDni.Text;
+                this.alumno.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
                 this.logger.Debug(FileUtils.ToJson(alumno));
                 this.logger.Debug("Fin de la función LoadAlumnoData");
             }

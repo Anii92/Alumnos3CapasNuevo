@@ -37,8 +37,8 @@ namespace Vueling.Common.Logic.Models
                 {
                     File.AppendAllText(this.Ruta, FileUtils.ToString(alumno) + Environment.NewLine);
                 }
+                this.logger.Debug("Sale Guardar");
             }
-            this.logger.Debug("Sale Guardar");
             catch (PathTooLongException exception)
             {
                 this.logger.Error("path demasiado largo" + exception.Message);

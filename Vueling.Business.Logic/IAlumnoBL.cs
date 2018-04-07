@@ -10,6 +10,11 @@ namespace Vueling.Business.Logic
 {
     public interface IAlumnoBL
     {
+        TipoFichero TipoFichero { get; set; }
+
         Alumno Add(Alumno alumno, TipoFichero tipoFichero);
+        void CargarDatosDeLosAlumnos(TipoFichero tipoFichero);
+        List<Alumno> Leer(TipoFichero tipoFichero);
+        List<Alumno> Filtrar(string clave, string valor);
     }
 }

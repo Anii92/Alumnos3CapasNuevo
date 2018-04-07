@@ -44,9 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnoBL.cs" />
-    <Compile Include="FicheroBL.cs" />
     <Compile Include="IAlumnoBL.cs" />
-    <Compile Include="IFicheroBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

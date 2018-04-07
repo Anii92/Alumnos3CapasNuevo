@@ -12,15 +12,15 @@ namespace Vueling.DataAccess.Dao.Singletons
 {
     public sealed class SingletonJson
     {
-        Logger logger = new Logger();
         private static SingletonJson instance = null;
         private static readonly object padlock = new object();
 
-        private List<Alumno> alumnos;
+        Logger logger = new Logger();
+        private List<Alumno> alumnos { get; set; }
 
         private SingletonJson()
         {
-
+            alumnos = new List<Alumno>();
         }
 
         public static SingletonJson Instance
@@ -41,18 +41,30 @@ namespace Vueling.DataAccess.Dao.Singletons
             }
         }
 
-        public List<Alumno> Leer()
+        public void Cargar()
         {
             try
             {
-                this.logger.Debug("Entra Leer");
+                this.logger.Debug("Entra Cargar");
                 alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
-                this.logger.Debug("Sale Leer");
-                return alumnos;
+                this.logger.Debug("Sale Cargar");
             }
             catch (FileNotFoundException exception)
             {
                 this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
+        }
+
+        public List<Alumno> Leer()
+        {
+            try
+            {
+                return this.alumnos;
+            }
+            catch (NullReferenceException exception)
+            {
+                this.logger.Error("No se ha cargado el fichero" + exception.Message);
                 throw;
             }
         }

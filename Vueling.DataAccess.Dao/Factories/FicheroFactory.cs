@@ -9,32 +9,33 @@ using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.DataAccess.Dao.Factories
 {
-    public class FicheroFactory
+    public static class FicheroFactory
     {
-        Logger logger = new Logger();
         public static Object CrearFichero(TipoFichero tipoFichero, string nombre)
         {
             try
             {
-                this.logger.Debug("Entra CrearFichero");
+                Logger logger = new Logger();
+                logger.Debug("Entra CrearFichero");
                 switch (tipoFichero)
                 {
                     case TipoFichero.Texto:
-                        this.logger.Debug("Sale CrearFichero texto");
+                        logger.Debug("Sale CrearFichero texto");
                         return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
                     case TipoFichero.Json:
-                        this.logger.Debug("Sale CrearFichero json");
+                        logger.Debug("Sale CrearFichero json");
                         return new FicheroJson(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
                     case TipoFichero.Xml:
-                        this.logger.Debug("Sale CrearFichero xml");
+                        logger.Debug("Sale CrearFichero xml");
                         return new FicheroXml(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
                     default:
-                        this.logger.Debug("Sale CrearFichero texto");
+                        logger.Debug("Sale CrearFichero texto");
                         return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
                 }
             }
             catch (ArgumentException exception)
             {
+                Logger logger = new Logger();
                 logger.Error(exception.Message);
                 throw;
             }

@@ -38,7 +38,7 @@
             this.btnNombreBuscador = new System.Windows.Forms.Button();
             this.lblNombreBuscador = new System.Windows.Forms.Label();
             this.txtNombreBuscador = new System.Windows.Forms.TextBox();
-            this.lblDiniBuscador = new System.Windows.Forms.Label();
+            this.lblDniBuscador = new System.Windows.Forms.Label();
             this.lblApellidosBuscador = new System.Windows.Forms.Label();
             this.lblFechaNacimientoBuscador = new System.Windows.Forms.Label();
             this.txtApellidosBuscador = new System.Windows.Forms.TextBox();
@@ -47,6 +47,9 @@
             this.btnApellidosBuscador = new System.Windows.Forms.Button();
             this.btnDniBuscador = new System.Windows.Forms.Button();
             this.btnFechaNacimientoBuscador = new System.Windows.Forms.Button();
+            this.lblGuidBuscador = new System.Windows.Forms.Label();
+            this.txtGuidBuscador = new System.Windows.Forms.TextBox();
+            this.btnGuidBuscador = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,6 +99,7 @@
             this.btnIdBuscador.TabIndex = 4;
             this.btnIdBuscador.Text = "Buscar";
             this.btnIdBuscador.UseVisualStyleBackColor = true;
+            this.btnIdBuscador.Click += new System.EventHandler(this.btnIdBuscador_Click);
             // 
             // lblIdBuscador
             // 
@@ -139,14 +143,14 @@
             this.txtNombreBuscador.Size = new System.Drawing.Size(100, 20);
             this.txtNombreBuscador.TabIndex = 9;
             // 
-            // lblDiniBuscador
+            // lblDniBuscador
             // 
-            this.lblDiniBuscador.AutoSize = true;
-            this.lblDiniBuscador.Location = new System.Drawing.Point(408, 27);
-            this.lblDiniBuscador.Name = "lblDiniBuscador";
-            this.lblDiniBuscador.Size = new System.Drawing.Size(23, 13);
-            this.lblDiniBuscador.TabIndex = 10;
-            this.lblDiniBuscador.Text = "Dni";
+            this.lblDniBuscador.AutoSize = true;
+            this.lblDniBuscador.Location = new System.Drawing.Point(408, 27);
+            this.lblDniBuscador.Name = "lblDniBuscador";
+            this.lblDniBuscador.Size = new System.Drawing.Size(23, 13);
+            this.lblDniBuscador.TabIndex = 10;
+            this.lblDniBuscador.Text = "Dni";
             // 
             // lblApellidosBuscador
             // 
@@ -160,7 +164,7 @@
             // lblFechaNacimientoBuscador
             // 
             this.lblFechaNacimientoBuscador.AutoSize = true;
-            this.lblFechaNacimientoBuscador.Location = new System.Drawing.Point(365, 80);
+            this.lblFechaNacimientoBuscador.Location = new System.Drawing.Point(360, 64);
             this.lblFechaNacimientoBuscador.Name = "lblFechaNacimientoBuscador";
             this.lblFechaNacimientoBuscador.Size = new System.Drawing.Size(90, 13);
             this.lblFechaNacimientoBuscador.TabIndex = 12;
@@ -182,7 +186,7 @@
             // 
             // txtFechaNacimientoBuscador
             // 
-            this.txtFechaNacimientoBuscador.Location = new System.Drawing.Point(461, 77);
+            this.txtFechaNacimientoBuscador.Location = new System.Drawing.Point(461, 61);
             this.txtFechaNacimientoBuscador.Name = "txtFechaNacimientoBuscador";
             this.txtFechaNacimientoBuscador.Size = new System.Drawing.Size(100, 20);
             this.txtFechaNacimientoBuscador.TabIndex = 15;
@@ -195,6 +199,7 @@
             this.btnApellidosBuscador.TabIndex = 16;
             this.btnApellidosBuscador.Text = "Buscar";
             this.btnApellidosBuscador.UseVisualStyleBackColor = true;
+            this.btnApellidosBuscador.Click += new System.EventHandler(this.btnApellidosBuscador_Click);
             // 
             // btnDniBuscador
             // 
@@ -204,21 +209,52 @@
             this.btnDniBuscador.TabIndex = 17;
             this.btnDniBuscador.Text = "Buscar";
             this.btnDniBuscador.UseVisualStyleBackColor = true;
+            this.btnDniBuscador.Click += new System.EventHandler(this.btnDniBuscador_Click);
             // 
             // btnFechaNacimientoBuscador
             // 
-            this.btnFechaNacimientoBuscador.Location = new System.Drawing.Point(597, 74);
+            this.btnFechaNacimientoBuscador.Location = new System.Drawing.Point(597, 59);
             this.btnFechaNacimientoBuscador.Name = "btnFechaNacimientoBuscador";
             this.btnFechaNacimientoBuscador.Size = new System.Drawing.Size(75, 23);
             this.btnFechaNacimientoBuscador.TabIndex = 18;
             this.btnFechaNacimientoBuscador.Text = "Buscar";
             this.btnFechaNacimientoBuscador.UseVisualStyleBackColor = true;
+            this.btnFechaNacimientoBuscador.Click += new System.EventHandler(this.btnFechaNacimientoBuscador_Click);
+            // 
+            // lblGuidBuscador
+            // 
+            this.lblGuidBuscador.AutoSize = true;
+            this.lblGuidBuscador.Location = new System.Drawing.Point(396, 102);
+            this.lblGuidBuscador.Name = "lblGuidBuscador";
+            this.lblGuidBuscador.Size = new System.Drawing.Size(29, 13);
+            this.lblGuidBuscador.TabIndex = 19;
+            this.lblGuidBuscador.Text = "Guid";
+            // 
+            // txtGuidBuscador
+            // 
+            this.txtGuidBuscador.Location = new System.Drawing.Point(461, 95);
+            this.txtGuidBuscador.Name = "txtGuidBuscador";
+            this.txtGuidBuscador.Size = new System.Drawing.Size(100, 20);
+            this.txtGuidBuscador.TabIndex = 20;
+            // 
+            // btnGuidBuscador
+            // 
+            this.btnGuidBuscador.Location = new System.Drawing.Point(597, 91);
+            this.btnGuidBuscador.Name = "btnGuidBuscador";
+            this.btnGuidBuscador.Size = new System.Drawing.Size(75, 23);
+            this.btnGuidBuscador.TabIndex = 21;
+            this.btnGuidBuscador.Text = "Buscar";
+            this.btnGuidBuscador.UseVisualStyleBackColor = true;
+            this.btnGuidBuscador.Click += new System.EventHandler(this.btnGuidBuscador_Click);
             // 
             // AlumnosShowForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGuidBuscador);
+            this.Controls.Add(this.txtGuidBuscador);
+            this.Controls.Add(this.lblGuidBuscador);
             this.Controls.Add(this.btnFechaNacimientoBuscador);
             this.Controls.Add(this.btnDniBuscador);
             this.Controls.Add(this.btnApellidosBuscador);
@@ -227,7 +263,7 @@
             this.Controls.Add(this.txtApellidosBuscador);
             this.Controls.Add(this.lblFechaNacimientoBuscador);
             this.Controls.Add(this.lblApellidosBuscador);
-            this.Controls.Add(this.lblDiniBuscador);
+            this.Controls.Add(this.lblDniBuscador);
             this.Controls.Add(this.txtNombreBuscador);
             this.Controls.Add(this.lblNombreBuscador);
             this.Controls.Add(this.btnNombreBuscador);
@@ -258,7 +294,7 @@
         private System.Windows.Forms.Button btnNombreBuscador;
         private System.Windows.Forms.Label lblNombreBuscador;
         private System.Windows.Forms.TextBox txtNombreBuscador;
-        private System.Windows.Forms.Label lblDiniBuscador;
+        private System.Windows.Forms.Label lblDniBuscador;
         private System.Windows.Forms.Label lblApellidosBuscador;
         private System.Windows.Forms.Label lblFechaNacimientoBuscador;
         private System.Windows.Forms.TextBox txtApellidosBuscador;
@@ -267,5 +303,8 @@
         private System.Windows.Forms.Button btnApellidosBuscador;
         private System.Windows.Forms.Button btnDniBuscador;
         private System.Windows.Forms.Button btnFechaNacimientoBuscador;
+        private System.Windows.Forms.Label lblGuidBuscador;
+        private System.Windows.Forms.TextBox txtGuidBuscador;
+        private System.Windows.Forms.Button btnGuidBuscador;
     }
 }

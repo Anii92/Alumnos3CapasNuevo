@@ -30,6 +30,11 @@ namespace Vueling.Common.Logic.Models
             log.Debug(alumno.ToJson());
         }
 
+        public void Debug(string message)
+        {
+            log.Debug(message);
+        }
+
         public void Debug(string format, params object[] args)
         {
             throw new NotImplementedException();

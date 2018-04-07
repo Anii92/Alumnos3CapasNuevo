@@ -24,7 +24,7 @@ namespace Vueling.Common.Logic.Models
         public Persona()
         {
             Log.Debug("Entra Persona");
-            this.MiGuid = Guid.NewGuid().ToString();
+            this.Guid = System.Guid.NewGuid().ToString();
             Log.Debug("Sale Persona");
         }
 
@@ -38,7 +38,7 @@ namespace Vueling.Common.Logic.Models
             this.Edad = edad;
             this.FechaNacimiento = fechaNacimiento;
             this.FechaHora = DateTime.Now;
-            this.MiGuid = Guid.NewGuid().ToString();
+            this.Guid = System.Guid.NewGuid().ToString();
             Log.Debug("Sale Persona");
         }
 
@@ -52,7 +52,7 @@ namespace Vueling.Common.Logic.Models
             this.Edad = edad;
             this.FechaNacimiento = fechaNacimiento;
             this.FechaHora = fechaHora;
-            this.MiGuid = guid;
+            this.Guid = guid;
             Log.Debug("Sale Persona");
         }
 
@@ -69,7 +69,7 @@ namespace Vueling.Common.Logic.Models
                    FechaNacimiento.ToString() == persona.FechaNacimiento.ToString() &&
                    Edad == persona.Edad &&
                    FechaHora.ToString() == persona.FechaHora.ToString() &&
-                   MiGuid == persona.MiGuid;
+                   Guid == persona.Guid;
         }
 
         public override int GetHashCode()
@@ -83,7 +83,7 @@ namespace Vueling.Common.Logic.Models
             hashCode = hashCode * -1521134295 + FechaNacimiento.GetHashCode();
             hashCode = hashCode * -1521134295 + Edad.GetHashCode();
             hashCode = hashCode * -1521134295 + FechaHora.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(MiGuid);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Guid);
             Log.Debug("Sale GetHashCode");
             return hashCode;
         }
