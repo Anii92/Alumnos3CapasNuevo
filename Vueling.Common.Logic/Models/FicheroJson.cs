@@ -21,10 +21,11 @@ namespace Vueling.Common.Logic.Models
             this.Ruta = ruta;
         }
 
-        public void Guardar(Alumno alumno)
+        public Alumno Guardar(Alumno alumno)
         {
             try
             {
+                Alumno alumnoInsertado;
                 this.logger.Debug("Entra Guardar");
                 if (!File.Exists(this.Ruta))
                 {
@@ -42,7 +43,9 @@ namespace Vueling.Common.Logic.Models
                     string jsonData = FileUtils.ToJson(datosFichero, alumno);
                     System.IO.File.WriteAllText(this.Ruta, jsonData);
                 }
+                alumnoInsertado = this.Leer(alumno.Guid);
                 this.logger.Debug("Sale Guardar");
+                return alumnoInsertado;
             }
             catch (FileNotFoundException exception)
             {
@@ -62,6 +65,28 @@ namespace Vueling.Common.Logic.Models
             catch (FileNotFoundException exception)
             {
                 this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                throw;
+            }
+        }
+
+        public Alumno Leer(string guid)
+        {
+            try
+            {
+                this.logger.Debug("Entra Leer");
+                List<Alumno> alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+                Alumno alumnoInsertado = (alumnos.Where(alumno => alumno.Guid == guid)).FirstOrDefault();
+                this.logger.Debug("Salir Leer");
+                return alumnoInsertado;
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
+            catch (ArgumentNullException exception)
+            {
+                this.logger.Error(exception.Message);
                 throw;
             }
         }

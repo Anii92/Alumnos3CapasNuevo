@@ -22,13 +22,14 @@ namespace Vueling.Common.Logic.Models
             this.Ruta = ruta;
         }
 
-        public void Guardar(Alumno alumno)
+        public Alumno Guardar(Alumno alumno)
         {
             this.logger.Debug("Entrar Guaradr");
             List<Alumno> alumnos = new List<Alumno>();
             var xmlSerializer = new XmlSerializer(typeof(List<Alumno>));
             try
             {
+                Alumno alumnoInsertado;
                 if (File.Exists(this.Ruta))
                 {
                     using (Stream reader = File.OpenRead(this.Ruta))
@@ -41,7 +42,9 @@ namespace Vueling.Common.Logic.Models
                 {
                     xmlSerializer.Serialize(writer, alumnos);
                 }
+                alumnoInsertado = this.Leer(alumno.Guid);
                 this.logger.Debug("Sale Guardar");
+                return alumnoInsertado;
             }
             catch (FileNotFoundException exception)
             {
@@ -53,6 +56,28 @@ namespace Vueling.Common.Logic.Models
         public List<Alumno> Leer()
         {
             throw new NotImplementedException();
+        }
+
+        public Alumno Leer(string guid)
+        {
+            try
+            {
+                this.logger.Debug("Entra Leer");
+                List<Alumno> alumnos = FileUtils.DeserializeFicheroXml(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+                Alumno alumnoInsertado = (alumnos.Where(alumno => alumno.Guid == guid)).FirstOrDefault();
+                this.logger.Debug("Salir Leer");
+                return alumnoInsertado;
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
+            catch (ArgumentNullException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
         }
     }
 }

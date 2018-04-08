@@ -12,7 +12,8 @@ namespace Vueling.Common.Logic
         string Nombre { get; set; }
         string Ruta { get; set; }
 
-        void Guardar(Alumno alumno);
+        Alumno Guardar(Alumno alumno);
         List<Alumno> Leer();
+        Alumno Leer(string guid);
     }
 }

@@ -12,7 +12,7 @@ using log4net.Config;
 namespace Vueling.Business.Logic.Tests
 {
     [TestClass()]
-    public class AlumnoBLTests
+    public class AlumnoBLIntegrationTests
     {
         public static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -20,8 +20,6 @@ namespace Vueling.Business.Logic.Tests
         public static void AssemblyInitialize(TestContext context)
         {
             XmlConfigurator.Configure(new FileInfo("log4net.config"));
-            ILog LOG = LogManager.GetLogger(typeof(AlumnoBLTests));
-            LOG.Debug("Log4net initialized for tests");
         }
 
         [DataRow("22-01-1992", 26)]

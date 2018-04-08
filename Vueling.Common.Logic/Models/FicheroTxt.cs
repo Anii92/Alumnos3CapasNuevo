@@ -21,10 +21,11 @@ namespace Vueling.Common.Logic.Models
             this.Ruta = ruta;
         }
 
-        public void Guardar(Alumno alumno)
+        public Alumno Guardar(Alumno alumno)
         {
             try
             {
+                Alumno alumnoInsertado;
                 this.logger.Debug("Entra Guardar");
                 if (!File.Exists(this.Ruta))
                 {
@@ -37,7 +38,9 @@ namespace Vueling.Common.Logic.Models
                 {
                     File.AppendAllText(this.Ruta, FileUtils.ToString(alumno) + Environment.NewLine);
                 }
+                alumnoInsertado = this.Leer(alumno.Guid);
                 this.logger.Debug("Sale Guardar");
+                return alumnoInsertado;
             }
             catch (PathTooLongException exception)
             {
@@ -60,6 +63,27 @@ namespace Vueling.Common.Logic.Models
                 return FileUtils.DeserializeFicheroTexto(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
             }
             catch(FileNotFoundException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
+        }
+
+        public Alumno Leer(string guid)
+        {
+            try
+            {
+                this.logger.Debug("Entra Leer");
+                this.logger.Debug("Sale Leer");
+                List<Alumno> alumnos = FileUtils.DeserializeFicheroTexto(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
+                return (alumnos.Where(alumno => alumno.Guid == guid)).FirstOrDefault();
+            }
+            catch (FileNotFoundException exception)
+            {
+                this.logger.Error(exception.Message);
+                throw;
+            }
+            catch (ArgumentNullException exception)
             {
                 this.logger.Error(exception.Message);
                 throw;

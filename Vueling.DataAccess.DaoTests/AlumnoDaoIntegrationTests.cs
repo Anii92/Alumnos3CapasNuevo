@@ -12,15 +12,19 @@ using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
 using Newtonsoft.Json;
 using Vueling.Business.Logic;
+using Vueling.DataAccess.Dao.Singletons;
 
 namespace Vueling.DataAccess.Dao.Tests
 {
     [TestClass()]
-    public class AlumnoTests
+    public class AlumnoDaoIntegrationTests
     {
+        private AlumnoDao alumnoDao;
+
         [TestInitialize]
         public void Initialize()
         {
+            this.alumnoDao = new AlumnoDao();
             this.EliminarFichero();
         }
 
@@ -107,6 +111,24 @@ namespace Vueling.DataAccess.Dao.Tests
 
             Alumno alumnoFichero = FileUtils.DeserializeXml(fichero.Ruta);
             Assert.IsTrue(alumno.Equals(alumnoFichero));
+        }
+
+        [DataRow(TipoFichero.Xml)]
+        [DataTestMethod]
+        public void CargarDatosDeLosAlumnosXmlTest(TipoFichero tipoFichero)
+        {
+            this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
+            List<Alumno> alumnos = this.alumnoDao.Leer(tipoFichero);
+            Assert.IsNotNull(alumnos);
+        }
+
+        [DataRow(TipoFichero.Json)]
+        [DataTestMethod]
+        public void CargarDatosDeLosAlumnosJsonTest(TipoFichero tipoFichero)
+        {
+            this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
+            List<Alumno> alumnos = this.alumnoDao.Leer(tipoFichero);
+            Assert.IsNotNull(alumnos);
         }
     }
 }

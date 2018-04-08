@@ -33,8 +33,8 @@ namespace Vueling.Business.Logic
             {
                 alumno.Edad = CalcularEdad(alumno.FechaNacimiento);
                 alumno.FechaHora = CalcularFechaRegistro();
-                alumnoDao.Add(alumno, tipoFichero);
-                return alumno;
+                Alumno alumnoInsertado = alumnoDao.Add(alumno, tipoFichero);
+                return alumnoInsertado;
             }
             catch (ArgumentNullException exception)
             {
@@ -110,7 +110,7 @@ namespace Vueling.Business.Logic
             }
         }
 
-        private List<Alumno> FiltrarLosAlumnos(List<Alumno> alumnos, string clave, object valor)
+        public List<Alumno> FiltrarLosAlumnos(List<Alumno> alumnos, string clave, object valor)
         {
             try
             {

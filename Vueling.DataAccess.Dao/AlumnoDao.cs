@@ -52,13 +52,18 @@ namespace Vueling.DataAccess.Dao
             {
                 this.logger.Debug("Entra Add");
                 IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
-                fichero.Guardar(alumno);
+                Alumno alumnoInsertado = fichero.Guardar(alumno);
                 this.logger.Debug("Sale Add");
-                return alumno;
+                return alumnoInsertado;
             }
-            catch (ArgumentException exception)
+            catch (FileNotFoundException exception)
             {
                 logger.Error(exception.Message);
+                throw;
+            }
+            catch (ArgumentNullException exception)
+            {
+                this.logger.Error(exception.Message);
                 throw;
             }
         }
