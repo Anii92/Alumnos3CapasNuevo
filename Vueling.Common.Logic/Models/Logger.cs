@@ -27,12 +27,12 @@ namespace Vueling.Common.Logic.Models
 
         public void Debug(Alumno alumno)
         {
-            log.Debug(alumno.ToJson());
+            this.log.Debug(alumno.ToJson());
         }
 
         public void Debug(string message)
         {
-            log.Debug(message);
+            this.log.Debug(message);
         }
 
         public void Debug(string format, params object[] args)
@@ -47,12 +47,12 @@ namespace Vueling.Common.Logic.Models
 
         public void Error(string message)
         {
-            log.Error(message);
+            this.log.Error(message);
         }
 
         public void Error(string format, params object[] args)
         {
-            throw new NotImplementedException();
+            this.log.Error(format, (System.Exception) args[0]);
         }
 
         public void Exception(string message)
