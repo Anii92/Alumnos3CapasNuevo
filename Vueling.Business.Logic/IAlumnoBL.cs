@@ -16,5 +16,6 @@ namespace Vueling.Business.Logic
         void CargarDatosDeLosAlumnos(TipoFichero tipoFichero);
         List<Alumno> Leer(TipoFichero tipoFichero);
         List<Alumno> Filtrar(string clave, string valor);
+        int CalcularEdad(DateTime fechaNacimiento);
     }
 }

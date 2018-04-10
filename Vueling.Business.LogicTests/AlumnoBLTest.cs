@@ -42,6 +42,21 @@ namespace Vueling.Business.LogicTests
             Assert.IsTrue(alumno.Equals(alumnoInsertado));
         }
 
+        [DataRow(TipoFichero.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataTestMethod]
+        public void LeerTest(TipoFichero tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        {
+            Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
+            List<Alumno> alumnos = new List<Alumno>();
+            alumnos.Add(alumno);
+            this.alumnoDaoMock.Expects.One
+                .MethodWith(alumnoDao => alumnoDao.Leer(tipo))
+                .WillReturn(alumnos);
+            List<Alumno> listadoAlumnos = this.alumnoDaoMock.MockObject.Leer(tipo);
+
+            Assert.IsNotNull(listadoAlumnos);
+        }
+
         [DataRow(TipoFichero.Texto, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Texto, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
         [DataRow(TipoFichero.Texto, "Id", 1, 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]

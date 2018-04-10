@@ -32,7 +32,7 @@ namespace Vueling.Presentation.WinSite
             this.logger.Debug("Fin del constructor AlumnoForm");
         }
 
-        private void btnTxt_Click(object sender, EventArgs e)
+        public void btnTxt_Click(object sender, EventArgs e)
         {
             try
             {
