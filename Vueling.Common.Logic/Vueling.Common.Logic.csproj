@@ -66,5 +66,11 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Vueling.Resources\Vueling.Resources.csproj">
+      <Project>{62701086-EFA0-4B0F-8187-D112C35197D9}</Project>
+      <Name>Vueling.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

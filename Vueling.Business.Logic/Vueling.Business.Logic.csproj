@@ -56,6 +56,10 @@
       <Project>{7b80ae09-0a73-4023-a09f-dc6eb5289cb1}</Project>
       <Name>Vueling.DataAccess.Dao</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Vueling.Resources\Vueling.Resources.csproj">
+      <Project>{62701086-EFA0-4B0F-8187-D112C35197D9}</Project>
+      <Name>Vueling.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="log4net.config">

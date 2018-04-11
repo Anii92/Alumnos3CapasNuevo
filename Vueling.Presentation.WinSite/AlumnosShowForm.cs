@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic.Models;
+using Vueling.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.Presentation.WinSite
@@ -22,69 +23,69 @@ namespace Vueling.Presentation.WinSite
 
         public AlumnosShowForm()
         {
-            this.logger.Debug("Entra en AlumnosShowForm");
+            this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             InitializeComponent();
             this.alumnoBL = new AlumnoBL();
             this.CargarDatosDeLosAlumnos();
             this.MostrarLosAlumnosEnPantalla(TipoFichero.Texto);
-            this.logger.Debug("Fin de AlumnosShowForm");
+            this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         public AlumnosShowForm(Alumno alumno)
         {
-            this.logger.Debug("Entra en AlumnosShowForm");
+            this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             InitializeComponent();
             this.alumnoBL = new AlumnoBL();
             this.CargarDatosDeLosAlumnos();
             this.MostrarAlumnoEnPantalla(alumno);
-            this.logger.Debug("Fin de AlumnosShowForm");
+            this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         private void MostrarAlumnoEnPantalla(Alumno alumno)
         {
-            this.logger.Debug("Entra en MostrarAlumnoEnPantalla");
+            this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             List<Alumno> alumnos = new List<Alumno>();
             alumnos.Add(alumno);
             this.EscribirEnPantalla(alumnos);
-            this.logger.Debug("Fin de MostrarAlumnoEnPantalla");
+            this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         private void CargarDatosDeLosAlumnos()
         {
             try
             {
-                this.logger.Debug("Entra en CargarAlumnosFichero");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.alumnoBL.CargarDatosDeLosAlumnos(TipoFichero.Json);
                 this.alumnoBL.CargarDatosDeLosAlumnos(TipoFichero.Xml);
-                this.logger.Debug("Fin de CargarAlumnosFichero");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
 
         private void EscribirEnPantalla(List<Alumno> alumnos)
         {
-            this.logger.Debug("Entra en EscribirEnPantalla");
+            this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             this.dataGridAlumnos.DataSource = alumnos;
             this.dataGridAlumnos.Update();
-            this.logger.Debug("Fin de EscribirEnPantalla");
+            this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         private void MostrarLosAlumnosEnPantalla(TipoFichero tipoFichero)
         {
             try
             {
-                this.logger.Debug("Entra en MostrarAlumnosTextoEnPantalla");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnos = this.alumnoBL.Leer(tipoFichero);
                 this.EscribirEnPantalla(alumnos);
-                this.logger.Debug("Fin de MostrarAlumnosTextoEnPantalla");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -93,14 +94,14 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnTxtBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.MostrarLosAlumnosEnPantalla(TipoFichero.Texto);
-                this.logger.Debug("Fin de btnTxtBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -109,14 +110,14 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnJsonBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.EscribirEnPantalla(this.alumnoBL.Leer(TipoFichero.Json));
-                this.logger.Debug("Fin de btnJsonBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -125,14 +126,14 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnXmlBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.EscribirEnPantalla(this.alumnoBL.Leer(TipoFichero.Xml));
-                this.logger.Debug("Fin de btnXmlBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -141,15 +142,15 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnosFiltrados = this.alumnoBL.Filtrar(this.lblIdBuscador.Text, this.txtIdBuscador.Text);
                 this.EscribirEnPantalla(alumnosFiltrados);
-                this.logger.Debug("Fin de btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -158,15 +159,15 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnosFiltrados = this.alumnoBL.Filtrar(this.lblNombreBuscador.Text, this.txtNombreBuscador.Text);
                 this.EscribirEnPantalla(alumnosFiltrados);
-                this.logger.Debug("Fin de btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -175,15 +176,15 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnosFiltrados = this.alumnoBL.Filtrar(this.lblApellidosBuscador.Text, this.txtApellidosBuscador.Text);
                 this.EscribirEnPantalla(alumnosFiltrados);
-                this.logger.Debug("Fin de btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -192,15 +193,15 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnosFiltrados = this.alumnoBL.Filtrar(this.lblDniBuscador.Text, this.txtDniBuscador.Text);
                 this.EscribirEnPantalla(alumnosFiltrados);
-                this.logger.Debug("Fin de btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -209,16 +210,16 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 DateTime fecha = Convert.ToDateTime(this.txtFechaNacimientoBuscador.Text);
                 List<Alumno> alumnosFiltrados = this.alumnoBL.Filtrar(this.lblFechaNacimientoBuscador.Text, fecha.ToString());
                 this.EscribirEnPantalla(alumnosFiltrados);
-                this.logger.Debug("Fin de btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -227,15 +228,15 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Entra en btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnosFiltrados = this.alumnoBL.Filtrar(this.lblGuidBuscador.Text, this.txtGuidBuscador.Text);
                 this.EscribirEnPantalla(alumnosFiltrados);
-                this.logger.Debug("Fin de btnNombreBuscador_Click");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Vueling.Resources;
 
 namespace Vueling.Common.Logic.Models
 {
@@ -24,7 +25,7 @@ namespace Vueling.Common.Logic.Models
 
         public Alumno Guardar(Alumno alumno)
         {
-            this.logger.Debug("Entrar Guaradr");
+            this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             List<Alumno> alumnos = new List<Alumno>();
             var xmlSerializer = new XmlSerializer(typeof(List<Alumno>));
             try
@@ -43,12 +44,12 @@ namespace Vueling.Common.Logic.Models
                     xmlSerializer.Serialize(writer, alumnos);
                 }
                 alumnoInsertado = this.Leer(alumno.Guid);
-                this.logger.Debug("Sale Guardar");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -62,20 +63,20 @@ namespace Vueling.Common.Logic.Models
         {
             try
             {
-                this.logger.Debug("Entra Leer");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnos = FileUtils.DeserializeFicheroXml(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
                 Alumno alumnoInsertado = (alumnos.Where(alumno => alumno.Guid == guid)).FirstOrDefault();
-                this.logger.Debug("Salir Leer");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
             catch (ArgumentNullException exception)
             {
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }

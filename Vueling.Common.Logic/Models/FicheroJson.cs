@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vueling.Resources;
 
 namespace Vueling.Common.Logic.Models
 {
@@ -26,7 +27,7 @@ namespace Vueling.Common.Logic.Models
             try
             {
                 Alumno alumnoInsertado;
-                this.logger.Debug("Entra Guardar");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 if (!File.Exists(this.Ruta))
                 {
                     List<Alumno> alumnos = new List<Alumno>();
@@ -44,12 +45,12 @@ namespace Vueling.Common.Logic.Models
                     System.IO.File.WriteAllText(this.Ruta, jsonData);
                 }
                 alumnoInsertado = this.Leer(alumno.Guid);
-                this.logger.Debug("Sale Guardar");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -58,13 +59,13 @@ namespace Vueling.Common.Logic.Models
         {
             try
             {
-                this.logger.Debug("Entra Leer");
-                this.logger.Debug("Sale Leer");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -73,20 +74,20 @@ namespace Vueling.Common.Logic.Models
         {
             try
             {
-                this.logger.Debug("Entra Leer");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
                 Alumno alumnoInsertado = (alumnos.Where(alumno => alumno.Guid == guid)).FirstOrDefault();
-                this.logger.Debug("Salir Leer");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
             catch (ArgumentNullException exception)
             {
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }

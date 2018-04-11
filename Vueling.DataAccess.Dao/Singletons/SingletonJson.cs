@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
+using Vueling.Resources;
 
 namespace Vueling.DataAccess.Dao.Singletons
 {
@@ -45,13 +46,13 @@ namespace Vueling.DataAccess.Dao.Singletons
         {
             try
             {
-                this.logger.Debug("Entra Cargar");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
-                this.logger.Debug("Sale Cargar");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -60,11 +61,13 @@ namespace Vueling.DataAccess.Dao.Singletons
         {
             try
             {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return this.alumnos;
             }
             catch (NullReferenceException exception)
             {
-                this.logger.Error("No se ha cargado el fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }

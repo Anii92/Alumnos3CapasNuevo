@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Models;
+using Vueling.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.DataAccess.Dao.Factories
@@ -16,20 +17,20 @@ namespace Vueling.DataAccess.Dao.Factories
             try
             {
                 Logger logger = new Logger();
-                logger.Debug("Entra CrearFichero");
+                logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 switch (tipoFichero)
                 {
                     case TipoFichero.Texto:
-                        logger.Debug("Sale CrearFichero texto");
+                        logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " "+ tipoFichero.ToString());
                         return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
                     case TipoFichero.Json:
-                        logger.Debug("Sale CrearFichero json");
+                        logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
                         return new FicheroJson(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
                     case TipoFichero.Xml:
-                        logger.Debug("Sale CrearFichero xml");
+                        logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
                         return new FicheroXml(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.xml"));
                     default:
-                        logger.Debug("Sale CrearFichero texto");
+                        logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
                         return new FicheroTxt(nombre, System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
                 }
             }

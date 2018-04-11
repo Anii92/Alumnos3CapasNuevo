@@ -79,6 +79,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -105,6 +106,10 @@
     <ProjectReference Include="..\Vueling.Common.Logic\Vueling.Common.Logic.csproj">
       <Project>{0f3fc773-7277-4b09-89e7-1210b6766768}</Project>
       <Name>Vueling.Common.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vueling.Resources\Vueling.Resources.csproj">
+      <Project>{62701086-EFA0-4B0F-8187-D112C35197D9}</Project>
+      <Name>Vueling.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

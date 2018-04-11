@@ -1,17 +1,12 @@
 ﻿using log4net;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
+using Vueling.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.Presentation.WinSite
@@ -26,31 +21,33 @@ namespace Vueling.Presentation.WinSite
 
         public AlumnoForm()
         {
-            this.logger.Debug("Inicia la aplicación.");
+            this.logger.Debug(Resources.ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             InitializeComponent();
             alumnoBL = new AlumnoBL();
-            this.logger.Debug("Fin del constructor AlumnoForm");
+            this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
         public void btnTxt_Click(object sender, EventArgs e)
         {
             try
             {
-                this.logger.Debug("Inicio de la función btnTxt_Click");
+                //Utilizar multilenguaje
+                //Thread.CurrentThread.CurrentUICulture = new CultureInfo("EN-US");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Texto);
-                MessageBox.Show("El alumno se ha guardado correctamente!");
-                this.logger.Debug("Fin de la función btnTxt_Click");
+                MessageBox.Show(Vueling.Resources.Resources.studentAddSuccess);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
             catch (ArgumentNullException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Agumento nulo" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -58,21 +55,21 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Inicio de la función btnJson_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Json);
-                MessageBox.Show("El alumno se ha guardado correctamente!");
-                this.logger.Debug("Inicio de la función btnJson_Click");
+                MessageBox.Show(Vueling.Resources.Resources.studentAddSuccess);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
             catch (ArgumentNullException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Agumento nulo" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -80,21 +77,21 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Inicio de la función btnXml_Click");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Xml);
-                MessageBox.Show("El alumno se ha guardado correctamente!");
-                this.logger.Debug("Inicio de la función btnXml_Click");
+                MessageBox.Show(Vueling.Resources.Resources.studentAddSuccess);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
             catch (ArgumentNullException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Agumento nulo" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -102,7 +99,7 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
-                this.logger.Debug("Inicio de la función LoadAlumnoData");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.alumno = new Alumno();
                 this.alumno.Id = Convert.ToInt32(txtId.Text);
                 this.alumno.Nombre = txtNombre.Text;
@@ -110,11 +107,11 @@ namespace Vueling.Presentation.WinSite
                 this.alumno.Dni = txtDni.Text;
                 this.alumno.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
                 this.logger.Debug(FileUtils.ToJson(alumno));
-                this.logger.Debug("Fin de la función LoadAlumnoData");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -123,20 +120,22 @@ namespace Vueling.Presentation.WinSite
         {
             try
             {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
                 AlumnosShowForm alumnosShowForm = new AlumnosShowForm(alumno);
                 alumnosShowForm.Show();
                 this.Hide();
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Referencia nula" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
             catch (ArgumentNullException exception)
             {
                 MessageBox.Show(exception.Message);
-                this.logger.Error("Agumento nulo" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
     }

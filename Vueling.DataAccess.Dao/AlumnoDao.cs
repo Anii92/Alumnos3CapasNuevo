@@ -9,6 +9,7 @@ using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao.Factories;
 using Vueling.DataAccess.Dao.Singletons;
+using Vueling.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.DataAccess.Dao
@@ -24,7 +25,7 @@ namespace Vueling.DataAccess.Dao
         {
             try
             {
-                this.logger.Debug("Entra CargarDatosFichero");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 switch (tipoFichero)
                 {
                     case (TipoFichero.Json):
@@ -37,11 +38,11 @@ namespace Vueling.DataAccess.Dao
                         SingletonJson.Instance.Cargar();
                         break;
                 }
-                this.logger.Debug("Sale CargarDatosFichero");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
             {
-                this.logger.Error("No se ha podido cargar el fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -50,20 +51,20 @@ namespace Vueling.DataAccess.Dao
         {
             try
             {
-                this.logger.Debug("Entra Add");
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
                 Alumno alumnoInsertado = fichero.Guardar(alumno);
-                this.logger.Debug("Sale Add");
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
             catch (FileNotFoundException exception)
             {
-                logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
             catch (ArgumentNullException exception)
             {
-                this.logger.Error(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
@@ -72,26 +73,35 @@ namespace Vueling.DataAccess.Dao
         {
             try
             {
+                List<Alumno> alumnos;
                 switch (tipoFichero)
                 {
                     case (TipoFichero.Texto):
-                        this.logger.Debug("Entra leer alumnos json");
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
                         IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
-                        return fichero.Leer();
+                        alumnos = fichero.Leer();
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        return alumnos;
                     case (TipoFichero.Json):
-                        this.logger.Debug("Entra leer alumnos json");
-                        return SingletonJson.Instance.Leer();
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        alumnos = SingletonJson.Instance.Leer();
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        return alumnos;
                     case (TipoFichero.Xml):
-                        this.logger.Debug("Entra leer alumnos xml");
-                        return SingletonXml.Instance.Leer();
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        alumnos = SingletonXml.Instance.Leer();
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        return alumnos;
                     default:
-                        this.logger.Debug("Entra leer alumnos json");
-                        return SingletonJson.Instance.Leer();
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        alumnos = SingletonJson.Instance.Leer();
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        return alumnos;
                 }
             }
             catch (NullReferenceException exception)
             {
-                this.logger.Error("No se han cargado datos del fichero" + exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
         }
