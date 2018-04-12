@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vueling.Resources {
+namespace Vueling.Business.Logic.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Vueling.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class ResourcesLog {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal ResourcesLog() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Vueling.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Vueling.Resources.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Vueling.Business.Logic.Resources.ResourcesLog", typeof(ResourcesLog).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,20 @@ namespace Vueling.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a El alumno se ha guardado correctamente!.
+        ///   Busca una cadena traducida similar a End function:.
         /// </summary>
-        internal static string studentAddSuccess {
+        internal static string endFunction {
             get {
-                return ResourceManager.GetString("studentAddSuccess", resourceCulture);
+                return ResourceManager.GetString("endFunction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Start function:.
+        /// </summary>
+        internal static string startFunction {
+            get {
+                return ResourceManager.GetString("startFunction", resourceCulture);
             }
         }
     }

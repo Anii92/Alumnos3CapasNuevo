@@ -57,6 +57,11 @@
     <Compile Include="Models\Logger.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\VuelingObject.cs" />
+    <Compile Include="Resources\ResourcesLog.Designer.cs">
+      <DependentUpon>ResourcesLog.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Utils\FileUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -67,10 +72,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Vueling.Resources\Vueling.Resources.csproj">
-      <Project>{62701086-EFA0-4B0F-8187-D112C35197D9}</Project>
-      <Name>Vueling.Resources</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="Resources\ResourcesLog.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesLog.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
