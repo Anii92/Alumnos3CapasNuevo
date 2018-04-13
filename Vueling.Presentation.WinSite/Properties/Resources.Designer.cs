@@ -59,14 +59,5 @@ namespace Vueling.Presentation.WinSite.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a test.
-        /// </summary>
-        internal static string Test {
-            get {
-                return ResourceManager.GetString("Test", resourceCulture);
-            }
-        }
     }
 }

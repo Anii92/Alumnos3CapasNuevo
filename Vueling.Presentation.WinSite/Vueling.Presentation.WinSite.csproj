@@ -65,18 +65,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Resources.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ResourcesPresentation.Designer.cs">
+      <DependentUpon>ResourcesPresentation.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Resources\Resources.EN-US.Designer.cs">
-      <DependentUpon>Resources.EN-US.resx</DependentUpon>
+    <Compile Include="Resources\ResourcesPresentation.EN-US.Designer.cs">
+      <DependentUpon>ResourcesPresentation.EN-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Resources\Resources.ES-CA.Designer.cs">
-      <DependentUpon>Resources.ES-CA.resx</DependentUpon>
+    <Compile Include="Resources\ResourcesPresentation.ES-CA.Designer.cs">
+      <DependentUpon>ResourcesPresentation.ES-CA.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -94,24 +99,18 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <EmbeddedResource Include="Resources\Resources.EN-US.resx">
+    <EmbeddedResource Include="Resources\ResourcesPresentation.EN-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.EN-US.Designer.cs</LastGenOutput>
+      <LastGenOutput>ResourcesPresentation.EN-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Resources.ES-CA.resx">
+    <EmbeddedResource Include="Resources\ResourcesPresentation.ES-CA.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.ES-CA.Designer.cs</LastGenOutput>
+      <LastGenOutput>ResourcesPresentation.ES-CA.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Resources.resx">
+    <EmbeddedResource Include="Resources\ResourcesPresentation.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>ResourcesPresentation.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ResourcesLog.resx">
       <Generator>ResXFileCodeGenerator</Generator>

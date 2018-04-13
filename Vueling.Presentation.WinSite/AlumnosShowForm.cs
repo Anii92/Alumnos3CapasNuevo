@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic.Models;
-using Vueling.Resources;
+using Vueling.Presentation.WinSite.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.Presentation.WinSite

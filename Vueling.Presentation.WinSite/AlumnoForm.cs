@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
-using Vueling.Resources;
+using Vueling.Presentation.WinSite.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.Presentation.WinSite
@@ -21,7 +21,7 @@ namespace Vueling.Presentation.WinSite
 
         public AlumnoForm()
         {
-            this.logger.Debug(Resources.ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             InitializeComponent();
             alumnoBL = new AlumnoBL();
             this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -36,7 +36,7 @@ namespace Vueling.Presentation.WinSite
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Texto);
-                MessageBox.Show(Vueling.Resources.Resources.studentAddSuccess);
+                MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
@@ -58,7 +58,7 @@ namespace Vueling.Presentation.WinSite
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Json);
-                MessageBox.Show(Vueling.Resources.Resources.studentAddSuccess);
+                MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
@@ -80,7 +80,7 @@ namespace Vueling.Presentation.WinSite
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
                 alumnoBL.Add(alumno, TipoFichero.Xml);
-                MessageBox.Show(Vueling.Resources.Resources.studentAddSuccess);
+                MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (NullReferenceException exception)
