@@ -24,7 +24,7 @@ namespace Vueling.Business.Logic
         public AlumnoBL()
         {
             this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            alumnoDao = new AlumnoDao();
+            this.alumnoDao = new AlumnoDao();
             this.TipoFichero = TipoFichero.Texto;
             this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
