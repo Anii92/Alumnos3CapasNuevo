@@ -9,7 +9,7 @@ using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao.Factories;
 using Vueling.DataAccess.Dao.Singletons;
-using Vueling.Resources;
+using Vueling.DataAccess.Dao.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.DataAccess.Dao

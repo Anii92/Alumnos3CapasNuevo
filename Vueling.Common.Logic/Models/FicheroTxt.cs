@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Models;
-using Vueling.Resources;
+using Vueling.Common.Logic.Resources;
 
 namespace Vueling.Common.Logic.Models
 {

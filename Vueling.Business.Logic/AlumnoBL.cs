@@ -10,7 +10,7 @@ using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 using Vueling.Common.Logic;
-using Vueling.Resources;
+using Vueling.Business.Logic.Resources;
 
 namespace Vueling.Business.Logic
 {
