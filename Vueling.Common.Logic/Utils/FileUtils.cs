@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 using Vueling.Common.Logic.Models;
-using Vueling.Resources;
+using Vueling.Common.Logic.Resources;
 
 namespace Vueling.Common.Logic
 {

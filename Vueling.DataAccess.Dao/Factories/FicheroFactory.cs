@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Models;
-using Vueling.Resources;
+using Vueling.DataAccess.Dao.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.DataAccess.Dao.Factories
