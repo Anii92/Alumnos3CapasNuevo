@@ -39,6 +39,7 @@
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -70,6 +71,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ResourcesIdiomas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesIdiomas.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ResourcesPresentation.Designer.cs">
       <DependentUpon>ResourcesPresentation.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -90,15 +96,40 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="AlumnoForm.ca.resx">
+      <DependentUpon>AlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoForm.en.resx">
+      <DependentUpon>AlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoForm.es.resx">
+      <DependentUpon>AlumnoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlumnoForm.resx">
       <DependentUpon>AlumnoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AlumnosShowForm.ca.resx">
+      <DependentUpon>AlumnosShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnosShowForm.en.resx">
+      <DependentUpon>AlumnosShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnosShowForm.es.resx">
+      <DependentUpon>AlumnosShowForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlumnosShowForm.resx">
+      <DependentUpon>AlumnosShowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnosShowForm.sl-SI.resx">
       <DependentUpon>AlumnosShowForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ResourcesIdiomas.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesIdiomas.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ResourcesPresentation.EN-US.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlumnosShowForm));
             this.dataGridAlumnos = new System.Windows.Forms.DataGridView();
             this.btnTxtBuscador = new System.Windows.Forms.Button();
             this.btnJsonBuscador = new System.Windows.Forms.Button();
@@ -50,208 +51,206 @@
             this.lblGuidBuscador = new System.Windows.Forms.Label();
             this.txtGuidBuscador = new System.Windows.Forms.TextBox();
             this.btnGuidBuscador = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.idiomasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCastellano = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemIngles = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCatalan = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCrearAlumno = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemShowAll = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAlumnos)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridAlumnos
             // 
+            resources.ApplyResources(this.dataGridAlumnos, "dataGridAlumnos");
             this.dataGridAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAlumnos.Location = new System.Drawing.Point(42, 156);
             this.dataGridAlumnos.Name = "dataGridAlumnos";
-            this.dataGridAlumnos.Size = new System.Drawing.Size(700, 150);
-            this.dataGridAlumnos.TabIndex = 0;
             // 
             // btnTxtBuscador
             // 
-            this.btnTxtBuscador.Location = new System.Drawing.Point(124, 325);
+            resources.ApplyResources(this.btnTxtBuscador, "btnTxtBuscador");
             this.btnTxtBuscador.Name = "btnTxtBuscador";
-            this.btnTxtBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnTxtBuscador.TabIndex = 1;
-            this.btnTxtBuscador.Text = "Txt";
             this.btnTxtBuscador.UseVisualStyleBackColor = true;
             this.btnTxtBuscador.Click += new System.EventHandler(this.btnTxtBuscador_Click);
             // 
             // btnJsonBuscador
             // 
-            this.btnJsonBuscador.Location = new System.Drawing.Point(278, 325);
+            resources.ApplyResources(this.btnJsonBuscador, "btnJsonBuscador");
             this.btnJsonBuscador.Name = "btnJsonBuscador";
-            this.btnJsonBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnJsonBuscador.TabIndex = 2;
-            this.btnJsonBuscador.Text = "Json";
             this.btnJsonBuscador.UseVisualStyleBackColor = true;
             this.btnJsonBuscador.Click += new System.EventHandler(this.btnJsonBuscador_Click);
             // 
             // btnXmlBuscador
             // 
-            this.btnXmlBuscador.Location = new System.Drawing.Point(428, 325);
+            resources.ApplyResources(this.btnXmlBuscador, "btnXmlBuscador");
             this.btnXmlBuscador.Name = "btnXmlBuscador";
-            this.btnXmlBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnXmlBuscador.TabIndex = 3;
-            this.btnXmlBuscador.Text = "Xml";
             this.btnXmlBuscador.UseVisualStyleBackColor = true;
             this.btnXmlBuscador.Click += new System.EventHandler(this.btnXmlBuscador_Click);
             // 
             // btnIdBuscador
             // 
-            this.btnIdBuscador.Location = new System.Drawing.Point(255, 23);
+            resources.ApplyResources(this.btnIdBuscador, "btnIdBuscador");
             this.btnIdBuscador.Name = "btnIdBuscador";
-            this.btnIdBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnIdBuscador.TabIndex = 4;
-            this.btnIdBuscador.Text = "Buscar";
             this.btnIdBuscador.UseVisualStyleBackColor = true;
             this.btnIdBuscador.Click += new System.EventHandler(this.btnIdBuscador_Click);
             // 
             // lblIdBuscador
             // 
-            this.lblIdBuscador.AutoSize = true;
-            this.lblIdBuscador.Location = new System.Drawing.Point(59, 29);
+            resources.ApplyResources(this.lblIdBuscador, "lblIdBuscador");
             this.lblIdBuscador.Name = "lblIdBuscador";
-            this.lblIdBuscador.Size = new System.Drawing.Size(16, 13);
-            this.lblIdBuscador.TabIndex = 5;
-            this.lblIdBuscador.Text = "Id";
             // 
             // txtIdBuscador
             // 
-            this.txtIdBuscador.Location = new System.Drawing.Point(113, 26);
+            resources.ApplyResources(this.txtIdBuscador, "txtIdBuscador");
             this.txtIdBuscador.Name = "txtIdBuscador";
-            this.txtIdBuscador.Size = new System.Drawing.Size(100, 20);
-            this.txtIdBuscador.TabIndex = 6;
             // 
             // btnNombreBuscador
             // 
-            this.btnNombreBuscador.Location = new System.Drawing.Point(255, 64);
+            resources.ApplyResources(this.btnNombreBuscador, "btnNombreBuscador");
             this.btnNombreBuscador.Name = "btnNombreBuscador";
-            this.btnNombreBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnNombreBuscador.TabIndex = 7;
-            this.btnNombreBuscador.Text = "Buscar";
             this.btnNombreBuscador.UseVisualStyleBackColor = true;
             this.btnNombreBuscador.Click += new System.EventHandler(this.btnNombreBuscador_Click);
             // 
             // lblNombreBuscador
             // 
-            this.lblNombreBuscador.AutoSize = true;
-            this.lblNombreBuscador.Location = new System.Drawing.Point(59, 64);
+            resources.ApplyResources(this.lblNombreBuscador, "lblNombreBuscador");
             this.lblNombreBuscador.Name = "lblNombreBuscador";
-            this.lblNombreBuscador.Size = new System.Drawing.Size(44, 13);
-            this.lblNombreBuscador.TabIndex = 8;
-            this.lblNombreBuscador.Text = "Nombre";
             // 
             // txtNombreBuscador
             // 
-            this.txtNombreBuscador.Location = new System.Drawing.Point(113, 64);
+            resources.ApplyResources(this.txtNombreBuscador, "txtNombreBuscador");
             this.txtNombreBuscador.Name = "txtNombreBuscador";
-            this.txtNombreBuscador.Size = new System.Drawing.Size(100, 20);
-            this.txtNombreBuscador.TabIndex = 9;
             // 
             // lblDniBuscador
             // 
-            this.lblDniBuscador.AutoSize = true;
-            this.lblDniBuscador.Location = new System.Drawing.Point(408, 27);
+            resources.ApplyResources(this.lblDniBuscador, "lblDniBuscador");
             this.lblDniBuscador.Name = "lblDniBuscador";
-            this.lblDniBuscador.Size = new System.Drawing.Size(23, 13);
-            this.lblDniBuscador.TabIndex = 10;
-            this.lblDniBuscador.Text = "Dni";
             // 
             // lblApellidosBuscador
             // 
-            this.lblApellidosBuscador.AutoSize = true;
-            this.lblApellidosBuscador.Location = new System.Drawing.Point(59, 102);
+            resources.ApplyResources(this.lblApellidosBuscador, "lblApellidosBuscador");
             this.lblApellidosBuscador.Name = "lblApellidosBuscador";
-            this.lblApellidosBuscador.Size = new System.Drawing.Size(49, 13);
-            this.lblApellidosBuscador.TabIndex = 11;
-            this.lblApellidosBuscador.Text = "Apellidos";
             // 
             // lblFechaNacimientoBuscador
             // 
-            this.lblFechaNacimientoBuscador.AutoSize = true;
-            this.lblFechaNacimientoBuscador.Location = new System.Drawing.Point(360, 64);
+            resources.ApplyResources(this.lblFechaNacimientoBuscador, "lblFechaNacimientoBuscador");
             this.lblFechaNacimientoBuscador.Name = "lblFechaNacimientoBuscador";
-            this.lblFechaNacimientoBuscador.Size = new System.Drawing.Size(90, 13);
-            this.lblFechaNacimientoBuscador.TabIndex = 12;
-            this.lblFechaNacimientoBuscador.Text = "FechaNacimiento";
             // 
             // txtApellidosBuscador
             // 
-            this.txtApellidosBuscador.Location = new System.Drawing.Point(113, 102);
+            resources.ApplyResources(this.txtApellidosBuscador, "txtApellidosBuscador");
             this.txtApellidosBuscador.Name = "txtApellidosBuscador";
-            this.txtApellidosBuscador.Size = new System.Drawing.Size(100, 20);
-            this.txtApellidosBuscador.TabIndex = 13;
             // 
             // txtDniBuscador
             // 
-            this.txtDniBuscador.Location = new System.Drawing.Point(461, 27);
+            resources.ApplyResources(this.txtDniBuscador, "txtDniBuscador");
             this.txtDniBuscador.Name = "txtDniBuscador";
-            this.txtDniBuscador.Size = new System.Drawing.Size(100, 20);
-            this.txtDniBuscador.TabIndex = 14;
             // 
             // txtFechaNacimientoBuscador
             // 
-            this.txtFechaNacimientoBuscador.Location = new System.Drawing.Point(461, 61);
+            resources.ApplyResources(this.txtFechaNacimientoBuscador, "txtFechaNacimientoBuscador");
             this.txtFechaNacimientoBuscador.Name = "txtFechaNacimientoBuscador";
-            this.txtFechaNacimientoBuscador.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaNacimientoBuscador.TabIndex = 15;
             // 
             // btnApellidosBuscador
             // 
-            this.btnApellidosBuscador.Location = new System.Drawing.Point(255, 102);
+            resources.ApplyResources(this.btnApellidosBuscador, "btnApellidosBuscador");
             this.btnApellidosBuscador.Name = "btnApellidosBuscador";
-            this.btnApellidosBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnApellidosBuscador.TabIndex = 16;
-            this.btnApellidosBuscador.Text = "Buscar";
             this.btnApellidosBuscador.UseVisualStyleBackColor = true;
             this.btnApellidosBuscador.Click += new System.EventHandler(this.btnApellidosBuscador_Click);
             // 
             // btnDniBuscador
             // 
-            this.btnDniBuscador.Location = new System.Drawing.Point(597, 24);
+            resources.ApplyResources(this.btnDniBuscador, "btnDniBuscador");
             this.btnDniBuscador.Name = "btnDniBuscador";
-            this.btnDniBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnDniBuscador.TabIndex = 17;
-            this.btnDniBuscador.Text = "Buscar";
             this.btnDniBuscador.UseVisualStyleBackColor = true;
             this.btnDniBuscador.Click += new System.EventHandler(this.btnDniBuscador_Click);
             // 
             // btnFechaNacimientoBuscador
             // 
-            this.btnFechaNacimientoBuscador.Location = new System.Drawing.Point(597, 59);
+            resources.ApplyResources(this.btnFechaNacimientoBuscador, "btnFechaNacimientoBuscador");
             this.btnFechaNacimientoBuscador.Name = "btnFechaNacimientoBuscador";
-            this.btnFechaNacimientoBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnFechaNacimientoBuscador.TabIndex = 18;
-            this.btnFechaNacimientoBuscador.Text = "Buscar";
             this.btnFechaNacimientoBuscador.UseVisualStyleBackColor = true;
             this.btnFechaNacimientoBuscador.Click += new System.EventHandler(this.btnFechaNacimientoBuscador_Click);
             // 
             // lblGuidBuscador
             // 
-            this.lblGuidBuscador.AutoSize = true;
-            this.lblGuidBuscador.Location = new System.Drawing.Point(396, 102);
+            resources.ApplyResources(this.lblGuidBuscador, "lblGuidBuscador");
             this.lblGuidBuscador.Name = "lblGuidBuscador";
-            this.lblGuidBuscador.Size = new System.Drawing.Size(29, 13);
-            this.lblGuidBuscador.TabIndex = 19;
-            this.lblGuidBuscador.Text = "Guid";
             // 
             // txtGuidBuscador
             // 
-            this.txtGuidBuscador.Location = new System.Drawing.Point(461, 95);
+            resources.ApplyResources(this.txtGuidBuscador, "txtGuidBuscador");
             this.txtGuidBuscador.Name = "txtGuidBuscador";
-            this.txtGuidBuscador.Size = new System.Drawing.Size(100, 20);
-            this.txtGuidBuscador.TabIndex = 20;
             // 
             // btnGuidBuscador
             // 
-            this.btnGuidBuscador.Location = new System.Drawing.Point(597, 91);
+            resources.ApplyResources(this.btnGuidBuscador, "btnGuidBuscador");
             this.btnGuidBuscador.Name = "btnGuidBuscador";
-            this.btnGuidBuscador.Size = new System.Drawing.Size(75, 23);
-            this.btnGuidBuscador.TabIndex = 21;
-            this.btnGuidBuscador.Text = "Buscar";
             this.btnGuidBuscador.UseVisualStyleBackColor = true;
             this.btnGuidBuscador.Click += new System.EventHandler(this.btnGuidBuscador_Click);
             // 
+            // menuStrip1
+            // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.idiomasToolStripMenuItem,
+            this.alumnoToolStripMenuItem1});
+            this.menuStrip1.Name = "menuStrip1";
+            // 
+            // idiomasToolStripMenuItem
+            // 
+            resources.ApplyResources(this.idiomasToolStripMenuItem, "idiomasToolStripMenuItem");
+            this.idiomasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemCastellano,
+            this.menuItemIngles,
+            this.menuItemCatalan});
+            this.idiomasToolStripMenuItem.Name = "idiomasToolStripMenuItem";
+            // 
+            // menuItemCastellano
+            // 
+            resources.ApplyResources(this.menuItemCastellano, "menuItemCastellano");
+            this.menuItemCastellano.Name = "menuItemCastellano";
+            this.menuItemCastellano.Click += new System.EventHandler(this.castellanoToolStripMenuItem_Click);
+            // 
+            // menuItemIngles
+            // 
+            resources.ApplyResources(this.menuItemIngles, "menuItemIngles");
+            this.menuItemIngles.Name = "menuItemIngles";
+            this.menuItemIngles.Click += new System.EventHandler(this.inglésToolStripMenuItem_Click);
+            // 
+            // menuItemCatalan
+            // 
+            resources.ApplyResources(this.menuItemCatalan, "menuItemCatalan");
+            this.menuItemCatalan.Name = "menuItemCatalan";
+            this.menuItemCatalan.Click += new System.EventHandler(this.catalánToolStripMenuItem_Click);
+            // 
+            // alumnoToolStripMenuItem1
+            // 
+            resources.ApplyResources(this.alumnoToolStripMenuItem1, "alumnoToolStripMenuItem1");
+            this.alumnoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemCrearAlumno,
+            this.menuItemShowAll});
+            this.alumnoToolStripMenuItem1.Name = "alumnoToolStripMenuItem1";
+            // 
+            // menuItemCrearAlumno
+            // 
+            resources.ApplyResources(this.menuItemCrearAlumno, "menuItemCrearAlumno");
+            this.menuItemCrearAlumno.Name = "menuItemCrearAlumno";
+            this.menuItemCrearAlumno.Click += new System.EventHandler(this.crearToolStripMenuItem1_Click);
+            // 
+            // menuItemShowAll
+            // 
+            resources.ApplyResources(this.menuItemShowAll, "menuItemShowAll");
+            this.menuItemShowAll.Name = "menuItemShowAll";
+            this.menuItemShowAll.Click += new System.EventHandler(this.mostrarTodosToolStripMenuItem_Click);
+            // 
             // AlumnosShowForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnGuidBuscador);
             this.Controls.Add(this.txtGuidBuscador);
             this.Controls.Add(this.lblGuidBuscador);
@@ -274,9 +273,12 @@
             this.Controls.Add(this.btnJsonBuscador);
             this.Controls.Add(this.btnTxtBuscador);
             this.Controls.Add(this.dataGridAlumnos);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "AlumnosShowForm";
-            this.Text = "AlumnosShowForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAlumnos)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +308,13 @@
         private System.Windows.Forms.Label lblGuidBuscador;
         private System.Windows.Forms.TextBox txtGuidBuscador;
         private System.Windows.Forms.Button btnGuidBuscador;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem idiomasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCastellano;
+        private System.Windows.Forms.ToolStripMenuItem menuItemIngles;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCatalan;
+        private System.Windows.Forms.ToolStripMenuItem alumnoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCrearAlumno;
+        private System.Windows.Forms.ToolStripMenuItem menuItemShowAll;
     }
 }

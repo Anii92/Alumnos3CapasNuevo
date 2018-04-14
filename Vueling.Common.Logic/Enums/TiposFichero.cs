@@ -14,5 +14,10 @@ namespace Vueling.Common.Logic.Enums
             Json,
             Xml
         }
+
+        public static TipoFichero GetType(string value)
+        {
+            return (TipoFichero)System.Enum.Parse(typeof(TipoFichero), value);
+        }
     }
 }

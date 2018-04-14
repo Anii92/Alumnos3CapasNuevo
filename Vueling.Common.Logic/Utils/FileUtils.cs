@@ -95,6 +95,12 @@ namespace Vueling.Common.Logic
                 logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnos;
             }
+            catch (System.FormatException exception)
+            {
+                Logger logger = new Logger();
+                logger.Error(exception.Message + exception.StackTrace);
+                throw;
+            }
             catch (FileLoadException exception)
             {
                 Logger logger = new Logger();

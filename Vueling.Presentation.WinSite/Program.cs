@@ -1,10 +1,14 @@
 ﻿using log4net;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vueling.Common.Logic.Utils;
+using static Vueling.Common.Logic.Enums.TiposFichero;
 
 namespace Vueling.Presentation.WinSite
 {
@@ -16,11 +20,19 @@ namespace Vueling.Presentation.WinSite
         [STAThread]
         static void Main()
         {
-            log4net.Config.XmlConfigurator.Configure();
+            Configurar();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AlumnoForm());
-            //Application.Run(new AlumnosShowForm());
+        }
+
+        private static void Configurar()
+        {
+            log4net.Config.XmlConfigurator.Configure();
+            Configuraciones.GuardarFormatoFichero(TipoFichero.Texto);
+            Idiomas.GuardarIdiomaUsuario(Resources.ResourcesIdiomas.Castellano);
+            Idiomas.CambiarIdioma(Resources.ResourcesIdiomas.Castellano);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(Idiomas.LeerIdiomaUsuario());
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlumnoForm));
             this.btnTxt = new System.Windows.Forms.Button();
             this.btnJson = new System.Windows.Forms.Button();
             this.btnXml = new System.Windows.Forms.Button();
@@ -42,133 +43,154 @@
             this.lblDni = new System.Windows.Forms.Label();
             this.lblFechaNamcimiento = new System.Windows.Forms.Label();
             this.btnMostrar = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuIdioma = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCastellano = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemIngles = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCatalan = new System.Windows.Forms.ToolStripMenuItem();
+            this.alumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemCrear = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemMostrarTodos = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTxt
             // 
-            this.btnTxt.Location = new System.Drawing.Point(73, 275);
+            resources.ApplyResources(this.btnTxt, "btnTxt");
             this.btnTxt.Name = "btnTxt";
-            this.btnTxt.Size = new System.Drawing.Size(75, 23);
-            this.btnTxt.TabIndex = 0;
-            this.btnTxt.Text = "Txt";
             this.btnTxt.UseVisualStyleBackColor = true;
             this.btnTxt.Click += new System.EventHandler(this.btnTxt_Click);
             // 
             // btnJson
             // 
-            this.btnJson.Location = new System.Drawing.Point(197, 275);
+            resources.ApplyResources(this.btnJson, "btnJson");
             this.btnJson.Name = "btnJson";
-            this.btnJson.Size = new System.Drawing.Size(75, 23);
-            this.btnJson.TabIndex = 1;
-            this.btnJson.Text = "Json";
             this.btnJson.UseVisualStyleBackColor = true;
             this.btnJson.Click += new System.EventHandler(this.btnJson_Click);
             // 
             // btnXml
             // 
-            this.btnXml.Location = new System.Drawing.Point(330, 275);
+            resources.ApplyResources(this.btnXml, "btnXml");
             this.btnXml.Name = "btnXml";
-            this.btnXml.Size = new System.Drawing.Size(75, 23);
-            this.btnXml.TabIndex = 2;
-            this.btnXml.Text = "Xml";
             this.btnXml.UseVisualStyleBackColor = true;
             this.btnXml.Click += new System.EventHandler(this.btnXml_Click);
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(172, 29);
+            resources.ApplyResources(this.txtId, "txtId");
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 20);
-            this.txtId.TabIndex = 3;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(172, 72);
+            resources.ApplyResources(this.txtNombre, "txtNombre");
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 4;
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(172, 118);
+            resources.ApplyResources(this.txtApellidos, "txtApellidos");
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(100, 20);
-            this.txtApellidos.TabIndex = 5;
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(172, 161);
+            resources.ApplyResources(this.txtDni, "txtDni");
             this.txtDni.Name = "txtDni";
-            this.txtDni.Size = new System.Drawing.Size(100, 20);
-            this.txtDni.TabIndex = 6;
             // 
             // txtFechaNacimiento
             // 
-            this.txtFechaNacimiento.Location = new System.Drawing.Point(172, 205);
+            resources.ApplyResources(this.txtFechaNacimiento, "txtFechaNacimiento");
             this.txtFechaNacimiento.Name = "txtFechaNacimiento";
-            this.txtFechaNacimiento.Size = new System.Drawing.Size(100, 20);
-            this.txtFechaNacimiento.TabIndex = 7;
             // 
             // lblId
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(41, 35);
+            resources.ApplyResources(this.lblId, "lblId");
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(16, 13);
-            this.lblId.TabIndex = 8;
-            this.lblId.Text = "Id";
             // 
             // lblNombre
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(41, 75);
+            resources.ApplyResources(this.lblNombre, "lblNombre");
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 9;
-            this.lblNombre.Text = "Nombre";
             // 
             // lblApellidos
             // 
-            this.lblApellidos.AutoSize = true;
-            this.lblApellidos.Location = new System.Drawing.Point(41, 125);
+            resources.ApplyResources(this.lblApellidos, "lblApellidos");
             this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(49, 13);
-            this.lblApellidos.TabIndex = 10;
-            this.lblApellidos.Text = "Apellidos";
             // 
             // lblDni
             // 
-            this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(41, 168);
+            resources.ApplyResources(this.lblDni, "lblDni");
             this.lblDni.Name = "lblDni";
-            this.lblDni.Size = new System.Drawing.Size(23, 13);
-            this.lblDni.TabIndex = 11;
-            this.lblDni.Text = "Dni";
             // 
             // lblFechaNamcimiento
             // 
-            this.lblFechaNamcimiento.AutoSize = true;
-            this.lblFechaNamcimiento.Location = new System.Drawing.Point(41, 212);
+            resources.ApplyResources(this.lblFechaNamcimiento, "lblFechaNamcimiento");
             this.lblFechaNamcimiento.Name = "lblFechaNamcimiento";
-            this.lblFechaNamcimiento.Size = new System.Drawing.Size(106, 13);
-            this.lblFechaNamcimiento.TabIndex = 12;
-            this.lblFechaNamcimiento.Text = "Fecha de nacimiento";
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(207, 318);
+            resources.ApplyResources(this.btnMostrar, "btnMostrar");
             this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(75, 23);
-            this.btnMostrar.TabIndex = 13;
-            this.btnMostrar.Text = "Mostrar";
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
+            // menuStrip1
+            // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuIdioma,
+            this.alumnoToolStripMenuItem});
+            this.menuStrip1.Name = "menuStrip1";
+            // 
+            // menuIdioma
+            // 
+            resources.ApplyResources(this.menuIdioma, "menuIdioma");
+            this.menuIdioma.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemCastellano,
+            this.menuItemIngles,
+            this.menuItemCatalan});
+            this.menuIdioma.Name = "menuIdioma";
+            // 
+            // menuItemCastellano
+            // 
+            resources.ApplyResources(this.menuItemCastellano, "menuItemCastellano");
+            this.menuItemCastellano.Name = "menuItemCastellano";
+            this.menuItemCastellano.Click += new System.EventHandler(this.menuItemCastellano_Click);
+            // 
+            // menuItemIngles
+            // 
+            resources.ApplyResources(this.menuItemIngles, "menuItemIngles");
+            this.menuItemIngles.Name = "menuItemIngles";
+            this.menuItemIngles.Click += new System.EventHandler(this.menuItemIngles_Click);
+            // 
+            // menuItemCatalan
+            // 
+            resources.ApplyResources(this.menuItemCatalan, "menuItemCatalan");
+            this.menuItemCatalan.Name = "menuItemCatalan";
+            this.menuItemCatalan.Click += new System.EventHandler(this.menuItemCatalan_Click);
+            // 
+            // alumnoToolStripMenuItem
+            // 
+            resources.ApplyResources(this.alumnoToolStripMenuItem, "alumnoToolStripMenuItem");
+            this.alumnoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemCrear,
+            this.menuItemMostrarTodos});
+            this.alumnoToolStripMenuItem.Name = "alumnoToolStripMenuItem";
+            // 
+            // menuItemCrear
+            // 
+            resources.ApplyResources(this.menuItemCrear, "menuItemCrear");
+            this.menuItemCrear.Name = "menuItemCrear";
+            this.menuItemCrear.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
+            // 
+            // menuItemMostrarTodos
+            // 
+            resources.ApplyResources(this.menuItemMostrarTodos, "menuItemMostrarTodos");
+            this.menuItemMostrarTodos.Name = "menuItemMostrarTodos";
+            this.menuItemMostrarTodos.Click += new System.EventHandler(this.mostrarTodosToolStripMenuItem_Click);
+            // 
             // AlumnoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 353);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.lblFechaNamcimiento);
             this.Controls.Add(this.lblDni);
@@ -183,8 +205,10 @@
             this.Controls.Add(this.btnXml);
             this.Controls.Add(this.btnJson);
             this.Controls.Add(this.btnTxt);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "AlumnoForm";
-            this.Text = "AlumnoForm";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +230,13 @@
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Label lblFechaNamcimiento;
         private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuIdioma;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCastellano;
+        private System.Windows.Forms.ToolStripMenuItem menuItemIngles;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCatalan;
+        private System.Windows.Forms.ToolStripMenuItem alumnoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuItemCrear;
+        private System.Windows.Forms.ToolStripMenuItem menuItemMostrarTodos;
     }
 }

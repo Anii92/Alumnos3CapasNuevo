@@ -11,6 +11,8 @@ using Vueling.DataAccess.Dao;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 using Vueling.Common.Logic;
 using Vueling.Business.Logic.Resources;
+using Vueling.Common.Logic.Utils;
+using Vueling.Common.Logic.Enums;
 
 namespace Vueling.Business.Logic
 {
@@ -25,18 +27,17 @@ namespace Vueling.Business.Logic
         {
             this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             this.alumnoDao = new AlumnoDao();
-            this.TipoFichero = TipoFichero.Texto;
             this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
         }
 
-        public Alumno Add(Alumno alumno, TipoFichero tipoFichero)
+        public Alumno Add(Alumno alumno)
         {
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 alumno.Edad = CalcularEdad(alumno.FechaNacimiento);
                 alumno.FechaHora = CalcularFechaRegistro();
-                Alumno alumnoInsertado = alumnoDao.Add(alumno, tipoFichero);
+                Alumno alumnoInsertado = alumnoDao.Add(alumno);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
@@ -90,13 +91,13 @@ namespace Vueling.Business.Logic
             }
         }
 
-        public List<Alumno> Leer(TipoFichero tipoFichero)
+        public List<Alumno> Leer()
         {
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                this.TipoFichero = tipoFichero;
-                List<Alumno> alumnos = this.alumnoDao.Leer(tipoFichero);
+                
+                List<Alumno> alumnos = this.alumnoDao.Leer();
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnos;
             }
@@ -112,7 +113,7 @@ namespace Vueling.Business.Logic
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                List<Alumno> alumnos = this.alumnoDao.Leer(this.TipoFichero);
+                List<Alumno> alumnos = this.alumnoDao.Leer();
                 alumnos = this.FiltrarLosAlumnos(alumnos, clave, valor);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnos;

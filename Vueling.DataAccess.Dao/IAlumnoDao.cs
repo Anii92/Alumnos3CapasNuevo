@@ -10,8 +10,8 @@ namespace Vueling.DataAccess.Dao
 {
     public interface IAlumnoDao
     {
-        Alumno Add(Alumno alumno, TipoFichero tipoFichero);
+        Alumno Add(Alumno alumno);
         void CargarDatosDeLosAlumnos(TipoFichero tipoFichero);
-        List<Alumno> Leer(TipoFichero tipoFichero);
+        List<Alumno> Leer();
     }
 }

@@ -11,6 +11,8 @@ using Vueling.DataAccess.Dao.Factories;
 using Vueling.DataAccess.Dao.Singletons;
 using Vueling.DataAccess.Dao.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
+using Vueling.Common.Logic.Utils;
+using Vueling.Common.Logic.Enums;
 
 namespace Vueling.DataAccess.Dao
 {
@@ -47,12 +49,12 @@ namespace Vueling.DataAccess.Dao
             }
         }
 
-        public Alumno Add(Alumno alumno, TipoFichero tipoFichero)
+        public Alumno Add(Alumno alumno)
         {
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
+                IFichero fichero = (IFichero)FicheroFactory.CrearFichero(TiposFichero.GetType(Configuraciones.LeerFormatoFichero()), "ListadoAlumno");
                 Alumno alumnoInsertado = fichero.Guardar(alumno);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
@@ -69,11 +71,12 @@ namespace Vueling.DataAccess.Dao
             }
         }
 
-        public List<Alumno> Leer(TipoFichero tipoFichero)
+        public List<Alumno> Leer()
         {
             try
             {
                 List<Alumno> alumnos;
+                TipoFichero tipoFichero = TiposFichero.GetType(Configuraciones.LeerFormatoFichero());
                 switch (tipoFichero)
                 {
                     case (TipoFichero.Texto):

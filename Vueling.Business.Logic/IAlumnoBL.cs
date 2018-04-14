@@ -10,11 +10,9 @@ namespace Vueling.Business.Logic
 {
     public interface IAlumnoBL
     {
-        TipoFichero TipoFichero { get; set; }
-
-        Alumno Add(Alumno alumno, TipoFichero tipoFichero);
+        Alumno Add(Alumno alumno);
         void CargarDatosDeLosAlumnos(TipoFichero tipoFichero);
-        List<Alumno> Leer(TipoFichero tipoFichero);
+        List<Alumno> Leer();
         List<Alumno> Filtrar(string clave, string valor);
         int CalcularEdad(DateTime fechaNacimiento);
     }
