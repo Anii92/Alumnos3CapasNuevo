@@ -23,7 +23,7 @@ namespace Vueling.Business.Logic.Tests
         }
 
         [DataRow("22-01-1992", 26)]
-        [DataRow("22-05-1992", 26)]
+        [DataRow("22-03-1992", 26)]
         [DataTestMethod]
         public void CalcularEdadTest(string fechaNacimiento, int resultado)
         {

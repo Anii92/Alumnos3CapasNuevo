@@ -9,6 +9,7 @@ using System.IO;
 using Vueling.DataAccess.Dao.Factories;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 using Vueling.Common.Logic;
+using Vueling.Common.Logic.Utils;
 using Vueling.Common.Logic.Models;
 using Newtonsoft.Json;
 using Vueling.Business.Logic;
@@ -117,6 +118,7 @@ namespace Vueling.DataAccess.Dao.Tests
         [DataTestMethod]
         public void CargarDatosDeLosAlumnosXmlTest(TipoFichero tipoFichero)
         {
+            Configuraciones.GuardarFormatoFichero(tipoFichero);
             this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
             List<Alumno> alumnos = this.alumnoDao.Leer();
             Assert.IsNotNull(alumnos);
@@ -126,6 +128,7 @@ namespace Vueling.DataAccess.Dao.Tests
         [DataTestMethod]
         public void CargarDatosDeLosAlumnosJsonTest(TipoFichero tipoFichero)
         {
+            Configuraciones.GuardarFormatoFichero(tipoFichero);
             this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
             List<Alumno> alumnos = this.alumnoDao.Leer();
             Assert.IsNotNull(alumnos);

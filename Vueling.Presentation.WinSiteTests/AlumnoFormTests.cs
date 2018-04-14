@@ -39,7 +39,9 @@ namespace Vueling.Presentation.WinSite.Tests
             this.alumnoBLMock.Expects.One
                 .MethodWith(alumnoBL => alumnoBL.CalcularEdad(fecha))
                 .WillReturn(20);
-            Assert.Fail();
+            int returnEdad = alumnoBLMock.MockObject.CalcularEdad(fecha);
+
+            Assert.IsTrue(returnEdad.Equals(edad));
         }
     }
 }
