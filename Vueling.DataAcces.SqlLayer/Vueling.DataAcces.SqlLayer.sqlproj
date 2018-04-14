@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Vueling.DataAccess.SqlLayer</Name>
+    <Name>Vueling.DataAcces.SqlLayer</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{c35e689e-6972-420b-84c6-56fb0817ef67}</ProjectGuid>
+    <ProjectGuid>{570a0a31-46b0-411b-a710-f97d43ad0260}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Vueling.DataAccess.SqlLayer</RootNamespace>
-    <AssemblyName>Vueling.DataAccess.SqlLayer</AssemblyName>
+    <RootNamespace>Vueling.DataAcces.SqlLayer</RootNamespace>
+    <AssemblyName>Vueling.DataAcces.SqlLayer</AssemblyName>
     <ModelCollation>3082,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -66,7 +66,7 @@
   <ItemGroup>
     <Build Include="Storage\FLyWayDB_FG1.sql" />
     <Build Include="Storage\FileStreamGroup1.sql" />
-    <None Include="Migrations\V1__Init_FlyWay_DB.sql" />
-    <None Include="Migrations\V2__Inserts_Initial_Values.sql" />
+    <None Include="Migrations\V1__CreateTables.sql" />
+    <None Include="Migrations\V2__Inserts.sql" />
   </ItemGroup>
 </Project>

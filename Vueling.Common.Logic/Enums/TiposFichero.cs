@@ -12,7 +12,8 @@ namespace Vueling.Common.Logic.Enums
         {
             Texto,
             Json,
-            Xml
+            Xml,
+            Sql
         }
 
         public static TipoFichero GetType(string value)

@@ -75,7 +75,7 @@ namespace Vueling.Common.Logic
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
-            
+
         }
 
         public static List<Alumno> DeserializeFicheroTexto(string pathFile)
@@ -119,7 +119,7 @@ namespace Vueling.Common.Logic
                 List<Alumno> alumnosList = JsonConvert.DeserializeObject<List<Alumno>>(jsonData);
                 logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return new Alumno(alumnosList[0].Id, alumnosList[0].Nombre, alumnosList[0].Apellidos, alumnosList[0].Dni, alumnosList[0].Edad, alumnosList[0].FechaNacimiento, alumnosList[0].FechaHora, alumnosList[0].Guid);
-            
+
             }
             catch (FileNotFoundException exception)
             {
@@ -127,7 +127,7 @@ namespace Vueling.Common.Logic
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
-            
+
         }
 
         public static List<Alumno> DeserializeFicheroJson(string pathFile)
@@ -186,14 +186,18 @@ namespace Vueling.Common.Logic
             {
                 Logger logger = new Logger();
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Alumno alumno = new Alumno();
-                XmlSerializer serializer = new XmlSerializer(typeof(Alumno));
-                using (FileStream fileStream = new FileStream(pathFile, FileMode.Open))
+                List<Alumno> alumnosList = new List<Alumno>();
+                if (File.Exists(pathFile))
                 {
-                    alumno = (Alumno)serializer.Deserialize(fileStream);
+                    var xmlSerializer = new XmlSerializer(alumnosList.GetType());
+
+                    using (Stream reader = File.OpenRead(pathFile))
+                    {
+                        alumnosList = (List<Alumno>)xmlSerializer.Deserialize(reader);
+                    }
                 }
                 logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return alumno;
+                return new Alumno(alumnosList[0].Id, alumnosList[0].Nombre, alumnosList[0].Apellidos, alumnosList[0].Dni, alumnosList[0].Edad, alumnosList[0].FechaNacimiento, alumnosList[0].FechaHora, alumnosList[0].Guid);
             }
             catch (FileLoadException exception)
             {
@@ -204,3 +208,4 @@ namespace Vueling.Common.Logic
         }
     }
 }
+

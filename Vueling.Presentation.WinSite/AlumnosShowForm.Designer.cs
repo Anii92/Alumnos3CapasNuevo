@@ -59,14 +59,15 @@
             this.alumnoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCrearAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemShowAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSql = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAlumnos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridAlumnos
             // 
-            resources.ApplyResources(this.dataGridAlumnos, "dataGridAlumnos");
             this.dataGridAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dataGridAlumnos, "dataGridAlumnos");
             this.dataGridAlumnos.Name = "dataGridAlumnos";
             // 
             // btnTxtBuscador
@@ -194,63 +195,71 @@
             // 
             // menuStrip1
             // 
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.idiomasToolStripMenuItem,
             this.alumnoToolStripMenuItem1});
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
             // idiomasToolStripMenuItem
             // 
-            resources.ApplyResources(this.idiomasToolStripMenuItem, "idiomasToolStripMenuItem");
             this.idiomasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemCastellano,
             this.menuItemIngles,
             this.menuItemCatalan});
             this.idiomasToolStripMenuItem.Name = "idiomasToolStripMenuItem";
+            resources.ApplyResources(this.idiomasToolStripMenuItem, "idiomasToolStripMenuItem");
             // 
             // menuItemCastellano
             // 
-            resources.ApplyResources(this.menuItemCastellano, "menuItemCastellano");
             this.menuItemCastellano.Name = "menuItemCastellano";
+            resources.ApplyResources(this.menuItemCastellano, "menuItemCastellano");
             this.menuItemCastellano.Click += new System.EventHandler(this.castellanoToolStripMenuItem_Click);
             // 
             // menuItemIngles
             // 
-            resources.ApplyResources(this.menuItemIngles, "menuItemIngles");
             this.menuItemIngles.Name = "menuItemIngles";
+            resources.ApplyResources(this.menuItemIngles, "menuItemIngles");
             this.menuItemIngles.Click += new System.EventHandler(this.inglésToolStripMenuItem_Click);
             // 
             // menuItemCatalan
             // 
-            resources.ApplyResources(this.menuItemCatalan, "menuItemCatalan");
             this.menuItemCatalan.Name = "menuItemCatalan";
+            resources.ApplyResources(this.menuItemCatalan, "menuItemCatalan");
             this.menuItemCatalan.Click += new System.EventHandler(this.catalánToolStripMenuItem_Click);
             // 
             // alumnoToolStripMenuItem1
             // 
-            resources.ApplyResources(this.alumnoToolStripMenuItem1, "alumnoToolStripMenuItem1");
             this.alumnoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemCrearAlumno,
             this.menuItemShowAll});
             this.alumnoToolStripMenuItem1.Name = "alumnoToolStripMenuItem1";
+            resources.ApplyResources(this.alumnoToolStripMenuItem1, "alumnoToolStripMenuItem1");
             // 
             // menuItemCrearAlumno
             // 
-            resources.ApplyResources(this.menuItemCrearAlumno, "menuItemCrearAlumno");
             this.menuItemCrearAlumno.Name = "menuItemCrearAlumno";
+            resources.ApplyResources(this.menuItemCrearAlumno, "menuItemCrearAlumno");
             this.menuItemCrearAlumno.Click += new System.EventHandler(this.crearToolStripMenuItem1_Click);
             // 
             // menuItemShowAll
             // 
-            resources.ApplyResources(this.menuItemShowAll, "menuItemShowAll");
             this.menuItemShowAll.Name = "menuItemShowAll";
+            resources.ApplyResources(this.menuItemShowAll, "menuItemShowAll");
             this.menuItemShowAll.Click += new System.EventHandler(this.mostrarTodosToolStripMenuItem_Click);
+            // 
+            // btnSql
+            // 
+            resources.ApplyResources(this.btnSql, "btnSql");
+            this.btnSql.Name = "btnSql";
+            this.btnSql.UseVisualStyleBackColor = true;
+            this.btnSql.Click += new System.EventHandler(this.btnSql_Click);
             // 
             // AlumnosShowForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnSql);
             this.Controls.Add(this.btnGuidBuscador);
             this.Controls.Add(this.txtGuidBuscador);
             this.Controls.Add(this.lblGuidBuscador);
@@ -316,5 +325,6 @@
         private System.Windows.Forms.ToolStripMenuItem alumnoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem menuItemCrearAlumno;
         private System.Windows.Forms.ToolStripMenuItem menuItemShowAll;
+        private System.Windows.Forms.Button btnSql;
     }
 }

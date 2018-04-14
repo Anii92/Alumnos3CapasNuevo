@@ -118,7 +118,7 @@ namespace Vueling.DataAccess.Dao.Tests
         public void CargarDatosDeLosAlumnosXmlTest(TipoFichero tipoFichero)
         {
             this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
-            List<Alumno> alumnos = this.alumnoDao.Leer(tipoFichero);
+            List<Alumno> alumnos = this.alumnoDao.Leer();
             Assert.IsNotNull(alumnos);
         }
 
@@ -127,7 +127,7 @@ namespace Vueling.DataAccess.Dao.Tests
         public void CargarDatosDeLosAlumnosJsonTest(TipoFichero tipoFichero)
         {
             this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
-            List<Alumno> alumnos = this.alumnoDao.Leer(tipoFichero);
+            List<Alumno> alumnos = this.alumnoDao.Leer();
             Assert.IsNotNull(alumnos);
         }
     }

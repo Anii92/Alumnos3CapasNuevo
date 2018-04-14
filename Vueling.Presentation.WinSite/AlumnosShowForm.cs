@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -153,6 +154,42 @@ namespace Vueling.Presentation.WinSite
                 MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
                 throw;
+            }
+        }
+
+        private void btnSql_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Configuraciones.GuardarFormatoFichero(TipoFichero.Sql);
+                this.EscribirEnPantalla(this.alumnoBL.Leer());
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
+            catch (FileNotFoundException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (ConfigurationErrorsException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (InvalidOperationException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (InvalidCastException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 

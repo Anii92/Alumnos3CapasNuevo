@@ -95,6 +95,12 @@ namespace Vueling.DataAccess.Dao
                         alumnos = SingletonXml.Instance.Leer();
                         this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
                         return alumnos;
+                    case (TipoFichero.Sql):
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        BaseDeDatos baseDeDatos = new BaseDeDatos();
+                        alumnos = baseDeDatos.Leer();
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        return alumnos;
                     default:
                         this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
                         alumnos = SingletonJson.Instance.Leer();

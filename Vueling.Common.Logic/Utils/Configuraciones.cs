@@ -54,6 +54,13 @@ namespace Vueling.Common.Logic.Utils
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
+        }
+        #endregion
+
+        #region Conexion Base de datos
+        public static string LeerConexionBaseDeDatos()
+        {
+            return Environment.GetEnvironmentVariable(Resources.ResourcesConfiguracion.ConexionBD, EnvironmentVariableTarget.User);
         } 
         #endregion
     }

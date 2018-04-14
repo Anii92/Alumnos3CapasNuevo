@@ -154,11 +154,20 @@
   <data name="btnGuidBuscador.Text" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="menuItemCastellano.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
+  </data>
   <data name="menuItemCastellano.Text" xml:space="preserve">
     <value>Spanish</value>
   </data>
+  <data name="menuItemIngles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
+  </data>
   <data name="menuItemIngles.Text" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="menuItemCatalan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
   </data>
   <data name="menuItemCatalan.Text" xml:space="preserve">
     <value>Catalan</value>

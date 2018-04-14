@@ -61,6 +61,15 @@ namespace Vueling.Common.Logic.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ConexionVueling3CapasDB.
+        /// </summary>
+        internal static string ConexionBD {
+            get {
+                return ResourceManager.GetString("ConexionBD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ExtensionFichero.
         /// </summary>
         internal static string ExtensionFichero {
