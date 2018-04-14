@@ -18,14 +18,20 @@ namespace Vueling.Business.LogicTests
     {
         private MockFactory mocks;
         private Mock<IAlumnoDao> alumnoDaoMock;
-        private AlumnoBL alumnoBL;
+        private Mock<IAlumnoBL> alumnoBLMock;
 
         [TestInitialize]
         public void Initialize()
         {
             this.mocks = new MockFactory();
-            this.alumnoDaoMock = this.mocks.CreateMock<IAlumnoDao>();
-            this.alumnoBL = new AlumnoBL();
+            this.alumnoDaoMock = mocks.CreateMock<IAlumnoDao>();
+            this.alumnoBLMock = mocks.CreateMock<IAlumnoBL>();
+        }
+
+        [TestCleanup]
+        public void Exit()
+        {
+            mocks.ClearExpectations();
         }
 
         [DataRow(TipoFichero.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
@@ -35,9 +41,9 @@ namespace Vueling.Business.LogicTests
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
 
             this.alumnoDaoMock.Expects.One
-                .MethodWith(alumnoDao => alumnoDao.Add(alumno, tipo))
+                .MethodWith(alumnoDao => alumnoDao.Add(alumno))
                 .WillReturn(alumno);
-            Alumno alumnoInsertado = this.alumnoDaoMock.MockObject.Add(alumno, tipo);
+            Alumno alumnoInsertado = this.alumnoDaoMock.MockObject.Add(alumno);
 
             Assert.IsTrue(alumno.Equals(alumnoInsertado));
         }
@@ -50,16 +56,16 @@ namespace Vueling.Business.LogicTests
             List<Alumno> alumnos = new List<Alumno>();
             alumnos.Add(alumno);
             this.alumnoDaoMock.Expects.One
-                .MethodWith(alumnoDao => alumnoDao.Leer(tipo))
+                .MethodWith(alumnoDao => alumnoDao.Leer())
                 .WillReturn(alumnos);
-            List<Alumno> listadoAlumnos = this.alumnoDaoMock.MockObject.Leer(tipo);
+            List<Alumno> listadoAlumnos = this.alumnoDaoMock.MockObject.Leer();
 
             Assert.IsNotNull(listadoAlumnos);
         }
 
         [DataRow(TipoFichero.Texto, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Texto, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
-        [DataRow(TipoFichero.Texto, "Id", 1, 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(TipoFichero.Texto, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Texto, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Texto, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
         [DataTestMethod]
@@ -67,16 +73,21 @@ namespace Vueling.Business.LogicTests
         {
             Alumno alumnoTest = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             this.alumnoDaoMock.Expects.One
-                .MethodWith(alumnoDao => alumnoDao.Leer(tipo))
+                .MethodWith(alumnoDao => alumnoDao.Leer())
                 .WillReturn(new List<Alumno> { alumnoTest });
-            List<Alumno> alumnos = this.alumnoDaoMock.MockObject.Leer(tipo);
-            List<Alumno> alumnosFiltrados = this.alumnoBL.FiltrarLosAlumnos(alumnos, clave, valor);
+            List<Alumno> alumnos = alumnoDaoMock.MockObject.Leer();
+
+            this.alumnoBLMock.Expects.One
+                .MethodWith(alumnoBL => alumnoBL.Filtrar(clave, valor))
+                .WillReturn(new List<Alumno> { alumnoTest });
+
+            List<Alumno> alumnosFiltrados = alumnoBLMock.MockObject.Filtrar(clave, valor);
             Assert.IsTrue(alumnosFiltrados.Contains(alumnoTest));
         }
 
         [DataRow(TipoFichero.Json, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Json, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
-        [DataRow(TipoFichero.Json, "Id", 1, 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(TipoFichero.Json, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Json, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Json, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
         [DataTestMethod]
@@ -84,16 +95,20 @@ namespace Vueling.Business.LogicTests
         {
             Alumno alumnoTest = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             this.alumnoDaoMock.Expects.One
-                .MethodWith(alumnoDao => alumnoDao.Leer(tipo))
+                .MethodWith(alumnoDao => alumnoDao.Leer())
                 .WillReturn(new List<Alumno> { alumnoTest });
-            List<Alumno> alumnos = this.alumnoDaoMock.MockObject.Leer(tipo);
-            List<Alumno> alumnosFiltrados = this.alumnoBL.FiltrarLosAlumnos(alumnos, clave, valor);
+            List<Alumno> alumnos = this.alumnoDaoMock.MockObject.Leer();
+
+            this.alumnoBLMock.Expects.One
+                .MethodWith(alumnoBL => alumnoBL.Filtrar(clave, valor))
+                .WillReturn(new List<Alumno> { alumnoTest });
+            List<Alumno> alumnosFiltrados = alumnoBLMock.MockObject.Filtrar(clave, valor);
             Assert.IsTrue(alumnosFiltrados.Contains(alumnoTest));
         }
 
         [DataRow(TipoFichero.Xml, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Xml, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
-        [DataRow(TipoFichero.Xml, "Id", 1, 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(TipoFichero.Xml, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Xml, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
         [DataRow(TipoFichero.Xml, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
         [DataTestMethod]
@@ -101,10 +116,15 @@ namespace Vueling.Business.LogicTests
         {
             Alumno alumnoTest = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             this.alumnoDaoMock.Expects.One
-                .MethodWith(alumnoDao => alumnoDao.Leer(tipo))
+                .MethodWith(alumnoDao => alumnoDao.Leer())
                 .WillReturn(new List<Alumno> { alumnoTest });
-            List<Alumno> alumnos = this.alumnoDaoMock.MockObject.Leer(tipo);
-            List<Alumno> alumnosFiltrados = this.alumnoBL.FiltrarLosAlumnos(alumnos, clave, valor);
+            List<Alumno> alumnos = this.alumnoDaoMock.MockObject.Leer();
+
+            this.alumnoBLMock.Expects.One
+                .MethodWith(alumnoBL => alumnoBL.Filtrar(clave, valor))
+                .WillReturn(new List<Alumno> { alumnoTest });
+            List<Alumno> alumnosFiltrados = alumnoBLMock.MockObject.Filtrar(clave, valor);
+
             Assert.IsTrue(alumnosFiltrados.Contains(alumnoTest));
         }
     }
