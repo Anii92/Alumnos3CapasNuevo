@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic;
+using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Utils;
 using Vueling.Presentation.WinSite.Resources;
@@ -18,7 +20,7 @@ namespace Vueling.Presentation.WinSite
     public partial class AlumnoForm : Form
     {
         #region Attributes
-        Logger logger = new Logger();
+        private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         private Alumno alumno;
         private IAlumnoBL alumnoBL;
         #endregion

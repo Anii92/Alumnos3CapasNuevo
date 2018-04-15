@@ -3,17 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Resources;
+using Vueling.Common.Logic.Utils;
 
 namespace Vueling.Common.Logic.Models
 {
     public class FicheroXml: IFichero
     {
-        Logger logger = new Logger();
+        ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         public string Nombre { get; set; }
         public string Ruta { get; set; }
 

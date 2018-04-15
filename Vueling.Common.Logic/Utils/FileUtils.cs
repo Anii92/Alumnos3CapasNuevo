@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Resources;
+using Vueling.Common.Logic.Utils;
 
 namespace Vueling.Common.Logic
 {
@@ -18,7 +21,7 @@ namespace Vueling.Common.Logic
     {
         public static string ToJson(this object value)
         {
-            Logger logger = new Logger();
+            ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
             logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             var settings = new JsonSerializerSettings
             {
@@ -32,7 +35,7 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 var employeeList = JsonConvert.DeserializeObject<List<Alumno>>(data);
                 employeeList.Add(alumno);
@@ -41,7 +44,7 @@ namespace Vueling.Common.Logic
             }
             catch (FileNotFoundException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
@@ -49,7 +52,7 @@ namespace Vueling.Common.Logic
 
         public static string ToString(Alumno alumno)
         {
-            Logger logger = new Logger();
+            ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
             logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             return alumno.Id + "," + alumno.Nombre + "," + alumno.Apellidos + "," + alumno.Dni + "," + alumno.Edad + "," + alumno.FechaNacimiento.ToString() + "," + alumno.FechaHora.ToString() + "," + alumno.Guid;
@@ -59,7 +62,7 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 string[] liniaFichero = null;
                 foreach (var line in File.ReadAllLines(pathFile))
@@ -71,7 +74,7 @@ namespace Vueling.Common.Logic
             }
             catch (FileLoadException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
@@ -82,7 +85,7 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnos = new List<Alumno>();
                 string[] liniaFichero = null;
@@ -97,13 +100,13 @@ namespace Vueling.Common.Logic
             }
             catch (System.FormatException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
             catch (FileLoadException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
@@ -113,7 +116,7 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 var jsonData = System.IO.File.ReadAllText(pathFile);
                 List<Alumno> alumnosList = JsonConvert.DeserializeObject<List<Alumno>>(jsonData);
@@ -123,7 +126,7 @@ namespace Vueling.Common.Logic
             }
             catch (FileNotFoundException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
@@ -134,7 +137,7 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnos = new List<Alumno>();
                 if (File.Exists(pathFile))
@@ -147,7 +150,7 @@ namespace Vueling.Common.Logic
             }
             catch (FileNotFoundException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
@@ -157,7 +160,7 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnos = new List<Alumno>();
                 if (File.Exists(pathFile))
@@ -174,7 +177,7 @@ namespace Vueling.Common.Logic
             }
             catch (FileLoadException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }
@@ -184,7 +187,7 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 List<Alumno> alumnosList = new List<Alumno>();
                 if (File.Exists(pathFile))
@@ -201,7 +204,7 @@ namespace Vueling.Common.Logic
             }
             catch (FileLoadException exception)
             {
-                Logger logger = new Logger();
+                ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
                 logger.Error(exception.Message + exception.StackTrace);
                 throw;
             }

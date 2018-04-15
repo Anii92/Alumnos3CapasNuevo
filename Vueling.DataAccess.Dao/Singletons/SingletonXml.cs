@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic;
+using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
+using Vueling.Common.Logic.Utils;
 using Vueling.DataAccess.Dao.Resources;
 
 namespace Vueling.DataAccess.Dao.Singletons
@@ -16,7 +19,7 @@ namespace Vueling.DataAccess.Dao.Singletons
         private static SingletonXml instance = null;
         private static readonly object padlock = new object();
 
-        Logger logger = new Logger();
+        private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         private List<Alumno> alumnos { get; set; }
 
         private SingletonXml()

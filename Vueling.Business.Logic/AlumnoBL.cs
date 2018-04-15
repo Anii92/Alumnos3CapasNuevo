@@ -13,6 +13,7 @@ using Vueling.Common.Logic;
 using Vueling.Business.Logic.Resources;
 using Vueling.Common.Logic.Utils;
 using Vueling.Common.Logic.Enums;
+using Vueling.Common.Logic.Interfaces;
 
 namespace Vueling.Business.Logic
 {
@@ -20,7 +21,7 @@ namespace Vueling.Business.Logic
     {
         public TipoFichero TipoFichero { get; set; }
 
-        Logger logger = new Logger();
+        private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         private IAlumnoDao alumnoDao;
 
         public AlumnoBL()

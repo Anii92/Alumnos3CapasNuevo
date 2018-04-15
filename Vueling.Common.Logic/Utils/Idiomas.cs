@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Resources;
 
@@ -16,7 +18,7 @@ namespace Vueling.Common.Logic.Utils
         #region ConfigurarIdiomaUsuario
         public static string LeerIdiomaUsuario()
         {
-            Logger logger = new Logger();
+            ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
             try
             {
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -33,7 +35,7 @@ namespace Vueling.Common.Logic.Utils
         }
         public static void GuardarIdiomaUsuario(string culture)
         {
-            Logger logger = new Logger();
+            ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
             try
             {
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);

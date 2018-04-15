@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Enums;
+using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
+using Vueling.Common.Logic.Utils;
 using Vueling.DataAccess.Dao.Factories;
 using Vueling.DataAccess.Dao.Resources;
 
@@ -14,7 +17,7 @@ namespace Vueling.DataAccess.Dao
 {
     public class AlumnoDao : IAlumnoDao
     {
-        private Logger logger = new Logger();
+        private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
 
         public Alumno Add(Alumno alumno)
         {

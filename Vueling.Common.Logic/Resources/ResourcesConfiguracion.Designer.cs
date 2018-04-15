@@ -86,5 +86,14 @@ namespace Vueling.Common.Logic.Resources {
                 return ResourceManager.GetString("Idioma", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Logger.
+        /// </summary>
+        internal static string TipoLog {
+            get {
+                return ResourceManager.GetString("TipoLog", resourceCulture);
+            }
+        }
     }
 }

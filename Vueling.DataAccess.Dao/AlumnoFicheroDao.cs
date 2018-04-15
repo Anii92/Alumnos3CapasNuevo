@@ -13,12 +13,14 @@ using Vueling.DataAccess.Dao.Resources;
 using static Vueling.Common.Logic.Enums.TiposFichero;
 using Vueling.Common.Logic.Utils;
 using Vueling.Common.Logic.Enums;
+using Vueling.Common.Logic.Interfaces;
+using System.Reflection;
 
 namespace Vueling.DataAccess.Dao
 {
     public class AlumnoFicheroDao : IAlumnoDao
     {
-        Logger logger = new Logger();
+        private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         public AlumnoFicheroDao()
         {
         }

@@ -126,4 +126,7 @@
   <data name="Idioma" xml:space="preserve">
     <value>Idioma</value>
   </data>
+  <data name="TipoLog" xml:space="preserve">
+    <value>Logger</value>
+  </data>
 </root>
