@@ -51,6 +51,7 @@
             this.alumnoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCrear = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemMostrarTodos = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnBaseDatos = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,63 +135,71 @@
             // 
             // menuStrip1
             // 
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuIdioma,
             this.alumnoToolStripMenuItem});
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
             // menuIdioma
             // 
-            resources.ApplyResources(this.menuIdioma, "menuIdioma");
             this.menuIdioma.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemCastellano,
             this.menuItemIngles,
             this.menuItemCatalan});
             this.menuIdioma.Name = "menuIdioma";
+            resources.ApplyResources(this.menuIdioma, "menuIdioma");
             // 
             // menuItemCastellano
             // 
-            resources.ApplyResources(this.menuItemCastellano, "menuItemCastellano");
             this.menuItemCastellano.Name = "menuItemCastellano";
+            resources.ApplyResources(this.menuItemCastellano, "menuItemCastellano");
             this.menuItemCastellano.Click += new System.EventHandler(this.menuItemCastellano_Click);
             // 
             // menuItemIngles
             // 
-            resources.ApplyResources(this.menuItemIngles, "menuItemIngles");
             this.menuItemIngles.Name = "menuItemIngles";
+            resources.ApplyResources(this.menuItemIngles, "menuItemIngles");
             this.menuItemIngles.Click += new System.EventHandler(this.menuItemIngles_Click);
             // 
             // menuItemCatalan
             // 
-            resources.ApplyResources(this.menuItemCatalan, "menuItemCatalan");
             this.menuItemCatalan.Name = "menuItemCatalan";
+            resources.ApplyResources(this.menuItemCatalan, "menuItemCatalan");
             this.menuItemCatalan.Click += new System.EventHandler(this.menuItemCatalan_Click);
             // 
             // alumnoToolStripMenuItem
             // 
-            resources.ApplyResources(this.alumnoToolStripMenuItem, "alumnoToolStripMenuItem");
             this.alumnoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemCrear,
             this.menuItemMostrarTodos});
             this.alumnoToolStripMenuItem.Name = "alumnoToolStripMenuItem";
+            resources.ApplyResources(this.alumnoToolStripMenuItem, "alumnoToolStripMenuItem");
             // 
             // menuItemCrear
             // 
-            resources.ApplyResources(this.menuItemCrear, "menuItemCrear");
             this.menuItemCrear.Name = "menuItemCrear";
+            resources.ApplyResources(this.menuItemCrear, "menuItemCrear");
             this.menuItemCrear.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
             // 
             // menuItemMostrarTodos
             // 
-            resources.ApplyResources(this.menuItemMostrarTodos, "menuItemMostrarTodos");
             this.menuItemMostrarTodos.Name = "menuItemMostrarTodos";
+            resources.ApplyResources(this.menuItemMostrarTodos, "menuItemMostrarTodos");
             this.menuItemMostrarTodos.Click += new System.EventHandler(this.mostrarTodosToolStripMenuItem_Click);
+            // 
+            // btnBaseDatos
+            // 
+            resources.ApplyResources(this.btnBaseDatos, "btnBaseDatos");
+            this.btnBaseDatos.Name = "btnBaseDatos";
+            this.btnBaseDatos.UseVisualStyleBackColor = true;
+            this.btnBaseDatos.Click += new System.EventHandler(this.btnBaseDatos_Click);
             // 
             // AlumnoForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBaseDatos);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.lblFechaNamcimiento);
             this.Controls.Add(this.lblDni);
@@ -238,5 +247,6 @@
         private System.Windows.Forms.ToolStripMenuItem alumnoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuItemCrear;
         private System.Windows.Forms.ToolStripMenuItem menuItemMostrarTodos;
+        private System.Windows.Forms.Button btnBaseDatos;
     }
 }

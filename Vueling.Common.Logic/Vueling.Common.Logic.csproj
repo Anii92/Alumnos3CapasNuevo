@@ -52,7 +52,6 @@
     <Compile Include="Interfaces\IFichero.cs" />
     <Compile Include="Interfaces\ITargetAdapterForLogger.cs" />
     <Compile Include="Models\Alumno.cs" />
-    <Compile Include="Models\BaseDeDatos.cs" />
     <Compile Include="Models\FicheroJson.cs" />
     <Compile Include="Models\FicheroTxt.cs" />
     <Compile Include="Models\FicheroXml.cs" />

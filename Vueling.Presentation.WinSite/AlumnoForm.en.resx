@@ -118,6 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 275</value>
+  </data>
+  <data name="btnJson.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 275</value>
+  </data>
+  <data name="btnXml.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 275</value>
+  </data>
   <data name="lblNombre.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
   </data>
@@ -160,8 +169,14 @@
   <data name="menuIdioma.Text" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="menuItemCrear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
   <data name="menuItemCrear.Text" xml:space="preserve">
     <value>Create</value>
+  </data>
+  <data name="menuItemMostrarTodos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
   </data>
   <data name="menuItemMostrarTodos.Text" xml:space="preserve">
     <value>Show all</value>
@@ -171,5 +186,8 @@
   </data>
   <data name="alumnoToolStripMenuItem.Text" xml:space="preserve">
     <value>Student</value>
+  </data>
+  <data name="btnBaseDatos.Text" xml:space="preserve">
+    <value>Database</value>
   </data>
 </root>

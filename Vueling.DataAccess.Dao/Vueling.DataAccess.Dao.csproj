@@ -43,10 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnoBaseDatosDao.cs" />
     <Compile Include="AlumnoDao.cs" />
+    <Compile Include="AlumnoFicheroDao.cs" />
+    <Compile Include="Factories\AlumnoDaoFactory.cs" />
     <Compile Include="Factories\FicheroFactory.cs" />
     <Compile Include="IAlumnoDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\ResourcesBaseDatos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesBaseDatos.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ResourcesLog.Designer.cs">
       <DependentUpon>ResourcesLog.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -68,6 +76,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\ResourcesBaseDatos.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesBaseDatos.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ResourcesLog.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourcesLog.Designer.cs</LastGenOutput>

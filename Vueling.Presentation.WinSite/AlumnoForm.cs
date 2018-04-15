@@ -108,6 +108,29 @@ namespace Vueling.Presentation.WinSite
             }
         }
 
+        private void btnBaseDatos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                this.LoadAlumnoData();
+                Configuraciones.GuardarFormatoFichero(TipoFichero.Sql);
+                alumnoBL.Add(alumno);
+                MessageBox.Show(ResourcesPresentation.studentAddSuccess);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
+            catch (NullReferenceException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+        }
+
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             try
@@ -162,6 +185,40 @@ namespace Vueling.Presentation.WinSite
 
             this.UpdateControls();
         }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                AlumnoForm alumnoForm = new AlumnoForm();
+                alumnoForm.Show();
+                this.Hide();
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+        }
+
+        private void mostrarTodosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                AlumnosShowForm alumnoShowForm = new AlumnosShowForm();
+                alumnoShowForm.Show();
+                this.Hide();
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+        }
         #endregion
 
         #region LoadDataForm
@@ -211,38 +268,6 @@ namespace Vueling.Presentation.WinSite
         }
         #endregion
 
-        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                AlumnoForm alumnoForm = new AlumnoForm();
-                alumnoForm.Show();
-                this.Hide();
-                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
-            }
-        }
-
-        private void mostrarTodosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                AlumnosShowForm alumnoShowForm = new AlumnosShowForm();
-                alumnoShowForm.Show();
-                this.Hide();
-                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
-            }
-        }
+        
     }
 }

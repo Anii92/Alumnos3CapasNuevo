@@ -117,59 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblNombre.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
+  <data name="addAlumno" xml:space="preserve">
+    <value>INSERT into dbo.Alumnos (Nombre, Apellidos, Dni, FechaNacimiento, Edad, FechaCreacion, Guid) VALUES (@nombre, @apellidos, @dni, @fechaNacimiento, @edad, @fechaCreacion, @guid)</value>
   </data>
-  <data name="lblNombre.Text" xml:space="preserve">
-    <value>Nom</value>
+  <data name="getAll" xml:space="preserve">
+    <value>select * from dbo.Alumnos</value>
   </data>
-  <data name="lblApellidos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
-  </data>
-  <data name="lblApellidos.Text" xml:space="preserve">
-    <value>Cognoms</value>
-  </data>
-  <data name="lblFechaNamcimiento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 13</value>
-  </data>
-  <data name="lblFechaNamcimiento.Text" xml:space="preserve">
-    <value>Data de naixement</value>
-  </data>
-  <data name="menuItemCastellano.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
-  </data>
-  <data name="menuItemCastellano.Text" xml:space="preserve">
-    <value>Castellà</value>
-  </data>
-  <data name="menuItemIngles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
-  </data>
-  <data name="menuItemIngles.Text" xml:space="preserve">
-    <value>Anglès</value>
-  </data>
-  <data name="menuItemCatalan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
-  </data>
-  <data name="menuItemCatalan.Text" xml:space="preserve">
-    <value>Català</value>
-  </data>
-  <data name="menuItemCrear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="menuItemMostrarTodos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
-  </data>
-  <data name="menuItemMostrarTodos.Text" xml:space="preserve">
-    <value>Mostrar tots</value>
-  </data>
-  <data name="alumnoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="alumnoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alumne</value>
-  </data>
-  <data name="btnBaseDatos.Text" xml:space="preserve">
-    <value>Base dades</value>
+  <data name="getId" xml:space="preserve">
+    <value>select * from dbo.Alumnos a where a.Id=@Id</value>
   </data>
 </root>

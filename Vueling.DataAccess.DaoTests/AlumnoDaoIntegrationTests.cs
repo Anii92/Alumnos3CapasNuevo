@@ -20,12 +20,12 @@ namespace Vueling.DataAccess.Dao.Tests
     [TestClass()]
     public class AlumnoDaoIntegrationTests
     {
-        private AlumnoDao alumnoDao;
+        private AlumnoFicheroDao alumnoDao;
 
         [TestInitialize]
         public void Initialize()
         {
-            this.alumnoDao = new AlumnoDao();
+            this.alumnoDao = new AlumnoFicheroDao();
             this.EliminarFichero();
         }
 

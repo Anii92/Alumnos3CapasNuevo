@@ -117,334 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;lblDni.Name" xml:space="preserve">
-    <value>lblDni</value>
-  </data>
-  <data name="lblDni.Text" xml:space="preserve">
-    <value>Dni</value>
-  </data>
-  <data name="&gt;&gt;lblId.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="menuItemIngles.Text" xml:space="preserve">
-    <value>Inglés</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="menuItemIngles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
-  </data>
-  <data name="&gt;&gt;lblFechaNamcimiento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblId.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="lblId.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDni.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 168</value>
-  </data>
-  <data name="lblDni.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="menuItemMostrarTodos.Text" xml:space="preserve">
-    <value>Mostrar todos</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="txtNombre.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnMostrar.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblNombre.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtNombre.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;btnJson.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;btnMostrar.Name" xml:space="preserve">
-    <value>btnMostrar</value>
-  </data>
-  <data name="&gt;&gt;txtDni.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 24</value>
-  </data>
-  <data name="&gt;&gt;btnXml.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="lblFechaNamcimiento.Text" xml:space="preserve">
-    <value>Fecha de nacimiento</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemMostrarTodos.Name" xml:space="preserve">
-    <value>menuItemMostrarTodos</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>AlumnoForm</value>
-  </data>
-  <data name="menuItemCastellano.Text" xml:space="preserve">
-    <value>Castellano</value>
-  </data>
-  <data name="lblNombre.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="txtId.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtApellidos.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="menuItemMostrarTodos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="&gt;&gt;btnMostrar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="txtDni.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="&gt;&gt;lblApellidos.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtNombre.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="txtFechaNacimiento.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;menuItemIngles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblApellidos.Text" xml:space="preserve">
-    <value>Apellidos</value>
-  </data>
-  <data name="&gt;&gt;lblDni.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnXml.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="lblId.Text" xml:space="preserve">
-    <value>Id</value>
-  </data>
-  <data name="menuIdioma.Text" xml:space="preserve">
-    <value>Idioma</value>
-  </data>
-  <data name="&gt;&gt;txtFechaNacimiento.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 29</value>
-  </data>
-  <data name="&gt;&gt;txtDni.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btnJson.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 275</value>
-  </data>
-  <data name="&gt;&gt;lblFechaNamcimiento.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnTxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtDni.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 161</value>
-  </data>
-  <data name="btnXml.Location" type="System.Drawing.Point, System.Drawing">
-    <value>330, 275</value>
-  </data>
-  <data name="&gt;&gt;txtId.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblFechaNamcimiento.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;txtId.Name" xml:space="preserve">
-    <value>txtId</value>
-  </data>
-  <data name="menuItemCrear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
-  </data>
-  <data name="&gt;&gt;txtId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>AlumnoForm</value>
-  </data>
-  <data name="&gt;&gt;menuItemCastellano.Name" xml:space="preserve">
-    <value>menuItemCastellano</value>
-  </data>
-  <data name="lblFechaNamcimiento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 13</value>
-  </data>
-  <data name="&gt;&gt;btnJson.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnXml.Name" xml:space="preserve">
-    <value>btnXml</value>
-  </data>
-  <data name="menuItemCrear.Text" xml:space="preserve">
-    <value>Crear</value>
-  </data>
-  <data name="&gt;&gt;txtFechaNacimiento.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="txtNombre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 72</value>
-  </data>
-  <data name="&gt;&gt;menuItemCrear.Name" xml:space="preserve">
-    <value>menuItemCrear</value>
-  </data>
-  <data name="btnMostrar.Text" xml:space="preserve">
-    <value>Mostrar</value>
-  </data>
-  <data name="btnMostrar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 318</value>
-  </data>
-  <data name="lblFechaNamcimiento.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="lblNombre.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;lblApellidos.Name" xml:space="preserve">
-    <value>lblApellidos</value>
-  </data>
-  <data name="&gt;&gt;menuItemCrear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnJson.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="lblNombre.Text" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;alumnoToolStripMenuItem.Name" xml:space="preserve">
-    <value>alumnoToolStripMenuItem</value>
-  </data>
-  <data name="lblFechaNamcimiento.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 212</value>
-  </data>
-  <data name="btnJson.Text" xml:space="preserve">
-    <value>Json</value>
-  </data>
-  <data name="btnJson.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblApellidos.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="menuIdioma.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 20</value>
-  </data>
-  <data name="&gt;&gt;btnJson.Name" xml:space="preserve">
-    <value>btnJson</value>
-  </data>
-  <data name="&gt;&gt;txtId.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;btnTxt.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 275</value>
   </data>
   <data name="btnTxt.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="lblId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>16, 13</value>
-  </data>
-  <data name="btnTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 275</value>
-  </data>
-  <data name="&gt;&gt;txtNombre.Name" xml:space="preserve">
-    <value>txtNombre</value>
-  </data>
-  <data name="txtNombre.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="&gt;&gt;lblApellidos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lblApellidos.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;btnXml.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnMostrar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="&gt;&gt;menuItemMostrarTodos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuItemIngles.Name" xml:space="preserve">
-    <value>menuItemIngles</value>
-  </data>
-  <data name="lblApellidos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnTxt.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="btnTxt.Text" xml:space="preserve">
     <value>Txt</value>
   </data>
-  <data name="&gt;&gt;lblApellidos.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnTxt.Name" xml:space="preserve">
+    <value>btnTxt</value>
+  </data>
+  <data name="&gt;&gt;btnTxt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnTxt.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnXml.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnTxt.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="btnJson.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 275</value>
+  </data>
+  <data name="btnJson.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnJson.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnJson.Text" xml:space="preserve">
+    <value>Json</value>
+  </data>
+  <data name="&gt;&gt;btnJson.Name" xml:space="preserve">
+    <value>btnJson</value>
+  </data>
+  <data name="&gt;&gt;btnJson.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnJson.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblDni.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnJson.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
-  <data name="menuItemCatalan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+  <data name="btnXml.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 275</value>
   </data>
-  <data name="lblDni.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;lblFechaNamcimiento.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="alumnoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="&gt;&gt;lblId.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="txtFechaNacimiento.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtApellidos.Name" xml:space="preserve">
-    <value>txtApellidos</value>
-  </data>
-  <data name="&gt;&gt;lblId.Name" xml:space="preserve">
-    <value>lblId</value>
+  <data name="btnXml.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
   </data>
   <data name="btnXml.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -452,8 +179,62 @@
   <data name="btnXml.Text" xml:space="preserve">
     <value>Xml</value>
   </data>
-  <data name="&gt;&gt;alumnoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnXml.Name" xml:space="preserve">
+    <value>btnXml</value>
+  </data>
+  <data name="&gt;&gt;btnXml.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnXml.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnXml.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="txtId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 29</value>
+  </data>
+  <data name="txtId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="txtId.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtId.Name" xml:space="preserve">
+    <value>txtId</value>
+  </data>
+  <data name="&gt;&gt;txtId.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtId.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtId.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="txtNombre.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 72</value>
+  </data>
+  <data name="txtNombre.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="txtNombre.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtNombre.Name" xml:space="preserve">
+    <value>txtNombre</value>
+  </data>
+  <data name="&gt;&gt;txtNombre.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNombre.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtNombre.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="txtApellidos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 118</value>
   </data>
   <data name="txtApellidos.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -461,127 +242,367 @@
   <data name="txtApellidos.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;txtNombre.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnMostrar.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;btnJson.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtFechaNacimiento.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblDni.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
-  </data>
-  <data name="&gt;&gt;lblNombre.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txtDni.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtFechaNacimiento.Name" xml:space="preserve">
-    <value>txtFechaNacimiento</value>
-  </data>
-  <data name="&gt;&gt;btnTxt.Name" xml:space="preserve">
-    <value>btnTxt</value>
-  </data>
-  <data name="&gt;&gt;menuIdioma.Name" xml:space="preserve">
-    <value>menuIdioma</value>
-  </data>
-  <data name="&gt;&gt;lblNombre.Name" xml:space="preserve">
-    <value>lblNombre</value>
-  </data>
-  <data name="lblNombre.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 13</value>
-  </data>
-  <data name="txtDni.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;btnMostrar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblDni.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtApellidos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 118</value>
-  </data>
-  <data name="&gt;&gt;txtApellidos.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="lblId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 35</value>
-  </data>
-  <data name="&gt;&gt;menuItemCatalan.Name" xml:space="preserve">
-    <value>menuItemCatalan</value>
+  <data name="&gt;&gt;txtApellidos.Name" xml:space="preserve">
+    <value>txtApellidos</value>
   </data>
   <data name="&gt;&gt;txtApellidos.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>476, 353</value>
+  <data name="&gt;&gt;txtApellidos.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtApellidos.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="txtDni.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 161</value>
+  </data>
+  <data name="txtDni.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="txtDni.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;txtDni.Name" xml:space="preserve">
     <value>txtDni</value>
   </data>
-  <data name="&gt;&gt;btnTxt.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="&gt;&gt;txtDni.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDni.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtDni.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="txtFechaNacimiento.Location" type="System.Drawing.Point, System.Drawing">
     <value>172, 205</value>
   </data>
-  <data name="&gt;&gt;menuIdioma.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtFechaNacimiento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
-  <data name="lblNombre.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 75</value>
+  <data name="txtFechaNacimiento.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;txtFechaNacimiento.Name" xml:space="preserve">
+    <value>txtFechaNacimiento</value>
+  </data>
+  <data name="&gt;&gt;txtFechaNacimiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtFechaNacimiento.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtFechaNacimiento.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblId.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 35</value>
+  </data>
+  <data name="lblId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblId.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblId.Text" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="&gt;&gt;lblId.Name" xml:space="preserve">
+    <value>lblId</value>
   </data>
   <data name="&gt;&gt;lblId.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblFechaNamcimiento.Name" xml:space="preserve">
-    <value>lblFechaNamcimiento</value>
+  <data name="&gt;&gt;lblId.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;menuItemCatalan.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblId.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblNombre.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNombre.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 75</value>
+  </data>
+  <data name="lblNombre.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 13</value>
+  </data>
+  <data name="lblNombre.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblNombre.Text" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="&gt;&gt;lblNombre.Name" xml:space="preserve">
+    <value>lblNombre</value>
   </data>
   <data name="&gt;&gt;lblNombre.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="menuItemCastellano.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
+  <data name="&gt;&gt;lblNombre.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
-    <value>menuStrip1</value>
+  <data name="&gt;&gt;lblNombre.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblApellidos.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblApellidos.Location" type="System.Drawing.Point, System.Drawing">
     <value>41, 125</value>
   </data>
-  <data name="&gt;&gt;menuItemCastellano.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblApellidos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 13</value>
   </data>
-  <data name="alumnoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Alumno</value>
+  <data name="lblApellidos.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="txtId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="lblApellidos.Text" xml:space="preserve">
+    <value>Apellidos</value>
   </data>
-  <data name="btnTxt.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;lblApellidos.Name" xml:space="preserve">
+    <value>lblApellidos</value>
+  </data>
+  <data name="&gt;&gt;lblApellidos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblApellidos.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblApellidos.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblDni.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDni.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 168</value>
+  </data>
+  <data name="lblDni.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 13</value>
+  </data>
+  <data name="lblDni.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lblDni.Text" xml:space="preserve">
+    <value>Dni</value>
+  </data>
+  <data name="&gt;&gt;lblDni.Name" xml:space="preserve">
+    <value>lblDni</value>
+  </data>
+  <data name="&gt;&gt;lblDni.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDni.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblDni.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblFechaNamcimiento.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFechaNamcimiento.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 212</value>
+  </data>
+  <data name="lblFechaNamcimiento.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 13</value>
+  </data>
+  <data name="lblFechaNamcimiento.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lblFechaNamcimiento.Text" xml:space="preserve">
+    <value>Fecha de nacimiento</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNamcimiento.Name" xml:space="preserve">
+    <value>lblFechaNamcimiento</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNamcimiento.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNamcimiento.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNamcimiento.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnMostrar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 318</value>
+  </data>
+  <data name="btnMostrar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnMostrar.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnMostrar.Text" xml:space="preserve">
+    <value>Mostrar</value>
+  </data>
+  <data name="&gt;&gt;btnMostrar.Name" xml:space="preserve">
+    <value>btnMostrar</value>
+  </data>
+  <data name="&gt;&gt;btnMostrar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnMostrar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnMostrar.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
+  <data name="menuItemCastellano.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="menuItemCastellano.Text" xml:space="preserve">
+    <value>Castellano</value>
+  </data>
+  <data name="menuItemIngles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="menuItemIngles.Text" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="menuItemCatalan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="menuIdioma.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 20</value>
+  </data>
+  <data name="menuIdioma.Text" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="menuItemCrear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="menuItemCrear.Text" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="menuItemMostrarTodos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="menuItemMostrarTodos.Text" xml:space="preserve">
+    <value>Mostrar todos</value>
+  </data>
+  <data name="alumnoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
+  </data>
+  <data name="alumnoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Alumno</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>476, 24</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="btnBaseDatos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 274</value>
+  </data>
+  <data name="btnBaseDatos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnBaseDatos.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnBaseDatos.Text" xml:space="preserve">
+    <value>Base datos</value>
+  </data>
+  <data name="&gt;&gt;btnBaseDatos.Name" xml:space="preserve">
+    <value>btnBaseDatos</value>
+  </data>
+  <data name="&gt;&gt;btnBaseDatos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBaseDatos.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBaseDatos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>476, 353</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>AlumnoForm</value>
+  </data>
+  <data name="&gt;&gt;menuIdioma.Name" xml:space="preserve">
+    <value>menuIdioma</value>
+  </data>
+  <data name="&gt;&gt;menuIdioma.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemCastellano.Name" xml:space="preserve">
+    <value>menuItemCastellano</value>
+  </data>
+  <data name="&gt;&gt;menuItemCastellano.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemIngles.Name" xml:space="preserve">
+    <value>menuItemIngles</value>
+  </data>
+  <data name="&gt;&gt;menuItemIngles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemCatalan.Name" xml:space="preserve">
+    <value>menuItemCatalan</value>
+  </data>
+  <data name="&gt;&gt;menuItemCatalan.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;alumnoToolStripMenuItem.Name" xml:space="preserve">
+    <value>alumnoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;alumnoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemCrear.Name" xml:space="preserve">
+    <value>menuItemCrear</value>
+  </data>
+  <data name="&gt;&gt;menuItemCrear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuItemMostrarTodos.Name" xml:space="preserve">
+    <value>menuItemMostrarTodos</value>
+  </data>
+  <data name="&gt;&gt;menuItemMostrarTodos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>AlumnoForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
