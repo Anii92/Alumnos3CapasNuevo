@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formato;
 
 namespace Vueling.DataAccess.DaoTests
 {
@@ -27,9 +27,9 @@ namespace Vueling.DataAccess.DaoTests
             this.alumnoBLMock = this.mocks.CreateMock<IAlumnoBL>();
         }
 
-        [DataRow(TipoFichero.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void AddTest(TipoFichero tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void AddTest(Formato tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
 
@@ -41,9 +41,9 @@ namespace Vueling.DataAccess.DaoTests
             Assert.IsTrue(alumno.Equals(alumnoInsertado));
         }
 
-        [DataRow(TipoFichero.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void LeerTest(TipoFichero tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void LeerTest(Formato tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             List<Alumno> alumnos = new List<Alumno>();

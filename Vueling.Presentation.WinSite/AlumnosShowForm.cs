@@ -18,7 +18,7 @@ using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Utils;
 using Vueling.Presentation.WinSite.Resources;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formatos;
 
 namespace Vueling.Presentation.WinSite
 {
@@ -69,8 +69,8 @@ namespace Vueling.Presentation.WinSite
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                this.alumnoBL.CargarDatosDeLosAlumnos(TipoFichero.Json);
-                this.alumnoBL.CargarDatosDeLosAlumnos(TipoFichero.Xml);
+                this.alumnoBL.CargarDatosDeLosAlumnos(Formato.Json);
+                this.alumnoBL.CargarDatosDeLosAlumnos(Formato.Xml);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
             catch (FileNotFoundException exception)
@@ -95,7 +95,7 @@ namespace Vueling.Presentation.WinSite
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Texto);
+                Configuraciones.GuardarFormatoFichero(Formato.Texto);
                 this.EscribirEnPantalla(this.alumnoBL.Leer());
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
@@ -118,7 +118,7 @@ namespace Vueling.Presentation.WinSite
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Json);
+                Configuraciones.GuardarFormatoFichero(Formato.Json);
                 this.EscribirEnPantalla(this.alumnoBL.Leer());
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
@@ -141,7 +141,7 @@ namespace Vueling.Presentation.WinSite
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Xml);
+                Configuraciones.GuardarFormatoFichero(Formato.Xml);
                 this.EscribirEnPantalla(this.alumnoBL.Leer());
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
@@ -164,7 +164,43 @@ namespace Vueling.Presentation.WinSite
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Sql);
+                Configuraciones.GuardarFormatoFichero(Formato.Sql);
+                this.EscribirEnPantalla(this.alumnoBL.Leer());
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
+            catch (FileNotFoundException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (ConfigurationErrorsException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (InvalidOperationException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (SqlException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (InvalidCastException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+        }
+
+        private void btnProcedure_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Configuraciones.GuardarFormatoFichero(Formato.Procedure);
                 this.EscribirEnPantalla(this.alumnoBL.Leer());
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
@@ -303,6 +339,21 @@ namespace Vueling.Presentation.WinSite
                 throw;
             }
         }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridAlumnos.RowCount != 0)
+            {
+                DataGridViewRow row = this.dataGridAlumnos.SelectedRows[0];
+                string guid = row.Cells["Guid"].Value.ToString();
+                int delete = this.alumnoBL.DeleteByGuid(guid);
+                if (delete == 1)
+                {
+                    this.EscribirEnPantalla(this.alumnoBL.Leer());
+                    MessageBox.Show("Se ha borrado el alumno correctamente!");
+                }
+            }
+        }
         #endregion
 
         #region Language
@@ -394,5 +445,7 @@ namespace Vueling.Presentation.WinSite
                 this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
+
+        
     }
 }

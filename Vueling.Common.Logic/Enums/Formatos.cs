@@ -6,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace Vueling.Common.Logic.Enums
 {
-    public class TiposFichero
+    public class Formatos
     {
-        public enum TipoFichero
+        public enum Formato
         {
             Texto,
             Json,
             Xml,
-            Sql
+            Sql,
+            Procedure
         }
 
-        public static TipoFichero GetType(string value)
+        public static Formato GetType(string value)
         {
-            return (TipoFichero)System.Enum.Parse(typeof(TipoFichero), value);
+            return (Formato)System.Enum.Parse(typeof(Formato), value);
         }
     }
 }

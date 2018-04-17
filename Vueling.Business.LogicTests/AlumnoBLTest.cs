@@ -9,7 +9,7 @@ using Vueling.Business.Logic;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formato;
 
 namespace Vueling.Business.LogicTests
 {
@@ -34,9 +34,9 @@ namespace Vueling.Business.LogicTests
             mocks.ClearExpectations();
         }
 
-        [DataRow(TipoFichero.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void AddTest(TipoFichero tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void AddTest(Formato tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
 
@@ -48,9 +48,9 @@ namespace Vueling.Business.LogicTests
             Assert.IsTrue(alumno.Equals(alumnoInsertado));
         }
 
-        [DataRow(TipoFichero.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Texto, 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void LeerTest(TipoFichero tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void LeerTest(Formato tipo, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             List<Alumno> alumnos = new List<Alumno>();
@@ -63,13 +63,13 @@ namespace Vueling.Business.LogicTests
             Assert.IsNotNull(listadoAlumnos);
         }
 
-        [DataRow(TipoFichero.Texto, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Texto, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
-        [DataRow(TipoFichero.Texto, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Texto, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Texto, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
+        [DataRow(Formato.Texto, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Texto, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
+        [DataRow(Formato.Texto, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Texto, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Texto, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
         [DataTestMethod]
-        public void FiltrarFicheroDeTextoTest(TipoFichero tipo, string clave, string valor, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void FiltrarFicheroDeTextoTest(Formato tipo, string clave, string valor, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             Alumno alumnoTest = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             this.alumnoDaoMock.Expects.One
@@ -85,13 +85,13 @@ namespace Vueling.Business.LogicTests
             Assert.IsTrue(alumnosFiltrados.Contains(alumnoTest));
         }
 
-        [DataRow(TipoFichero.Json, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Json, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
-        [DataRow(TipoFichero.Json, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Json, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Json, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
+        [DataRow(Formato.Json, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Json, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
+        [DataRow(Formato.Json, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Json, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Json, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
         [DataTestMethod]
-        public void FiltrarFicheroDeJsonTest(TipoFichero tipo, string clave, string valor, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void FiltrarFicheroDeJsonTest(Formato tipo, string clave, string valor, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             Alumno alumnoTest = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             this.alumnoDaoMock.Expects.One
@@ -106,13 +106,13 @@ namespace Vueling.Business.LogicTests
             Assert.IsTrue(alumnosFiltrados.Contains(alumnoTest));
         }
 
-        [DataRow(TipoFichero.Xml, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Xml, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
-        [DataRow(TipoFichero.Xml, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Xml, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
-        [DataRow(TipoFichero.Xml, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
+        [DataRow(Formato.Xml, "Nombre", "Lucas", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Xml, "Apellidos", "Perez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
+        [DataRow(Formato.Xml, "Id", "1", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Xml, "Dni", "1234", 1, "Lucas", "Perez", "1234", 20, "22-01-1997")]
+        [DataRow(Formato.Xml, "Apellidos", "Martinez", 1, "Maria", "Perez", "9876", 22, "22-01-1999")]
         [DataTestMethod]
-        public void FiltrarFicheroDeXmlTest(TipoFichero tipo, string clave, string valor, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void FiltrarFicheroDeXmlTest(Formato tipo, string clave, string valor, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             Alumno alumnoTest = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
             this.alumnoDaoMock.Expects.One

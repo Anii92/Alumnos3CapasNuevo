@@ -138,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dataGridAlumnos.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>24</value>
   </data>
   <data name="btnTxtBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>124, 325</value>
@@ -162,7 +162,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnTxtBuscador.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="btnJsonBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>278, 325</value>
@@ -186,7 +186,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnJsonBuscador.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="btnXmlBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>428, 325</value>
@@ -210,7 +210,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnXmlBuscador.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="btnIdBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>255, 23</value>
@@ -234,7 +234,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnIdBuscador.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="lblIdBuscador.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -261,7 +261,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblIdBuscador.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="txtIdBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 26</value>
@@ -282,7 +282,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtIdBuscador.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="btnNombreBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>255, 64</value>
@@ -306,7 +306,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnNombreBuscador.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="lblNombreBuscador.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -333,7 +333,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblNombreBuscador.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="txtNombreBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 64</value>
@@ -354,7 +354,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNombreBuscador.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="lblDniBuscador.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -381,7 +381,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDniBuscador.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="lblApellidosBuscador.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -408,7 +408,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblApellidosBuscador.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="lblFechaNacimientoBuscador.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -435,7 +435,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblFechaNacimientoBuscador.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="txtApellidosBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>113, 102</value>
@@ -456,7 +456,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtApellidosBuscador.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="txtDniBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>461, 27</value>
@@ -477,7 +477,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDniBuscador.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="txtFechaNacimientoBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>461, 61</value>
@@ -498,7 +498,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtFechaNacimientoBuscador.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="btnApellidosBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>255, 102</value>
@@ -522,7 +522,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnApellidosBuscador.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="btnDniBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>597, 24</value>
@@ -546,7 +546,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnDniBuscador.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="btnFechaNacimientoBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>597, 59</value>
@@ -570,7 +570,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnFechaNacimientoBuscador.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="lblGuidBuscador.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -597,7 +597,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblGuidBuscador.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="txtGuidBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>461, 95</value>
@@ -618,7 +618,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtGuidBuscador.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="btnGuidBuscador.Location" type="System.Drawing.Point, System.Drawing">
     <value>597, 91</value>
@@ -642,11 +642,53 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnGuidBuscador.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="menuItemCastellano.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="menuItemCastellano.Text" xml:space="preserve">
+    <value>Castellano</value>
+  </data>
+  <data name="menuItemIngles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="menuItemIngles.Text" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="menuItemCatalan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="menuItemCatalan.Text" xml:space="preserve">
+    <value>Catalán</value>
+  </data>
+  <data name="idiomasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="idiomasToolStripMenuItem.Text" xml:space="preserve">
+    <value>Idiomas</value>
+  </data>
+  <data name="menuItemCrearAlumno.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="menuItemCrearAlumno.Text" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="menuItemShowAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 22</value>
+  </data>
+  <data name="menuItemShowAll.Text" xml:space="preserve">
+    <value>Mostrar todos</value>
+  </data>
+  <data name="alumnoToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
+  </data>
+  <data name="alumnoToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Alumno</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -669,49 +711,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>23</value>
-  </data>
-  <data name="idiomasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="idiomasToolStripMenuItem.Text" xml:space="preserve">
-    <value>Idiomas</value>
-  </data>
-  <data name="menuItemCastellano.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
-  </data>
-  <data name="menuItemCastellano.Text" xml:space="preserve">
-    <value>Castellano</value>
-  </data>
-  <data name="menuItemIngles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
-  </data>
-  <data name="menuItemIngles.Text" xml:space="preserve">
-    <value>Inglés</value>
-  </data>
-  <data name="menuItemCatalan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>129, 22</value>
-  </data>
-  <data name="menuItemCatalan.Text" xml:space="preserve">
-    <value>Catalán</value>
-  </data>
-  <data name="alumnoToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="alumnoToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Alumno</value>
-  </data>
-  <data name="menuItemCrearAlumno.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
-  </data>
-  <data name="menuItemCrearAlumno.Text" xml:space="preserve">
-    <value>Crear</value>
-  </data>
-  <data name="menuItemShowAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
-  </data>
-  <data name="menuItemShowAll.Text" xml:space="preserve">
-    <value>Mostrar todos</value>
+    <value>25</value>
   </data>
   <data name="btnSql.Location" type="System.Drawing.Point, System.Drawing">
     <value>564, 325</value>
@@ -735,6 +735,54 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnSql.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnBorrar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 355</value>
+  </data>
+  <data name="btnBorrar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnBorrar.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="btnBorrar.Text" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="&gt;&gt;btnBorrar.Name" xml:space="preserve">
+    <value>btnBorrar</value>
+  </data>
+  <data name="&gt;&gt;btnBorrar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnBorrar.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnBorrar.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnProcedure.Location" type="System.Drawing.Point, System.Drawing">
+    <value>676, 325</value>
+  </data>
+  <data name="btnProcedure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnProcedure.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="btnProcedure.Text" xml:space="preserve">
+    <value>Procedure</value>
+  </data>
+  <data name="&gt;&gt;btnProcedure.Name" xml:space="preserve">
+    <value>btnProcedure</value>
+  </data>
+  <data name="&gt;&gt;btnProcedure.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnProcedure.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnProcedure.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

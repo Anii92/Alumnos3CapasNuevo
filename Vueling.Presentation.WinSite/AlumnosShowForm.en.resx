@@ -184,4 +184,7 @@
   <data name="alumnoToolStripMenuItem1.Text" xml:space="preserve">
     <value>Student</value>
   </data>
+  <data name="btnBorrar.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
 </root>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formatos;
 using Vueling.Common.Logic;
 using Vueling.Business.Logic.Resources;
 using Vueling.Common.Logic.Utils;
@@ -19,7 +19,7 @@ namespace Vueling.Business.Logic
 {
     public class AlumnoBL : IAlumnoBL
     {
-        public TipoFichero TipoFichero { get; set; }
+        public Formato Formato { get; set; }
 
         private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         private IAlumnoDao alumnoDao;
@@ -77,13 +77,13 @@ namespace Vueling.Business.Logic
             }
         }
 
-        public void CargarDatosDeLosAlumnos(TipoFichero tipoFichero)
+        public void CargarDatosDeLosAlumnos(Formato Formato)
         {
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
+                this.alumnoDao.CargarDatosDeLosAlumnos(Formato);
             }
             catch (FileNotFoundException exception)
             {
@@ -137,6 +137,22 @@ namespace Vueling.Business.Logic
                     select alumno;
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnosFiltrados.ToList();
+            }
+            catch (NullReferenceException exception)
+            {
+                this.logger.Error(exception.Message + exception.StackTrace);
+                throw;
+            }
+        }
+
+        public int DeleteByGuid(string guid)
+        {
+            try
+            {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                int delete = this.alumnoDao.DeleteByGuid(guid);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return delete;
             }
             catch (NullReferenceException exception)
             {

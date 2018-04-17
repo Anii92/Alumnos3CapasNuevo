@@ -59,7 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\TiposFichero.cs" />
+    <Compile Include="Enums\Formatos.cs" />
     <Compile Include="Enums\TiposPersona.cs" />
     <Compile Include="Interfaces\IFichero.cs" />
     <Compile Include="Interfaces\ILogger.cs" />

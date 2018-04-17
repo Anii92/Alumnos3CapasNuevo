@@ -10,32 +10,33 @@ using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao.Factories;
 using Vueling.DataAccess.Dao.Singletons;
 using Vueling.DataAccess.Dao.Resources;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formatos;
 using Vueling.Common.Logic.Utils;
 using Vueling.Common.Logic.Enums;
 using Vueling.Common.Logic.Interfaces;
 using System.Reflection;
+using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao
 {
-    public class AlumnoFicheroDao : IAlumnoDao
+    public class AlumnoFicheroDao : ICreate
     {
         private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         public AlumnoFicheroDao()
         {
         }
 
-        public void CargarDatosDeLosAlumnos(TipoFichero tipoFichero)
+        public void CargarDatosDeLosAlumnos(Formato Formato)
         {
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                switch (tipoFichero)
+                switch (Formato)
                 {
-                    case (TipoFichero.Json):
+                    case (Formato.Json):
                         SingletonJson.Instance.Cargar();
                         break;
-                    case (TipoFichero.Xml):
+                    case (Formato.Xml):
                         SingletonXml.Instance.Cargar();
                         break;
                     default:
@@ -56,7 +57,7 @@ namespace Vueling.DataAccess.Dao
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                IFichero fichero = (IFichero)FicheroFactory.CrearFichero(TiposFichero.GetType(Configuraciones.LeerFormatoFichero()), "ListadoAlumno");
+                IFichero fichero = (IFichero)FicheroFactory.CrearFichero(Formatos.GetType(Configuraciones.LeerFormatoFichero()), "ListadoAlumno");
                 Alumno alumnoInsertado = fichero.Guardar(alumno);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
@@ -78,29 +79,29 @@ namespace Vueling.DataAccess.Dao
             try
             {
                 List<Alumno> alumnos;
-                TipoFichero tipoFichero = TiposFichero.GetType(Configuraciones.LeerFormatoFichero());
-                switch (tipoFichero)
+                Formato Formato = Formatos.GetType(Configuraciones.LeerFormatoFichero());
+                switch (Formato)
                 {
-                    case (TipoFichero.Texto):
-                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
-                        IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipoFichero, "ListadoAlumno");
+                    case (Formato.Texto):
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
+                        IFichero fichero = (IFichero)FicheroFactory.CrearFichero(Formato, "ListadoAlumno");
                         alumnos = fichero.Leer();
-                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
                         return alumnos;
-                    case (TipoFichero.Json):
-                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                    case (Formato.Json):
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
                         alumnos = SingletonJson.Instance.Leer();
-                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
                         return alumnos;
-                    case (TipoFichero.Xml):
-                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                    case (Formato.Xml):
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
                         alumnos = SingletonXml.Instance.Leer();
-                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
                         return alumnos;
                     default:
-                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
                         alumnos = SingletonJson.Instance.Leer();
-                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + tipoFichero.ToString());
+                        this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Formato.ToString());
                         return alumnos;
                 }
             }

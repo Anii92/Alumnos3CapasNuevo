@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Resources;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formatos;
 
 namespace Vueling.Common.Logic.Utils
 {
@@ -35,7 +35,7 @@ namespace Vueling.Common.Logic.Utils
                 throw;
             }
         }
-        public static void GuardarFormatoFichero(TipoFichero tipoFichero)
+        public static void GuardarFormatoFichero(Formato Formato)
         {
             try
             {
@@ -43,11 +43,11 @@ namespace Vueling.Common.Logic.Utils
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 if (string.IsNullOrEmpty(ConfigurationManager.AppSettings[ResourcesConfiguracion.ExtensionFichero]))
                 {
-                    config.AppSettings.Settings.Add(ResourcesConfiguracion.ExtensionFichero, tipoFichero.ToString());
+                    config.AppSettings.Settings.Add(ResourcesConfiguracion.ExtensionFichero, Formato.ToString());
                 }
                 else
                 {
-                    config.AppSettings.Settings[Resources.ResourcesConfiguracion.ExtensionFichero].Value = tipoFichero.ToString();
+                    config.AppSettings.Settings[Resources.ResourcesConfiguracion.ExtensionFichero].Value = Formato.ToString();
                 }
                 config.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection("appSettings");

@@ -13,7 +13,7 @@ using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Utils;
 using Vueling.Presentation.WinSite.Resources;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formatos;
 
 namespace Vueling.Presentation.WinSite
 {
@@ -47,7 +47,7 @@ namespace Vueling.Presentation.WinSite
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Texto);
+                Configuraciones.GuardarFormatoFichero(Formato.Texto);
                 alumnoBL.Add(alumno);
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -70,7 +70,7 @@ namespace Vueling.Presentation.WinSite
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Json);
+                Configuraciones.GuardarFormatoFichero(Formato.Json);
                 alumnoBL.Add(alumno);
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -93,7 +93,7 @@ namespace Vueling.Presentation.WinSite
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Xml);
+                Configuraciones.GuardarFormatoFichero(Formato.Xml);
                 alumnoBL.Add(alumno);
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -116,7 +116,30 @@ namespace Vueling.Presentation.WinSite
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.LoadAlumnoData();
-                Configuraciones.GuardarFormatoFichero(TipoFichero.Sql);
+                Configuraciones.GuardarFormatoFichero(Formato.Sql);
+                alumnoBL.Add(alumno);
+                MessageBox.Show(ResourcesPresentation.studentAddSuccess);
+                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            }
+            catch (NullReferenceException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+            catch (ArgumentNullException exception)
+            {
+                MessageBox.Show(exception.Message);
+                this.logger.Error(exception.Message + exception.StackTrace);
+            }
+        }
+
+        private void btnProcedure_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                this.LoadAlumnoData();
+                Configuraciones.GuardarFormatoFichero(Formato.Procedure);
                 alumnoBL.Add(alumno);
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -268,6 +291,7 @@ namespace Vueling.Presentation.WinSite
             var controls = control.Controls.Cast<Control>();
             return controls.SelectMany(ctrl => GetParent(ctrl)).Concat(controls);
         }
+
         #endregion
 
         

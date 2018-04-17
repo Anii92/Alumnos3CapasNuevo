@@ -52,6 +52,7 @@
             this.menuItemCrear = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemMostrarTodos = new System.Windows.Forms.ToolStripMenuItem();
             this.btnBaseDatos = new System.Windows.Forms.Button();
+            this.btnProcedure = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,10 +196,18 @@
             this.btnBaseDatos.UseVisualStyleBackColor = true;
             this.btnBaseDatos.Click += new System.EventHandler(this.btnBaseDatos_Click);
             // 
+            // btnProcedure
+            // 
+            resources.ApplyResources(this.btnProcedure, "btnProcedure");
+            this.btnProcedure.Name = "btnProcedure";
+            this.btnProcedure.UseVisualStyleBackColor = true;
+            this.btnProcedure.Click += new System.EventHandler(this.btnProcedure_Click);
+            // 
             // AlumnoForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnProcedure);
             this.Controls.Add(this.btnBaseDatos);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.lblFechaNamcimiento);
@@ -248,5 +257,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemCrear;
         private System.Windows.Forms.ToolStripMenuItem menuItemMostrarTodos;
         private System.Windows.Forms.Button btnBaseDatos;
+        private System.Windows.Forms.Button btnProcedure;
     }
 }

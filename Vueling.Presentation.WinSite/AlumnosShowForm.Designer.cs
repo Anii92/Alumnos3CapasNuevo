@@ -60,6 +60,8 @@
             this.menuItemCrearAlumno = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemShowAll = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSql = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnProcedure = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAlumnos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -255,10 +257,26 @@
             this.btnSql.UseVisualStyleBackColor = true;
             this.btnSql.Click += new System.EventHandler(this.btnSql_Click);
             // 
+            // btnBorrar
+            // 
+            resources.ApplyResources(this.btnBorrar, "btnBorrar");
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnProcedure
+            // 
+            resources.ApplyResources(this.btnProcedure, "btnProcedure");
+            this.btnProcedure.Name = "btnProcedure";
+            this.btnProcedure.UseVisualStyleBackColor = true;
+            this.btnProcedure.Click += new System.EventHandler(this.btnProcedure_Click);
+            // 
             // AlumnosShowForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnProcedure);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnSql);
             this.Controls.Add(this.btnGuidBuscador);
             this.Controls.Add(this.txtGuidBuscador);
@@ -326,5 +344,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuItemCrearAlumno;
         private System.Windows.Forms.ToolStripMenuItem menuItemShowAll;
         private System.Windows.Forms.Button btnSql;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnProcedure;
     }
 }

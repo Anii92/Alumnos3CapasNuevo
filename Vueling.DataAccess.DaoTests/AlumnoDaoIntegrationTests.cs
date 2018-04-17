@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Vueling.DataAccess.Dao.Factories;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formato;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Utils;
 using Vueling.Common.Logic.Models;
@@ -38,35 +38,35 @@ namespace Vueling.DataAccess.Dao.Tests
             }
         }
 
-        [DataRow(TipoFichero.Texto, "MiPrimerFicheroTxt.txt")]
+        [DataRow(Formato.Texto, "MiPrimerFicheroTxt.txt")]
         [DataTestMethod]
-        public void CrearTipoFicheroFactoryTest(TipoFichero tipo, string nombre)
+        public void CrearFormatoFactoryTest(Formato tipo, string nombre)
         {
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
             Assert.IsTrue(fichero.GetType() == typeof(FicheroTxt));
         }
 
-        [DataRow(TipoFichero.Json, "MiPrimerFicheroJson.json")]
+        [DataRow(Formato.Json, "MiPrimerFicheroJson.json")]
         [DataTestMethod]
-        public void CrearTipoFicheroJsonFactoryTest(TipoFichero tipo, string nombre)
+        public void CrearFormatoJsonFactoryTest(Formato tipo, string nombre)
         {
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
             Assert.IsTrue(fichero.GetType() == typeof(FicheroJson));
         }
 
-        [DataRow(TipoFichero.Xml, "MiPrimerFicheroJson.xml")]
+        [DataRow(Formato.Xml, "MiPrimerFicheroJson.xml")]
         [DataTestMethod]
-        public void CrearTipoFicheroXmlFactoryTest(TipoFichero tipo, string nombre)
+        public void CrearFormatoXmlFactoryTest(Formato tipo, string nombre)
         {
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
             Assert.IsTrue(fichero.GetType() == typeof(FicheroXml));
         }
 
-        [DataRow(TipoFichero.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataRow(TipoFichero.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataRow(TipoFichero.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void CrearFicheroTest(TipoFichero tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void CrearFicheroTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
@@ -75,9 +75,9 @@ namespace Vueling.DataAccess.Dao.Tests
             Assert.IsTrue(File.Exists(fichero.Ruta));
         }
 
-        [DataRow(TipoFichero.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void GuardarAlumnoFicheroTextoTest(TipoFichero tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void GuardarAlumnoFicheroTextoTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
@@ -88,9 +88,9 @@ namespace Vueling.DataAccess.Dao.Tests
             Assert.IsTrue(alumno.Equals(alumnoFichero));
         }
 
-        [DataRow(TipoFichero.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void GuardarAlumnoFicheroJsonTest(TipoFichero tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void GuardarAlumnoFicheroJsonTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
@@ -101,9 +101,9 @@ namespace Vueling.DataAccess.Dao.Tests
             Assert.IsTrue(alumno.Equals(alumnoFichero));
         }
 
-        [DataRow(TipoFichero.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        [DataRow(Formato.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
         [DataTestMethod]
-        public void GuardarAlumnoFicheroXmlTest(TipoFichero tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        public void GuardarAlumnoFicheroXmlTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
         {
             IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
             Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
@@ -114,22 +114,22 @@ namespace Vueling.DataAccess.Dao.Tests
             Assert.IsTrue(alumno.Equals(alumnoFichero));
         }
 
-        [DataRow(TipoFichero.Xml)]
+        [DataRow(Formato.Xml)]
         [DataTestMethod]
-        public void CargarDatosDeLosAlumnosXmlTest(TipoFichero tipoFichero)
+        public void CargarDatosDeLosAlumnosXmlTest(Formato Formato)
         {
-            Configuraciones.GuardarFormatoFichero(tipoFichero);
-            this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
+            Configuraciones.GuardarFormatoFichero(Formato);
+            this.alumnoDao.CargarDatosDeLosAlumnos(Formato);
             List<Alumno> alumnos = this.alumnoDao.Leer();
             Assert.IsNotNull(alumnos);
         }
 
-        [DataRow(TipoFichero.Json)]
+        [DataRow(Formato.Json)]
         [DataTestMethod]
-        public void CargarDatosDeLosAlumnosJsonTest(TipoFichero tipoFichero)
+        public void CargarDatosDeLosAlumnosJsonTest(Formato Formato)
         {
-            Configuraciones.GuardarFormatoFichero(tipoFichero);
-            this.alumnoDao.CargarDatosDeLosAlumnos(tipoFichero);
+            Configuraciones.GuardarFormatoFichero(Formato);
+            this.alumnoDao.CargarDatosDeLosAlumnos(Formato);
             List<Alumno> alumnos = this.alumnoDao.Leer();
             Assert.IsNotNull(alumnos);
         }

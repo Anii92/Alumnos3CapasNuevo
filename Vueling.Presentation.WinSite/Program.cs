@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vueling.Common.Logic.Utils;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formatos;
 
 namespace Vueling.Presentation.WinSite
 {
@@ -29,7 +29,7 @@ namespace Vueling.Presentation.WinSite
         private static void Configurar()
         {
             log4net.Config.XmlConfigurator.Configure();
-            Configuraciones.GuardarFormatoFichero(TipoFichero.Texto);
+            Configuraciones.GuardarFormatoFichero(Formato.Texto);
             Idiomas.GuardarIdiomaUsuario(Resources.ResourcesIdiomas.Castellano);
             Idiomas.CambiarIdioma(Resources.ResourcesIdiomas.Castellano);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Idiomas.LeerIdiomaUsuario());

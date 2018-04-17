@@ -8,7 +8,7 @@ using Vueling.Common.Logic.Enums;
 using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Utils;
 using Vueling.DataAccess.Dao.Resources;
-using static Vueling.Common.Logic.Enums.TiposFichero;
+using static Vueling.Common.Logic.Enums.Formatos;
 
 namespace Vueling.DataAccess.Dao.Factories
 {
@@ -18,20 +18,23 @@ namespace Vueling.DataAccess.Dao.Factories
         {
             ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
             logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            switch (TiposFichero.GetType(Configuraciones.LeerFormatoFichero()))
+            switch (Formatos.GetType(Configuraciones.LeerFormatoFichero()))
             {
-                case TipoFichero.Sql:
+                case Formato.Sql:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
                     return new AlumnoBaseDatosDao();
-                case TipoFichero.Texto:
+                case Formato.Texto:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
                     return new AlumnoFicheroDao();
-                case TipoFichero.Json:
+                case Formato.Json:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
                     return new AlumnoFicheroDao();
-                case TipoFichero.Xml:
+                case Formato.Xml:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
                     return new AlumnoFicheroDao();
+                case Formato.Procedure:
+                    logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
+                    return new AlumnoProcedureDao();
                 default:
                     return new AlumnoBaseDatosDao();
             }
