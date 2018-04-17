@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
-using static Vueling.Common.Logic.Enums.Formato;
+using static Vueling.Common.Logic.Enums.Formatos;
 
 namespace Vueling.DataAccess.DaoTests
 {

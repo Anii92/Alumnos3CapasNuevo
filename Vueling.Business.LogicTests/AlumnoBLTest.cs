@@ -9,7 +9,7 @@ using Vueling.Business.Logic;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao;
-using static Vueling.Common.Logic.Enums.Formato;
+using static Vueling.Common.Logic.Enums.Formatos;
 
 namespace Vueling.Business.LogicTests
 {

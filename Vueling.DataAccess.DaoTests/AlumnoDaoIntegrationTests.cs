@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Vueling.DataAccess.Dao.Factories;
-using static Vueling.Common.Logic.Enums.Formato;
+using static Vueling.Common.Logic.Enums.Formatos;
 using Vueling.Common.Logic;
 using Vueling.Common.Logic.Utils;
 using Vueling.Common.Logic.Models;

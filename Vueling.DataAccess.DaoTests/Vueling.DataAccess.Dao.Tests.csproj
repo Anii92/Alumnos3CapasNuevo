@@ -65,6 +65,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AlumnoBaseDatosDaoIntegrationTest.cs" />
     <Compile Include="AlumnoDaoTest.cs" />
     <Compile Include="AlumnoDaoIntegrationTests.cs" />
     <Compile Include="NMock3\NMockTest.cs" />
