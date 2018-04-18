@@ -30,6 +30,9 @@ namespace Vueling.Presentation.WinSite
         {
             log4net.Config.XmlConfigurator.Configure();
             Configuraciones.GuardarFormatoFichero(Formato.Texto);
+            Configuraciones.GuardarAppConfig("log4net", "Vueling.Common.Logic.Utils.AdapterLog4NetLogger");
+            Configuraciones.GuardarAppConfig("seriolog", "Vueling.Common.Logic.Utils.AdapterSerilogLogger");
+            Configuraciones.GuardarAppConfig("scriptSqlTest", "ScriptSqlTest");
             Idiomas.GuardarIdiomaUsuario(Resources.ResourcesIdiomas.Castellano);
             Idiomas.CambiarIdioma(Resources.ResourcesIdiomas.Castellano);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(Idiomas.LeerIdiomaUsuario());

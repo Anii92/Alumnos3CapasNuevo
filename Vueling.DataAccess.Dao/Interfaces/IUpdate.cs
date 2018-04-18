@@ -9,6 +9,6 @@ namespace Vueling.DataAccess.Dao.Interfaces
 {
     public interface IUpdate
     {
-        Alumno UpdateName(string name, int id);
+        Alumno UpdateName(string name, string guid);
     }
 }

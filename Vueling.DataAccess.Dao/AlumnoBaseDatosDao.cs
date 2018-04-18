@@ -95,14 +95,14 @@ namespace Vueling.DataAccess.Dao
                         SqlDataReader myReader = command.ExecuteReader();
                         while (myReader.Read())
                         {
-                            alumno.Id = Convert.ToInt32(myReader[0]);
-                            alumno.Nombre = myReader[1].ToString();
-                            alumno.Apellidos = myReader[2].ToString();
-                            alumno.Dni = myReader[3].ToString();
-                            alumno.FechaNacimiento = Convert.ToDateTime(myReader[4]);
-                            alumno.Edad = Convert.ToInt32(myReader[5]);
-                            alumno.FechaHora = Convert.ToDateTime(myReader[6]);
-                            alumno.Guid = myReader[6].ToString();
+                            alumno.Id = Convert.ToInt32(myReader["Id"]);
+                            alumno.Nombre = myReader["Nombre"].ToString();
+                            alumno.Apellidos = myReader["Apellidos"].ToString();
+                            alumno.Dni = myReader["Dni"].ToString();
+                            alumno.FechaNacimiento = Convert.ToDateTime(myReader["FechaNacimiento"]);
+                            alumno.Edad = Convert.ToInt32(myReader["Edad"]);
+                            alumno.FechaHora = Convert.ToDateTime(myReader["FechaCreacion"]);
+                            alumno.Guid = myReader["Guid"].ToString();
                         }
                     }
                 }
@@ -145,14 +145,14 @@ namespace Vueling.DataAccess.Dao
                         SqlDataReader myReader = command.ExecuteReader();
                         while (myReader.Read())
                         {
-                            alumno.Id = Convert.ToInt32(myReader[0]);
-                            alumno.Nombre = myReader[1].ToString();
-                            alumno.Apellidos = myReader[2].ToString();
-                            alumno.Dni = myReader[3].ToString();
-                            alumno.FechaNacimiento = Convert.ToDateTime(myReader[4]);
-                            alumno.Edad = Convert.ToInt32(myReader[5]);
-                            alumno.FechaHora = Convert.ToDateTime(myReader[6]);
-                            alumno.Guid = myReader[6].ToString();
+                            alumno.Id = Convert.ToInt32(myReader["Id"]);
+                            alumno.Nombre = myReader["Nombre"].ToString();
+                            alumno.Apellidos = myReader["Apellidos"].ToString();
+                            alumno.Dni = myReader["Dni"].ToString();
+                            alumno.FechaNacimiento = Convert.ToDateTime(myReader["FechaNacimiento"]);
+                            alumno.Edad = Convert.ToInt32(myReader["Edad"]);
+                            alumno.FechaHora = Convert.ToDateTime(myReader["FechaCreacion"]);
+                            alumno.Guid = myReader["Guid"].ToString();
                         }
                     }
                 }
@@ -176,11 +176,6 @@ namespace Vueling.DataAccess.Dao
             }
         }
 
-        public void CargarDatosDeLosAlumnos(Formatos.Formato Formato)
-        {
-            
-        }
-
         public List<Alumno> GetAll()
         {
             try
@@ -196,14 +191,14 @@ namespace Vueling.DataAccess.Dao
                         while (myReader.Read())
                         {
                             Alumno alumno = new Alumno();
-                            alumno.Id = Convert.ToInt32(myReader[0]);
-                            alumno.Nombre = myReader[1].ToString();
-                            alumno.Apellidos = myReader[2].ToString();
-                            alumno.Dni = myReader[3].ToString();
-                            alumno.FechaNacimiento = Convert.ToDateTime(myReader[4]);
-                            alumno.Edad = Convert.ToInt32(myReader[5]);
-                            alumno.FechaHora = Convert.ToDateTime(myReader[6]);
-                            alumno.Guid = myReader[7].ToString();
+                            alumno.Id = Convert.ToInt32(myReader["Id"]);
+                            alumno.Nombre = myReader["Nombre"].ToString();
+                            alumno.Apellidos = myReader["Apellidos"].ToString();
+                            alumno.Dni = myReader["Dni"].ToString();
+                            alumno.FechaNacimiento = Convert.ToDateTime(myReader["FechaNacimiento"]);
+                            alumno.Edad = Convert.ToInt32(myReader["Edad"]);
+                            alumno.FechaHora = Convert.ToDateTime(myReader["FechaCreacion"]);
+                            alumno.Guid = myReader["Guid"].ToString();
                             alumnos.Add(alumno);
                         }
                     }
@@ -228,7 +223,7 @@ namespace Vueling.DataAccess.Dao
             }
         }
 
-        public Alumno UpdateName(string name, int id)
+        public Alumno UpdateName(string name, string guid)
         {
             try
             {
@@ -240,18 +235,18 @@ namespace Vueling.DataAccess.Dao
                     {
                         command.Connection = connection;
                         command.CommandType = CommandType.Text;
-                        command.CommandText = @"UPDATE into dbo.Alumnos 
+                        command.CommandText = @"UPDATE dbo.Alumnos 
                                                 SET Nombre = @Nombre
-                                                WHERE Id = @Id";
+                                                WHERE Guid = @Guid";
                         command.Parameters.AddWithValue("@nombre", name);
-                        command.Parameters.AddWithValue("@Id", id);
+                        command.Parameters.AddWithValue("@Guid", guid);
 
                         connection.Open();
                         int recordsAffected = command.ExecuteNonQuery();
                         if (recordsAffected == 1)
                         {
                             //en lugar de hacerlo por el id hacerlo por el guid
-                            alumnoInsertado = (Alumno)GetById(id);
+                            alumnoInsertado = (Alumno)GetByGuid(guid);
                         }
                     }
                 }
