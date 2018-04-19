@@ -30,16 +30,7 @@ namespace Vueling.DataAccess.DaoTests
         [ClassInitialize()]
         public static void ClassInit(TestContext context)
         {
-            FileInfo file = new FileInfo(Configuraciones.GetScriptSqlTestPath("scriptInsertSqlTest"));
-            string script = file.OpenText().ReadToEnd();
-            using (SqlConnection connection = new SqlConnection(Configuraciones.LeerConexionBaseDeDatos()))
-            {
-                using (SqlCommand command = new SqlCommand(script, connection))
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }
+            DatabaseUtils.EjecutarScript("scriptInsertSqlTest");
         }
 
         [DataRow(1, "Leia", "Organa", "1234", 26, "22-01-1992")]
@@ -76,16 +67,7 @@ namespace Vueling.DataAccess.DaoTests
         [ClassCleanup()]
         public static void ClassCleanup()
         {
-            FileInfo file = new FileInfo(Configuraciones.GetScriptSqlTestPath("scriptDeleteSqlTest"));
-            string script = file.OpenText().ReadToEnd();
-            using (SqlConnection connection = new SqlConnection(Configuraciones.LeerConexionBaseDeDatos()))
-            {
-                using (SqlCommand command = new SqlCommand(script, connection))
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }
+            DatabaseUtils.EjecutarScript("scriptDeleteSqlTest");
         }
     }
 }
