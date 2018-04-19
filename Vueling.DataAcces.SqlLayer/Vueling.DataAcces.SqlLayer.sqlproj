@@ -62,11 +62,13 @@
     <Folder Include="Properties" />
     <Folder Include="Storage\" />
     <Folder Include="Migrations" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Storage\FLyWayDB_FG1.sql" />
     <Build Include="Storage\FileStreamGroup1.sql" />
     <None Include="Migrations\V1__CreateTables.sql" />
     <None Include="Migrations\V2__Inserts.sql" />
+    <Build Include="Scripts\CreateDatabaseVueling3CapasDB.sql" />
   </ItemGroup>
 </Project>
