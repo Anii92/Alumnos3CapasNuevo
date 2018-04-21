@@ -25,7 +25,7 @@ namespace Vueling.DataAccess.Dao.Daos
         public string Ruta { get; set; }
 
         private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
-        public FicheroTxtDao()
+        public FicheroTxtDao(IRead read) : base(read)
         {
             this.Nombre = "ListadoDeAlumnos";
             this.Ruta = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), this.Nombre + ".txt");
@@ -69,8 +69,9 @@ namespace Vueling.DataAccess.Dao.Daos
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return FileUtils.DeserializeFicheroTexto(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
+                List<Alumno> alumnos = this.read.Read();
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return alumnos;
             }
             catch (FileNotFoundException exception)
             {
@@ -84,9 +85,9 @@ namespace Vueling.DataAccess.Dao.Daos
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                Alumno alumno = (Alumno)this.read.ReadByGuid(guid);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                List<Alumno> alumnos = FileUtils.DeserializeFicheroTexto(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.txt"));
-                return (alumnos.Where(alumno => alumno.Guid == guid)).FirstOrDefault();
+                return alumno;
             }
             catch (FileNotFoundException exception)
             {

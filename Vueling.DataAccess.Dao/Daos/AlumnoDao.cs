@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
@@ -102,10 +103,42 @@ namespace Vueling.DataAccess.Dao.Daos
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Repositorio repositorio = (Repositorio)AlumnoDaoFactory.GetAlumnoDao();
-                List<Alumno> alumnos = repositorio.Read();
+                //Repositorio repositorio = (Repositorio)AlumnoDaoFactory.GetAlumnoDao();
+                //List<Alumno> alumnos = repositorio.Read();
+
+
+                var builder = new ContainerBuilder();
+                builder.Register<IRead>(
+                  (c, p) =>
+                  {
+                      string formato = p.Named<string>("formato");
+                      Formato formatoEnum = Formatos.GetType(formato);
+                      switch (formatoEnum)
+                      {
+                          case Formato.Sql:
+                              logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
+                              return new BaseDatosDao(new ReadBaseDatos());
+                          case Formato.Texto:
+                              logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
+                              return new FicheroTxtDao(new ReadFicheroTxt());
+                          case Formato.Json:
+                              logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
+                              return new FicheroJsonDao(new ReadFicheroJson());
+                          case Formato.Xml:
+                              logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
+                              return new FicheroXmlDao(new ReadFicheroXml());
+                          case Formato.Procedure:
+                              logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
+                              return new ProcedureDao(new ReadProcedure());
+                          default:
+                              return new BaseDatosDao(new ReadBaseDatos());
+                      }
+                  });
+                var container = builder.Build();
+                var card = container.Resolve<IRead>(new NamedParameter("formato", Configuraciones.LeerFormatoFichero())).Read();
+
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return alumnos;
+                return card;
             }
             catch (InvalidOperationException exception)
             {

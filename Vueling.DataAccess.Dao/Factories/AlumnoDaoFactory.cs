@@ -23,21 +23,21 @@ namespace Vueling.DataAccess.Dao.Factories
             {
                 case Formato.Sql:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new BaseDatosDao();
+                    return new BaseDatosDao(new ReadBaseDatos());
                 case Formato.Texto:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new FicheroTxtDao();
+                    return new FicheroTxtDao(new ReadFicheroTxt());
                 case Formato.Json:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new FicheroJsonDao();
+                    return new FicheroJsonDao(new ReadFicheroJson());
                 case Formato.Xml:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new FicheroXmlDao();
+                    return new FicheroXmlDao(new ReadFicheroXml());
                 case Formato.Procedure:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new ProcedureDao();
+                    return new ProcedureDao(new ReadProcedure());
                 default:
-                    return new BaseDatosDao();
+                    return new BaseDatosDao(new ReadBaseDatos());
             }
         }
     }

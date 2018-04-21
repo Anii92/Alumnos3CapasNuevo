@@ -25,7 +25,7 @@ namespace Vueling.DataAccess.Dao.Daos
         public string Nombre { get; set; }
         public string Ruta { get; set; }
         private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
-        public FicheroJsonDao()
+        public FicheroJsonDao(IRead read) : base(read)
         {
             this.Nombre = "ListadoDeAlumnos";
             this.Ruta = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), this.Nombre + ".json");
@@ -69,8 +69,9 @@ namespace Vueling.DataAccess.Dao.Daos
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
+                List<Alumno> alumnos = this.read.Read();
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return alumnos;
             }
             catch (FileNotFoundException exception)
             {
@@ -84,10 +85,9 @@ namespace Vueling.DataAccess.Dao.Daos
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                List<Alumno> alumnos = FileUtils.DeserializeFicheroJson(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), "ListadoDeAlumnos.json"));
-                Alumno alumnoInsertado = (alumnos.Where(alumno => alumno.Guid == guid)).FirstOrDefault();
+                Alumno alumno = (Alumno)this.read.ReadByGuid(guid);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                return alumnoInsertado;
+                return alumno;
             }
             catch (FileNotFoundException exception)
             {

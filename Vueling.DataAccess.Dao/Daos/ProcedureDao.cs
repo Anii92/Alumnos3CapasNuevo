@@ -19,7 +19,7 @@ namespace Vueling.DataAccess.Dao.Daos
         private string Conexion { get; set; }
         private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         
-        public ProcedureDao()
+        public ProcedureDao(IRead read) : base(read)
         {
             this.Conexion = Configuraciones.LeerConexionBaseDeDatos();
         }
@@ -79,32 +79,8 @@ namespace Vueling.DataAccess.Dao.Daos
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                List<Alumno> alumnos = new List<Alumno>();
-                using (SqlConnection connection = new SqlConnection(this.Conexion))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "getAllAlumnos";
-                        SqlDataReader myReader = command.ExecuteReader();
-                        while (myReader.Read())
-                        {
-                            Alumno alumno = new Alumno();
-                            alumno.Id = Convert.ToInt32(myReader[0]);
-                            alumno.Nombre = myReader[1].ToString();
-                            alumno.Apellidos = myReader[2].ToString();
-                            alumno.Dni = myReader[3].ToString();
-                            alumno.FechaNacimiento = Convert.ToDateTime(myReader[4]);
-                            alumno.Edad = Convert.ToInt32(myReader[5]);
-                            alumno.FechaHora = Convert.ToDateTime(myReader[6]);
-                            alumno.Guid = myReader[7].ToString();
-                            alumnos.Add(alumno);
-                        }
-                    }
-                }
-                this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                List<Alumno> alumnos = this.read.Read();
+                this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnos;
             }
             catch (InvalidOperationException exception)
@@ -129,31 +105,7 @@ namespace Vueling.DataAccess.Dao.Daos
             try
             {
                 this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Alumno alumno = new Alumno();
-                using (SqlConnection connection = new SqlConnection(this.Conexion))
-                {
-                    connection.Open();
-                    using (SqlCommand command = new SqlCommand())
-                    {
-                        command.Connection = connection;
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "getByGuid";
-                        command.Parameters.AddWithValue("@Guid", guid);
-                        SqlDataReader myReader = command.ExecuteReader();
-                        while (myReader.Read())
-                        {
-                            alumno = new Alumno();
-                            alumno.Id = Convert.ToInt32(myReader[0]);
-                            alumno.Nombre = myReader[1].ToString();
-                            alumno.Apellidos = myReader[2].ToString();
-                            alumno.Dni = myReader[3].ToString();
-                            alumno.FechaNacimiento = Convert.ToDateTime(myReader[4]);
-                            alumno.Edad = Convert.ToInt32(myReader[5]);
-                            alumno.FechaHora = Convert.ToDateTime(myReader[6]);
-                            alumno.Guid = myReader[7].ToString();
-                        }
-                    }
-                }
+                Alumno alumno = (Alumno)this.read.ReadByGuid(guid);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumno;
             }
