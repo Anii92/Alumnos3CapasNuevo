@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Vueling.Common.Logic.Enums;
 using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Utils;
+using Vueling.DataAccess.Dao.Daos;
 using Vueling.DataAccess.Dao.Resources;
 using static Vueling.Common.Logic.Enums.Formatos;
 
@@ -22,21 +23,21 @@ namespace Vueling.DataAccess.Dao.Factories
             {
                 case Formato.Sql:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new AlumnoBaseDatosDao();
+                    return new BaseDatosDao();
                 case Formato.Texto:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new AlumnoFicheroDao();
+                    return new FicheroTxtDao();
                 case Formato.Json:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new AlumnoFicheroDao();
+                    return new FicheroJsonDao();
                 case Formato.Xml:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new AlumnoFicheroDao();
+                    return new FicheroXmlDao();
                 case Formato.Procedure:
                     logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name + " " + Configuraciones.LeerFormatoFichero());
-                    return new AlumnoProcedureDao();
+                    return new ProcedureDao();
                 default:
-                    return new AlumnoBaseDatosDao();
+                    return new BaseDatosDao();
             }
         }
     }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Vueling.DataAccess.Dao.Interfaces
 {
-    public interface IDelete
+    public interface ICrud: ICreate, IRead, IUpdate, IDelete
     {
-        int DeleteById(int id);
-        int DeleteByGuid(string guid);
+
     }
 }

@@ -14,18 +14,19 @@ using Vueling.Common.Logic.Models;
 using Newtonsoft.Json;
 using Vueling.Business.Logic;
 using Vueling.DataAccess.Dao.Singletons;
+using Vueling.DataAccess.Dao.Daos;
 
 namespace Vueling.DataAccess.Dao.Tests
 {
     [TestClass()]
     public class AlumnoDaoIntegrationTests
     {
-        private AlumnoFicheroDao alumnoDao;
+        private AlumnoDao alumnoDao;
 
         [TestInitialize]
         public void Initialize()
         {
-            this.alumnoDao = new AlumnoFicheroDao();
+            this.alumnoDao = new AlumnoDao();
             this.EliminarFichero();
         }
 
@@ -38,81 +39,81 @@ namespace Vueling.DataAccess.Dao.Tests
             }
         }
 
-        [DataRow(Formato.Texto, "MiPrimerFicheroTxt.txt")]
-        [DataTestMethod]
-        public void CrearFormatoFactoryTest(Formato tipo, string nombre)
-        {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
-            Assert.IsTrue(fichero.GetType() == typeof(FicheroTxt));
-        }
+        //[DataRow(Formato.Texto, "MiPrimerFicheroTxt.txt")]
+        //[DataTestMethod]
+        //public void CrearFormatoFactoryTest(Formato tipo, string nombre)
+        //{
+        //    IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
+        //    Assert.IsTrue(fichero.GetType() == typeof(FicheroTxt));
+        //}
 
-        [DataRow(Formato.Json, "MiPrimerFicheroJson.json")]
-        [DataTestMethod]
-        public void CrearFormatoJsonFactoryTest(Formato tipo, string nombre)
-        {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
-            Assert.IsTrue(fichero.GetType() == typeof(FicheroJson));
-        }
+        //[DataRow(Formato.Json, "MiPrimerFicheroJson.json")]
+        //[DataTestMethod]
+        //public void CrearFormatoJsonFactoryTest(Formato tipo, string nombre)
+        //{
+        //    IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
+        //    Assert.IsTrue(fichero.GetType() == typeof(FicheroJson));
+        //}
 
-        [DataRow(Formato.Xml, "MiPrimerFicheroJson.xml")]
-        [DataTestMethod]
-        public void CrearFormatoXmlFactoryTest(Formato tipo, string nombre)
-        {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
-            Assert.IsTrue(fichero.GetType() == typeof(FicheroXml));
-        }
+        //[DataRow(Formato.Xml, "MiPrimerFicheroJson.xml")]
+        //[DataTestMethod]
+        //public void CrearFormatoXmlFactoryTest(Formato tipo, string nombre)
+        //{
+        //    IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombre);
+        //    Assert.IsTrue(fichero.GetType() == typeof(FicheroXml));
+        //}
 
-        [DataRow(Formato.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataRow(Formato.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataRow(Formato.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataTestMethod]
-        public void CrearFicheroTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
-        {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
-            Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
+        //[DataRow(Formato.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        //[DataRow(Formato.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        //[DataRow(Formato.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        //[DataTestMethod]
+        //public void CrearFicheroTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        //{
+        //    IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
+        //    Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
 
-            fichero.Guardar(alumno);
-            Assert.IsTrue(File.Exists(fichero.Ruta));
-        }
+        //    fichero.Guardar(alumno);
+        //    Assert.IsTrue(File.Exists(fichero.Ruta));
+        //}
 
-        [DataRow(Formato.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataTestMethod]
-        public void GuardarAlumnoFicheroTextoTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
-        {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
-            Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
+        //[DataRow(Formato.Texto, "ListadoDeAlumnos.txt", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        //[DataTestMethod]
+        //public void GuardarAlumnoFicheroTextoTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        //{
+        //    IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
+        //    Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
 
-            fichero.Guardar(alumno);
+        //    fichero.Guardar(alumno);
 
-            Alumno alumnoFichero = FileUtils.DeserializeTexto(fichero.Ruta);
-            Assert.IsTrue(alumno.Equals(alumnoFichero));
-        }
+        //    Alumno alumnoFichero = FileUtils.DeserializeTexto(fichero.Ruta);
+        //    Assert.IsTrue(alumno.Equals(alumnoFichero));
+        //}
 
-        [DataRow(Formato.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataTestMethod]
-        public void GuardarAlumnoFicheroJsonTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
-        {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
-            Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
+        //[DataRow(Formato.Json, "ListadoDeAlumnos.json", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        //[DataTestMethod]
+        //public void GuardarAlumnoFicheroJsonTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        //{
+        //    IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
+        //    Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
 
-            fichero.Guardar(alumno);
+        //    fichero.Guardar(alumno);
 
-            Alumno alumnoFichero = FileUtils.DeserializeJson(fichero.Ruta);
-            Assert.IsTrue(alumno.Equals(alumnoFichero));
-        }
+        //    Alumno alumnoFichero = FileUtils.DeserializeJson(fichero.Ruta);
+        //    Assert.IsTrue(alumno.Equals(alumnoFichero));
+        //}
 
-        [DataRow(Formato.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
-        [DataTestMethod]
-        public void GuardarAlumnoFicheroXmlTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
-        {
-            IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
-            Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
+        //[DataRow(Formato.Xml, "ListadoDeAlumnos.xml", 1, "Leia", "Organa", "1234", 26, "22-01-1992")]
+        //[DataTestMethod]
+        //public void GuardarAlumnoFicheroXmlTest(Formato tipo, string nombreFichero, int id, string nombre, string apellidos, string dni, int edad, string fechaNacimiento)
+        //{
+        //    IFichero fichero = (IFichero)FicheroFactory.CrearFichero(tipo, nombreFichero);
+        //    Alumno alumno = new Alumno(id, nombre, apellidos, dni, edad, Convert.ToDateTime(fechaNacimiento));
 
-            fichero.Guardar(alumno);
+        //    fichero.Guardar(alumno);
 
-            Alumno alumnoFichero = FileUtils.DeserializeXml(fichero.Ruta);
-            Assert.IsTrue(alumno.Equals(alumnoFichero));
-        }
+        //    Alumno alumnoFichero = FileUtils.DeserializeXml(fichero.Ruta);
+        //    Assert.IsTrue(alumno.Equals(alumnoFichero));
+        //}
 
         [DataRow(Formato.Xml)]
         [DataTestMethod]

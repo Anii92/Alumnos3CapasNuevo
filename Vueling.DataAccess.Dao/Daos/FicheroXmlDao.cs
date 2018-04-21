@@ -3,30 +3,35 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Serialization;
-using Vueling.Common.Logic.Interfaces;
-using Vueling.Common.Logic.Resources;
+using Vueling.Common.Logic;
+using Vueling.Common.Logic.Models;
+using Vueling.DataAccess.Dao.Factories;
+using Vueling.DataAccess.Dao.Singletons;
+using Vueling.DataAccess.Dao.Resources;
+using static Vueling.Common.Logic.Enums.Formatos;
 using Vueling.Common.Logic.Utils;
+using Vueling.Common.Logic.Enums;
+using Vueling.Common.Logic.Interfaces;
+using System.Reflection;
+using Vueling.DataAccess.Dao.Interfaces;
+using System.Xml.Serialization;
 
-namespace Vueling.Common.Logic.Models
+namespace Vueling.DataAccess.Dao.Daos
 {
-    public class FicheroXml: IFichero
+    public class FicheroXmlDao : Repositorio
     {
-        ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
         public string Nombre { get; set; }
         public string Ruta { get; set; }
-
-        public FicheroXml(string nombre, string ruta)
+        private ILogger logger = Configuraciones.CreateInstanceClassLog(MethodBase.GetCurrentMethod().DeclaringType);
+        public FicheroXmlDao()
         {
-            this.Nombre = nombre;
-            this.Ruta = ruta;
+            this.Nombre = "ListadoDeAlumnos";
+            this.Ruta = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDoc‌​uments), this.Nombre + ".xml");
         }
 
-        public Alumno Guardar(Alumno alumno)
+        public override Alumno Add(Alumno alumno)
         {
             this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             List<Alumno> alumnos = new List<Alumno>();
@@ -46,7 +51,7 @@ namespace Vueling.Common.Logic.Models
                 {
                     xmlSerializer.Serialize(writer, alumnos);
                 }
-                alumnoInsertado = this.Leer(alumno.Guid);
+                alumnoInsertado = (Alumno) this.ReadByGuid(alumno.Guid);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
@@ -57,7 +62,7 @@ namespace Vueling.Common.Logic.Models
             }
         }
 
-        public List<Alumno> Leer()
+        public override List<Alumno> Read()
         {
             this.logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             List<Alumno> alumnos = new List<Alumno>();
@@ -81,7 +86,7 @@ namespace Vueling.Common.Logic.Models
             }
         }
 
-        public Alumno Leer(string guid)
+        public override object ReadByGuid(string guid)
         {
             try
             {
