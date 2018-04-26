@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Vueling.Common.Logic;
+using Vueling.Common.Logic.Exceptions;
 using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Utils;
@@ -47,7 +48,7 @@ namespace Vueling.DataAccess.Dao
             catch (FileNotFoundException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -64,12 +65,12 @@ namespace Vueling.DataAccess.Dao
             catch (FileNotFoundException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (ArgumentNullException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
     }

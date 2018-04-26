@@ -5,6 +5,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using System.Web.Configuration;
 using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Resources;
@@ -79,9 +81,7 @@ namespace Vueling.Common.Logic.Utils
                 Type t = Assembly.GetExecutingAssembly().GetType(key);
 
                 object[] mParam = new object[] { typeDeclaring };
-                ILogger log = (ILogger)Activator.CreateInstance(t, mParam);
-                ILogger logger = (ILogger)Activator.CreateInstance(t, mParam);
-                return logger;
+                return (ILogger)Activator.CreateInstance(t, mParam);
             }
             catch (ArgumentNullException exception)
             {
@@ -121,8 +121,16 @@ namespace Vueling.Common.Logic.Utils
         {
             try
             {
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                string log = config.AppSettings.Settings[key].Value;
+                System.Configuration.Configuration configuration = null;
+                if (HttpContext.Current != null)
+                {
+                    configuration = WebConfigurationManager.OpenWebConfiguration("~");
+                }
+                else
+                {
+                    configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                }
+                string log = configuration.AppSettings.Settings[key].Value;
                 return log;
             }
             catch (ConfigurationErrorsException exception)
@@ -135,16 +143,25 @@ namespace Vueling.Common.Logic.Utils
             try
             {
                 logger.Debug(ResourcesLog.startFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
-                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                if (string.IsNullOrEmpty(ConfigurationManager.AppSettings[key]))
+                Configuration configuration = null;
+                if (HttpContext.Current != null)
                 {
-                    config.AppSettings.Settings.Add(key, value);
+                    configuration = WebConfigurationManager.OpenWebConfiguration("~");
                 }
                 else
                 {
-                    config.AppSettings.Settings[key].Value = value;
+                    configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 }
-                config.Save(ConfigurationSaveMode.Modified, true);
+                configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                if (string.IsNullOrEmpty(ConfigurationManager.AppSettings[key]))
+                {
+                    configuration.AppSettings.Settings.Add(key, value);
+                }
+                else
+                {
+                    configuration.AppSettings.Settings[key].Value = value;
+                }
+                configuration.Save(ConfigurationSaveMode.Modified, true);
                 ConfigurationManager.RefreshSection("appSettings");
                 logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }

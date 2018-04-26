@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic.Enums;
+using Vueling.Common.Logic.Exceptions;
 using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Utils;
@@ -62,17 +63,17 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (InvalidOperationException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (SqlException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (InvalidCastException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -112,17 +113,17 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (InvalidOperationException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (SqlException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (InvalidCastException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -138,17 +139,17 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (InvalidOperationException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (SqlException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (InvalidCastException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -164,17 +165,17 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (InvalidOperationException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (SqlException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (InvalidCastException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -211,17 +212,17 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (InvalidOperationException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (SqlException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (InvalidCastException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -251,17 +252,17 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (InvalidOperationException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (SqlException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (InvalidCastException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -291,17 +292,17 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (InvalidOperationException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (SqlException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (InvalidCastException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
     }

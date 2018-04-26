@@ -9,6 +9,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Vueling.Business.Logic;
 using Vueling.Common.Logic;
+using Vueling.Common.Logic.Exceptions;
 using Vueling.Common.Logic.Interfaces;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.Utils;
@@ -52,15 +53,10 @@ namespace Vueling.Presentation.WinSite
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (NullReferenceException exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
-            }
-            catch (ArgumentNullException exception)
-            {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -75,15 +71,10 @@ namespace Vueling.Presentation.WinSite
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (NullReferenceException exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
-            }
-            catch (ArgumentNullException exception)
-            {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -98,15 +89,10 @@ namespace Vueling.Presentation.WinSite
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (NullReferenceException exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
-            }
-            catch (ArgumentNullException exception)
-            {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -121,15 +107,10 @@ namespace Vueling.Presentation.WinSite
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (NullReferenceException exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
-            }
-            catch (ArgumentNullException exception)
-            {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -144,15 +125,10 @@ namespace Vueling.Presentation.WinSite
                 MessageBox.Show(ResourcesPresentation.studentAddSuccess);
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (NullReferenceException exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
-            }
-            catch (ArgumentNullException exception)
-            {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
 
@@ -167,15 +143,10 @@ namespace Vueling.Presentation.WinSite
                 this.Hide();
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (NullReferenceException exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
-            }
-            catch (ArgumentNullException exception)
-            {
                 MessageBox.Show(exception.Message);
-                this.logger.Error(exception.Message + exception.StackTrace);
             }
         }
         #endregion
@@ -221,10 +192,10 @@ namespace Vueling.Presentation.WinSite
                 this.Hide();
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (Exception exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
+                MessageBox.Show(exception.Message);
             }
         }
 
@@ -238,10 +209,10 @@ namespace Vueling.Presentation.WinSite
                 this.Hide();
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (Exception exception)
+            catch (VuelingBusinessException exception)
             {
-                MessageBox.Show(exception.Message);
                 this.logger.Error(exception.Message + exception.StackTrace);
+                MessageBox.Show(exception.Message);
             }
         }
         #endregion
@@ -261,10 +232,10 @@ namespace Vueling.Presentation.WinSite
                 this.logger.Debug(FileUtils.ToJson(alumno));
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
             }
-            catch (NullReferenceException exception)
+            catch (VuelingBusinessException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                MessageBox.Show(exception.Message);
             }
         } 
         #endregion

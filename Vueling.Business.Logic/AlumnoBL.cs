@@ -15,6 +15,7 @@ using Vueling.Business.Logic.Resources;
 using Vueling.Common.Logic.Utils;
 using Vueling.Common.Logic.Enums;
 using Vueling.Common.Logic.Interfaces;
+using Vueling.Common.Logic.Exceptions;
 
 namespace Vueling.Business.Logic
 {
@@ -43,10 +44,10 @@ namespace Vueling.Business.Logic
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnoInsertado;
             }
-            catch (ArgumentNullException exception)
+            catch (VuelingDaoException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingBusinessException(exception.Message, exception.InnerException);
             }
         }
 
@@ -71,10 +72,10 @@ namespace Vueling.Business.Logic
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return age;
             }
-            catch (ArgumentNullException exception)
+            catch (VuelingDaoException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingBusinessException(exception.Message, exception.InnerException);
             }
         }
 
@@ -86,10 +87,10 @@ namespace Vueling.Business.Logic
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 this.alumnoDao.CargarDatosDeLosAlumnos(Formato);
             }
-            catch (FileNotFoundException exception)
+            catch (VuelingDaoException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingBusinessException(exception.Message, exception.InnerException);
             }
         }
 
@@ -103,10 +104,10 @@ namespace Vueling.Business.Logic
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnos;
             }
-            catch (NullReferenceException exception)
+            catch (VuelingDaoException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingBusinessException(exception.Message, exception.InnerException);
             }
         }
 
@@ -120,10 +121,10 @@ namespace Vueling.Business.Logic
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnos;
             }
-            catch (NullReferenceException exception)
+            catch (VuelingDaoException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingBusinessException(exception.Message, exception.InnerException);
             }
         }
 
@@ -139,10 +140,10 @@ namespace Vueling.Business.Logic
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return alumnosFiltrados.ToList();
             }
-            catch (NullReferenceException exception)
+            catch (VuelingDaoException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingBusinessException(exception.Message, exception.InnerException);
             }
         }
 
@@ -155,10 +156,10 @@ namespace Vueling.Business.Logic
                 this.logger.Debug(ResourcesLog.endFunction + System.Reflection.MethodBase.GetCurrentMethod().Name);
                 return delete;
             }
-            catch (NullReferenceException exception)
+            catch (VuelingDaoException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingBusinessException(exception.Message, exception.InnerException);
             }
         }
     }

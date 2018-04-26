@@ -17,6 +17,7 @@ using Vueling.Common.Logic.Interfaces;
 using System.Reflection;
 using Vueling.DataAccess.Dao.Interfaces;
 using Newtonsoft.Json;
+using Vueling.Common.Logic.Exceptions;
 
 namespace Vueling.DataAccess.Dao.Daos
 {
@@ -60,7 +61,7 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (FileNotFoundException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -76,7 +77,7 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (FileNotFoundException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
 
@@ -92,12 +93,12 @@ namespace Vueling.DataAccess.Dao.Daos
             catch (FileNotFoundException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
             catch (ArgumentNullException exception)
             {
                 this.logger.Error(exception.Message + exception.StackTrace);
-                throw;
+                throw new VuelingDaoException(exception.Message, exception.InnerException);
             }
         }
     }
